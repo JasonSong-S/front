@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htmlcss作业</title>
+    <link rel="stylesheet" href="style/styles.css">
+    <style>
+        .content {
+            width: 800px;
+            height: 450px;
+            background-color: yellow;
+            position: relative;
+            margin: 15px auto;
+        }
+        .content div {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+        }
+
+        .ct1 {
+            position: absolute;
+            top:75px;
+            left:90px;
+        }
+        .ct2 {
+            position: absolute;
+            top:75px;
+            left:410px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>1.学习使用三种加载样式的方法和相对路径。 2. 学习使用 margin 和 padding 还有 position</p>
+    <p>上部分框使用外部样式，中间部分框使用内部样式，最下面的框使用内联样式。</p>
+    <p>设置最外面的框的长度为 800px，高度分别为 150px, 450px， 200px, 第一个框内的框长度为700px，高度80px, 中间框内的两个框的长度为 300px， 高度为300 px。</p>
+
+    <!-- 上部分 -->
+    <div class="header">
+        <div></div>
+    </div>
+    <!-- 中间部分 -->
+    <div class="content">
+        <div class="ct1"></div>
+        <div class="ct2"></div>
+    </div>
+    <!-- 底部 -->
+    <div style="width: 800px; height: 200px; background-color: blue;"></div>
+</body>
+
+</html>

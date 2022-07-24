@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页上部分</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .header {
+            width: 1200px;
+            height: 72px;
+            margin: 0 auto;
+            font: 18px "微软雅黑";
+            color: #3c3d46;
+        }
+
+        .logo {
+
+            margin: 7px 3px 6px 0;
+
+        }
+
+        .brand {
+            /* margin-top: 17px;
+            margin-bottom: 16px;
+            margin-right: 164px; */
+            /* margin: 17px 164px 16px 0; */
+            margin: 16px 164px 16px 0;
+
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .nav li {
+            width: 80px;
+            height: 72px;
+            line-height: 72px;
+            text-align: center;
+            margin-right: 24px;
+        }
+
+        .first {
+            background-color: #5696ff;
+            color: #fefeff;
+
+        }
+
+        .log_reg {
+            line-height: 72px;
+        }
+
+        .log_reg .segment {
+            margin: 0 10px;
+        }
+
+
+
+
+        .body {
+            height: 594px;
+            background: url(img/banner.jpg) no-repeat center;
+            position: relative;
+        }
+
+        .points {
+            position: absolute;
+            left: 50%;
+            bottom: 29px;
+            margin-left: -26px;
+        }
+
+        .point1 {
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            background-color: #fcfcfd;
+            margin-right: 19px;
+        }
+
+        .point2 {
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            border: 2px solid #fcfcfd;
+        }
+
+
+        .search {
+            width: 350px;
+            margin: 0 auto;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .search input {
+            width: 350px;
+            height: 40px;
+            font-size: 16px;
+            color: #999999;
+            border-radius: 5px;
+            border-width: 1px;
+        }
+
+        .search img {
+            position: absolute;
+            top: 9px;
+            right: 13px;
+        }
+
+
+        .area,
+        .trip,.information {
+            width: 328px;
+            height: 81px;
+            margin: 0 auto;
+            margin-top: 87px;
+        }
+
+        .area .segment,
+        .trip .segment,
+        .information .segment {
+            width: 79px;
+            height: 6px;
+            background-color: #3c3d46;
+            /* margin: 15px 14px; */
+            margin-top: 15px;
+        }
+
+        .area .space,
+        .trip .space
+        .information .space {
+            margin-right: 14px;
+        }
+
+        .area .fl p,
+        .trip .fl p,
+        .information .fl p{
+            font-size: 36px;
+            font-family: "微软雅黑";
+            color: #5696ff;
+            line-height: 36px;
+            margin-bottom: 22px;
+        }
+
+        .area p,
+        .trip p, 
+        .information p{
+            font-size: 22px;
+            font-family: "微软雅黑";
+            color: #666666;
+            text-align: center;
+        }
+
+        .pic_list {
+            width: 1202px;
+            height: 371px;
+            margin: 0 auto;
+            margin-top: 55px;
+        }
+
+        .pic {
+            width: 118px;
+            height: 372px;
+            margin-right: 3px;
+        }
+
+        .denmark {
+            width: 594px;
+            background: url(img/denmark.jpg);
+
+        }
+
+        .sichuan {
+            background: url(img/sichuan.jpg);
+        }
+
+        .dali {
+            background: url(img/dali.jpg);
+        }
+
+        .japan {
+            background: url(img/japan.jpg);
+        }
+
+        .italy {
+            background: url(img/italy.jpg);
+        }
+
+        .france {
+            background: url(img/france.jpg);
+        }
+
+        .pic div {
+            width: 118px;
+            height: 372px;
+            background-color: rgba(51, 51, 51, 0.5);
+            padding-top: 70px;
+            padding-left: 24px;
+        }
+
+        .pic div p {
+            font-size: 28px;
+            font-family: "微软雅黑";
+            color: #fefefe;
+            line-height: 28px;
+            /* margin-top: 70px;
+            margin-left: 24px; */
+
+        }
+
+        .pic img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        .denmark div {
+            width: 594px;
+            height: 372px;
+            background-color: rgba(51, 51, 51, 0.5);
+            position: relative;
+        }
+
+        .more {
+            width: 160px;
+            border-radius: 5px;
+            border: 2px solid;
+            font-size: 26px;
+            color: #5696ff;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 54px;
+            margin-top: 72px;
+        }
+
+        .bgrd{
+            
+            background: rgba(86,150,255,1);
+            color: #fefefe;
+        }
+
+
+        .places {
+            width: 1200px;
+            height: 686px;
+            margin: 0 auto;
+            margin-top: 52px;
+            font-size: 22px;
+            color: #ffffff;
+            /* background-color: pink; */
+        }
+
+        .places .denmark {
+            width: 441px;
+            height: 307px;
+            background: url(img/places_denmark.png);
+            margin-bottom: 8px;
+            margin-right: 8px;
+            padding-top: 48px;
+            padding-left: 56px;
+
+        }
+
+        .places .vietnam {
+            width: 442px;
+            height: 307px;
+            background: url(img/places_vietnam.png);
+            margin-bottom: 8px;
+            margin-right: 8px;
+            padding-top: 21px;
+            padding-left: 22px;
+        }
+
+        .mask {
+            width: 400px;
+            height: 266px;
+            background-color: rgba(0, 0, 0, .3);
+            border-width: 4px;
+            border-color: #ffffff;
+            border-style: solid;
+            padding-top: 27px;
+            padding-left: 34px;
+        }
+
+
+        .mask .price {
+            font-size: 26px;
+            line-height: 28px;
+            margin: 32px 25px 0 28px;
+        }
+
+        .mask .segment {
+            width: 90px;
+            height: 4px;
+            background-color: #ffffff;
+            margin-top: 45px;
+            margin-left: 9px;
+        }
+
+
+        .places .thailand {
+            width: 362px;
+            height: 369px;
+            background: url(img/places_thailand.png);
+            margin-right: 8px;
+            padding-top: 46px;
+            padding-left: 56px;
+
+
+        }
+
+        .places .malaysia {
+            width: 521px;
+            height: 369px;
+            background: url(img/places_malaysia.png);
+            margin-right: 8px;
+            padding-top: 46px;
+            padding-left: 53px;
+
+
+        }
+
+        .places .japan {
+            width: 300px;
+            height: 472px;
+            background: url(img/places_japan.png);
+            margin-bottom: 8px;
+            padding-top: 48px;
+            padding-left: 54px;
+
+        }
+
+        .places .india {
+            width: 300px;
+            height: 204px;
+            background: url(img/places_india.png);
+            padding-left: 54px;
+            padding-top: 46px;
+
+
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- logo 以及导航栏 -->
+        <div class="header">
+            <div class="symbol fl">
+                <!-- 内联元素 img 具有宽高属性，margin 会起到作用； span 元素的 margin 在上下方向上不会起作用 -->
+                <img src="img/logo.png" alt="logo" class="logo">
+                <img src="img/brand.png" alt="brand" class="brand">
+            </div>
+            <ul class="nav fl">
+                <li class="first fl">
+                    <p>首页</p>
+                </li>
+                <li class="fl">
+                    <p>地区</p>
+                </li>
+                <li class="fl">
+                    <p>特惠</p>
+                </li>
+                <li class="fl">
+                    <p>资讯</p>
+                </li>
+                <li class="fl">
+                    <p>游记</p>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="log_reg fr">
+                <span>登录</span><span class="segment">|</span><span>注册</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 轮播图 -->
+        <div class="body">
+            <div class="points">
+                <div class="point1 fl"></div>
+                <div class="point2 fl"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- 搜索框 -->
+        <div class="search">
+            <input type="text" placeholder="开启你的旅程吧！">
+            <img src="img/search_icon.png" alt="search">
+        </div>
+
+        <!-- 地区旅旅部分 -->
+        <div class="area">
+            <div>
+                <div class="segment space fl"></div>
+                <div class="fl">
+                    <p>地区旅游</p>
+                </div>
+                <div class="segment fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div>
+                <p>从这里开始有意思的地方文化</p>
+            </div>
+
+        </div>
+
+        <div class="pic_list">
+            <div class="pic sichuan fl">
+                <div>
+                    <p>四<br>川</p>
+                </div>
+            </div>
+            <div class="pic dali fl">
+                <div>
+                    <p>大<br>理</p>
+                </div>
+            </div>
+            <div class="pic denmark fl">
+                <div>
+                    <p>丹<br>麦</p><img src="img/turn_on.png" alt="turn_on">
+                </div>
+            </div>
+            <div class="pic japan fl">
+                <div>
+                    <p>日<br>本</p>
+                </div>
+            </div>
+            <div class="pic italy fl">
+                <div>
+                    <p>意<br>大<br>利</p>
+                </div>
+            </div>
+            <div class="pic france fr">
+                <div>
+                    <p>法<br>国</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="more ">
+            <p>More></p>
+        </div>
+
+        <!-- 特惠行程 -->
+        <div class="trip">
+            <div>
+                <div class="segment space fl"></div>
+                <div class="fl">
+                    <p>特惠行程</p>
+                </div>
+                <div class="segment fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div>
+                <p>给你带来最省钱的旅游</p>
+            </div>
+
+        </div>
+
+        <!-- 各地宣传照片 -->
+        <div class="places">
+            <div class="left_four fl">
+                <div>
+                    <div class="denmark fl">
+                        <p>丹麦5晚6日童话之旅</p>
+                    </div>
+                    <div class="vietnam fr">
+                        <div class="mask">
+                            <div>
+                                <p>越南12晚3天美妙之旅</p>
+                            </div>
+                            <div>
+                                <div class="segment fl"></div>
+                                <div class="price fl">
+                                    <p>¥2300</p>
+                                </div>
+                                <div class="segment fl"></div>
+                                <div class="clear"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div>
+                    <div class="thailand fl">
+                        <p>泰国5晚6日游</p>
+                    </div>
+                    <div class="malaysia fr">
+                        <p>马来西亚4晚6日经典游</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="right_two fr">
+                <div class="japan">
+                    <p>日本5晚6日全景游</p>
+                </div>
+                <div class="india">
+                    <p>印度4晚6日经典游</p>
+                </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="more bgrd">
+            <p>More></p>
+        </div>
+
+        <!-- 旅游资讯部分 -->
+        <div class="information">
+            <div>
+                <div class="segment space fl"></div>
+                <div class="fl">
+                    <p>旅游资讯</p>
+                </div>
+                <div class="segment fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div>
+                <p>各种奇妙有趣新闻等你来发现</p>
+            </div>
+
+        </div>
+        
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东划块作业</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .wrap {
+            width: 1300px;
+            height: 1300px;
+            background-color: gray;
+        }
+
+        .type,
+        .img,
+        .other {
+            height: 1240px;
+            background-color: red;
+            margin: 35px 10px;
+        }
+
+        .type {
+            width: 380px;
+        }
+
+        .type .nav {
+            width: 360px;
+            height: 62px;
+            margin: 5px 15px;
+            padding-top:5px;
+            background-color: yellow;
+        }
+
+        .nav .item {
+            width: 80px;
+            height: 36px;
+            margin: 5px 5px;
+            background-color: green;
+        }
+
+        .img {
+            width: 450px;
+            margin: 35px 25px;
+        }
+
+        .other {
+            width: 380px;
+        }
+
+        .user,
+        .news,
+        .icons {
+            width: 360px;
+            margin: 10px;
+            background-color: yellow;
+        }
+
+        .user {
+            padding-top: 10px;
+        }
+
+        .main_log,
+        .addition {
+            width: 340px;
+            height: 160px;
+            margin: 10px;
+            background-color: green;
+        }
+
+        .log,.log_txt{
+            width: 120px;
+            height: 140px;
+            margin: 10px;
+            background-color: pink;
+        }
+
+        .log_txt{
+            width: 180px;
+        }
+
+        .welcome,.log_reg{
+            width: 160px;
+            height: 50px;
+            margin: 10px;
+            background-color: black;
+        }
+
+        .log_in,.reg{
+            width: 65px;
+            height: 40px;
+            margin: 5px;
+            background-color: white;
+        }
+
+        .addition {
+            height: 100px;
+        }
+        .new_user,.plus {
+            width: 150px;
+            height: 80px;
+            margin: 10px;
+            background-color: pink;
+        }
+
+        .user,
+        .news {
+            height: 300px;
+        }
+
+        .news {
+            padding-top: 10px;
+        }
+
+        
+        .title,
+        .infos {
+            width: 340px;
+            height: 200px;
+            margin: 10px;
+            padding-top: 5px;
+            background-color: green;
+        }
+
+        .fast_news,.more{
+            width: 150px;
+            height: 40px;
+            margin-left: 10px;
+            background-color: pink;
+        }
+
+        .more {
+            width: 75px;
+            margin-right: 10px;
+        }
+
+
+        .title {
+            height: 60px;
+        }
+
+        .news_txt{
+            width: 320px;
+            height: 36px;
+            margin: 10px;
+            background-color: pink;
+        }
+
+        .news_type, .recommend{
+            width: 260px;
+            height: 20px;
+            margin: 10px 5px;
+            background-color: black;
+        }
+
+        .news_type{
+            width: 40px;
+        }
+
+        .icons {
+            height: 600px;
+            padding-top: 30px;
+        }
+
+        .life {
+            width: 340px;
+            height: 110px;
+            background-color: green;
+            margin: 20px 10px;
+        }
+
+        .life .item {
+            width: 80px;
+            height: 80px;
+            background-color: pink;
+            margin: 15px;
+            padding-top: 8px;
+        }
+
+        .item_icon, .item_txt {
+            width: 45px;
+            height: 30px;
+            background-color: black
+        }
+        .item_txt{
+            height: 25px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 横向第一部分   一层级red -->
+        <div class="type fl">
+            <!-- 二层级 yellow -->
+            <div class="nav">
+                <!-- 三层级 green -->
+                <div class="item"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item"></div>
+            </div>
+        </div>
+        <!-- 中间部分的图片省略 一层级red-->
+        <div class="img fl"></div>
+        <!-- 横向第三部分 一层级red -->
+        <div class="other fr">
+            <!-- 二层级 yellow -->
+            <div class="user">
+                <!-- 三层级 green -->
+                <div class="main_log">
+                    <!-- 四层级 pink -->
+                    <div class="log fl"></div>
+                    <div class="log_txt fl">
+                        <!-- 五层级 black -->
+                        <div class="welcome"></div>
+                        <div class="log_reg">
+                            <!-- 六层级 white -->
+                            <div class="log_in fl"></div>
+                            <div class="reg fl"></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="addition">
+                    <div class="new_user fl"></div>
+                    <div class="plus fr"></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="news">
+                <div class="title">
+                    <div class="fast_news fl"></div>
+                    <div class="more fr"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="infos">
+                    <div class="news_txt">
+                        <div class="news_type fl"></div>
+                        <div class="recommend fr"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="news_txt">
+                        <div class="news_type fl"></div>
+                        <div class="recommend fr"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="news_txt">
+                        <div class="news_type fl"></div>
+                        <div class="recommend fr"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="news_txt">
+                        <div class="news_type fl"></div>
+                        <div class="recommend fr"></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="icons">
+                <div class="life">
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="life">
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="life">
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="life">
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="item fl">
+                        <div class="item_icon"></div>
+                        <div class="item_txt"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</body>
+
+</html>

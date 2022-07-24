@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脱离文档流</title>
+    <style>
+        .big {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            
+            
+        }
+
+        .small {
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+            
+
+            
+        }
+
+        .medium {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            
+        }
+
+        .last {
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- position 的问题，脱离文档流的实验 -->
+
+    <div class="big">
+        <div class="medium">黄色的medium</div>
+    </div>
+    <div class="small">蓝色的small因为脱离文档看不见</div>
+    <div class="last"></div>
+    
+    
+</body>
+</html>

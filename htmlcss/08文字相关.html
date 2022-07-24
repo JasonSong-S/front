@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字相关样式操作</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap{
+            background-color: black;
+            
+        }
+        li {
+            width: 120px;
+            height: 50px;
+            line-height: 50px;
+            list-style-type: none;
+            color: white;
+        }
+        .first> li {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .first>li:hover {
+            background-color: red;
+            color:yellow;
+        }
+        .active {
+            background-color: red;
+        }
+
+        ul{
+            text-align: center;
+            width: 50%;
+            margin: 0 auto;
+            
+        }
+
+        .second li {
+            background-color: green;
+            color: purple;
+            display: block;
+        }
+
+        .first>li:hover .second li {
+            display: block;
+        }
+
+        .third li {
+            background-color: pink;
+        }
+
+        .third li{
+            display: none;
+        }
+
+        .second>li:hover .third li{
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- line-height: 行高，注意文字始终处于行高的中间，所以设置行高就可以让文字垂直居中
+    
+        text-align: 可以让文字水平居中。
+        :hover 鼠标滑过的元素改变样式
+    
+    
+    -->
+    <p>文字相关的样式都是可继承的，还有就近原则</p>
+
+
+    <div class="wrap">
+        <ul class="first">
+            <li class="active">
+                <p>首页</p>
+                <ul class="second">
+                    <li><p>首页的二级1</p>
+                        <ul class="third">
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                        </ul>
+                    </li>
+                    <li>首页的二级2</li>
+                    <li>首页的二级3</li>
+                    <li>首页的二级4</li>
+                </ul>
+            </li>
+            <li>服务范围
+                <!-- <ul class="second">
+                    <li>服务的二级</li>
+                    <li>服务的二级</li>
+                    <li>服务的二级</li>
+                    <li>服务的二级</li>
+                </ul> -->
+            </li>
+            <li>工作案例
+                <!-- <ul class="second">
+                    <li>工作的二级</li>
+                    <li>工作的二级</li>
+                    <li>工作的二级</li>
+                    <li>工作的二级</li>
+                </ul> -->
+            </li>
+            <li>新闻动态
+                <!-- <ul class="second">
+                    <li>新闻的二级</li>
+                    <li>新闻的二级</li>
+                    <li>新闻的二级</li>
+                    <li>新闻的二级</li>
+                </ul> -->
+            </li>
+            <li><p>关于我们</p>
+                <!-- <ul class="second">
+                    <li>我们的二级</li>
+                    <li>我们的二级</li>
+                    <li>我们的二级</li>
+                    <li>我们的二级</li>
+                </ul> -->
+            </li>
+            <div style="clear:both"></div>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象</title>
+</head>
+<body>
+    <script>
+        /* 
+            内置对象：需要记忆属性和方法
+                1.String对象： 字符串是不容更改的，字符串也可以通过角标访问
+
+                    length
+                    toUpperCase() 转大写
+                    toLowerCase() 转小写
+                    substring(start,end)截取子字符串， 含头不含尾
+                    slice() 同上
+                    indexOf() 查找关键字或者字符串，返回索引值，如果查找不到，就返回-1
+                    split(切割符) 切割字符串，切割成数组了
+                    toString()
+
+
+                Array 对象：
+                    length
+                    toString()
+                    indexOf()
+                    slice()
+                    join(连接符) 把数组拼接成字符串
+                    ----------以下的所有方法都可以直接修改原数组----------
+                    push() 向数组结尾追加数据
+                    unshift() 向数组的开头添加数据
+                    pop() 删除数组的最后一项
+                    shift() 删除数组的第一项
+                    splice(从哪一位开始删，删几个，要加的新值) 删除 替换 添加
+                    reverse()  反转数组
+                    sort() 排序 按照 ascii 编码来排序的 
+
+
+            
+
+        
+        */
+
+        var arr=["钱","转账","话费","银行卡","支付宝"];
+        var words="在吗？我是你李哥，还记得我吗？我手机没电了。给我转账20块买个烤冷面";
+        // var words="烤冷面";
+
+        // 请核实对方身份，保障财产安全
+        for (var i=0; i<arr.length;i++){
+            if(words.indexOf(arr[i])!==-1){
+                alert("请核实对方身份，保障财产安全");
+                
+            }
+        }
+    </script>
+</body>
+</html>

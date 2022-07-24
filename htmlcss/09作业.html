@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三级菜单栏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            background-color: black;
+        }
+
+        ul {
+            width: 1000px;
+            height: 50px;
+            list-style: none;
+            margin: 0 auto;
+        }
+
+        li {
+            width: 120px;
+            height: 50px;
+            line-height: 50px;
+            color: white;
+            text-align: center;
+        }
+
+        .first>li {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .first>li:hover .second {
+            display: block;
+        }
+        .second{
+            display: none;
+        }
+
+
+        .second>li {
+            background-color: green;
+            
+        }
+
+        .second>li:hover {
+            background-color: purple;
+        }
+
+
+        .second>li:hover {
+            display: block;
+            position: relative;
+        }
+
+        .third li {
+            background-color: pink;
+            color: black;
+        }
+
+        .third {
+            display: none;
+            position: absolute;
+            left: 120px;
+            top:0px;
+        }
+
+        .first>li:hover {
+            background-color: red;
+            color: yellow;
+        }
+
+        .second>li:hover .third {
+            display: block;
+        }
+
+        .active {
+            background-color: red;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="first">
+            <li class="active">
+                <p>首页</p>
+                <ul class="second">
+                    <li>
+                        <p>首页的二级1</p>
+                        <ul class="third">
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p>首页的二级2</p>
+                        <ul class="third">
+                            <li>首页的2-3</li>
+                            <li>首页的2-3</li>
+                            <li>首页的2-3</li>
+                            <li>首页的2-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>首页的二级3</p>
+                        <ul class="third">
+                            <li>首页的3-3</li>
+                            <li>首页的3-3</li>
+                            <li>首页的3-3</li>
+                            <li>首页的3-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>首页的二级4</p>
+                        <ul class="third">
+                            <li>首页的4-3</li>
+                            <li>首页的4-3</li>
+                            <li>首页的4-3</li>
+                            <li>首页的4-3</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <p>服务范围</p>
+                <ul class="second">
+                    <li>
+                        <p>服务的二级1</p>
+                        <ul class="third">
+                            <li>服务的1-3</li>
+                            <li>服务的1-3</li>
+                            <li>服务的1-3</li>
+                            <li>服务的1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p>服务的二级2</p>
+                        <ul class="third">
+                            <li>服务的2-3</li>
+                            <li>服务的2-3</li>
+                            <li>服务的2-3</li>
+                            <li>服务的2-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>服务的二级3</p>
+                        <ul class="third">
+                            <li>服务的3-3</li>
+                            <li>服务的3-3</li>
+                            <li>服务的3-3</li>
+                            <li>服务的3-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>服务的二级4</p>
+                        <ul class="third">
+                            <li>服务的4-3</li>
+                            <li>服务的4-3</li>
+                            <li>服务的4-3</li>
+                            <li>服务的4-3</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li><p>工程案例</p>
+                <ul class="second">
+                    <li>
+                        <p>工程的二级1</p>
+                        <ul class="third">
+                            <li>工程的1-3</li>
+                            <li>工程的1-3</li>
+                            <li>工程的1-3</li>
+                            <li>工程的1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p>工程的二级2</p>
+                        <ul class="third">
+                            <li>工程的2-3</li>
+                            <li>工程的2-3</li>
+                            <li>工程的2-3</li>
+                            <li>工程的2-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>工程的二级3</p>
+                        <ul class="third">
+                            <li>工程的3-3</li>
+                            <li>工程的3-3</li>
+                            <li>工程的3-3</li>
+                            <li>工程的3-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>工程的二级4</p>
+                        <ul class="third">
+                            <li>工程的4-3</li>
+                            <li>工程的4-3</li>
+                            <li>工程的4-3</li>
+                            <li>工程的4-3</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li><p>新闻新闻</p>
+                <ul class="second">
+                    <li>
+                        <p>新闻的二级1</p>
+                        <ul class="third">
+                            <li>新闻的1-3</li>
+                            <li>新闻的1-3</li>
+                            <li>新闻的1-3</li>
+                            <li>新闻的1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p>新闻的二级2</p>
+                        <ul class="third">
+                            <li>新闻的2-3</li>
+                            <li>新闻的2-3</li>
+                            <li>新闻的2-3</li>
+                            <li>新闻的2-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>新闻的二级3</p>
+                        <ul class="third">
+                            <li>新闻的3-3</li>
+                            <li>新闻的3-3</li>
+                            <li>新闻的3-3</li>
+                            <li>新闻的3-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>新闻的二级4</p>
+                        <ul class="third">
+                            <li>新闻的4-3</li>
+                            <li>新闻的4-3</li>
+                            <li>新闻的4-3</li>
+                            <li>新闻的4-3</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li>关于我们
+                <ul class="second">
+                    <li>
+                        <p>我们的二级1</p>
+                        <ul class="third">
+                            <li>我们的1-3</li>
+                            <li>我们的1-3</li>
+                            <li>我们的1-3</li>
+                            <li>我们的1-3</li>
+                        </ul>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <p>我们的二级2</p>
+                        <ul class="third">
+                            <li>我们的2-3</li>
+                            <li>我们的2-3</li>
+                            <li>我们的2-3</li>
+                            <li>我们的2-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>我们的二级3</p>
+                        <ul class="third">
+                            <li>我们的3-3</li>
+                            <li>我们的3-3</li>
+                            <li>我们的3-3</li>
+                            <li>我们的3-3</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>我们的二级4</p>
+                        <ul class="third">
+                            <li>我们的4-3</li>
+                            <li>我们的4-3</li>
+                            <li>我们的4-3</li>
+                            <li>我们的4-3</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</body>
+
+</html>

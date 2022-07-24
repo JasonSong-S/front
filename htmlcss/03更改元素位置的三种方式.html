@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>更改元素的位置</title>
+
+    <style>
+        .top{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            
+        }
+
+        .bottom{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: relative;
+            
+           
+        }
+        .yellow {
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            bottom:0;
+        }
+
+    </style>
+</head>
+<body>
+    <h4>通过 margin, padding, position 改变元素的位置</h4>
+    <p>margin 存在的问题： 1. margin 合并： 当两个相邻的同级元素需要在同一个空隙挤出空隙的时候，它们两个的 margin 值只保留最大的那个值。这也解释了为什么一个元素的右侧是空白的，当向它设置的属性是 margin-right 的时候，它并不会移动，因为它的右侧已经存在了大于等于它的 margin-right 的区域。  2. margin 塌陷： 子父级，子级加上 margin-top ，会导致父子分隔不开距离，把 margin 加到了父级身上。当元素 float 的时候不会发生塌陷。</p>
+    <p>padding: padding的问题：1. padding 会自动的增宽增高，但是不改变内容的高度和宽度。如果不想改变容器的长度和宽度，有两种办法。第一种是：通过手动的去减去相应的长度和宽度。第二种是 设置 box-sizing: border-box</p>
+    <p>position: 1. absolute  想改变谁的位置，就给谁加绝对定位。绝对定位的元素默认以已定位的父级当参照   2. relative 想以谁为参照物就给谁加相对定位， 3.fixed： 参照物不同， 默认以显示器作为参照。</p>
+    <p>position 的问题是绝对定位会脱离文档流，不占据页面的任何空间。但是相对定位不会使元素脱离文档流</p>
+
+    <div class="top">
+        <div class="bottom"><div class="yellow"></div></div>
+    </div>
+
+    
+    
+</body>
+</html>

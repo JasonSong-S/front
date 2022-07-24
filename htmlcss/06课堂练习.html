@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东搜索栏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .wrapper {
+            width: 1300px;
+            padding: 10px;
+            background-color: gray;
+        }
+
+        .log, .search, .code {
+            height: 600px;
+            background-color: red;
+        }
+        .log{
+            width: 300px;
+        }
+
+        .search{
+            width: 600px;
+            margin-left: 50px;
+        }
+
+        .recommend,.nav {
+            width: 580px;
+            height: 400px;
+            margin-top: 20px;
+            background-color: yellow;
+        }
+
+        .type, .cart{
+            height: 360px;
+            background-color: green;
+            margin: 20px;
+        }
+
+        .type{
+            width: 320px;
+        }
+
+        .hot_words,.input {
+            width: 300px;
+            height: 160px;
+            margin: 10px;
+            background-color: pink; 
+        }
+
+        .hot_words .item {
+            width: 30px;
+            height: 40px;
+            background-color: black;
+            margin: 40px 5px;
+        }
+
+        .cart{
+            width: 150px;
+        }
+
+        .nav{
+            margin-top: 50px;
+            height: 100px;
+        }
+        .nav .item {
+            width: 45px;
+            height: 50px;
+            margin: 25px 6px;
+            background-color: green;
+        }
+
+        .code{
+            width: 300px;
+          
+        }
+
+        .fl{
+            float: left;
+        }
+
+        .fr{
+            float: right;
+        }
+
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="log fl"></div>
+        <div class="search fl">
+            <div class="recommend">
+                <div class="type fl">
+                    <div class="input"></div>
+                    <div class="hot_words">
+                        <div class="item fl"></div>
+                        <div class="item fl"></div>
+                        <div class="item fl"></div>
+                        <div class="item fl"></div>
+                        <div class="item fl"></div>
+                        <div class="item fl"></div>
+                        <div class="item fl"></div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="cart fr"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="nav">
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="item fl"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="code fr"></div>
+        <div class="clear"></div>
+    </div>
+</body>
+
+</html>

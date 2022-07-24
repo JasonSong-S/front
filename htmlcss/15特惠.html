@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特惠页面</title>
+    <link rel="stylesheet" href="css/style/discount-styles.css">
+</head>
+<body>
+    <div class="wrap">
+        <!-- 头部 -->
+        <div class="header w1200">
+            <!-- 图标 -->
+            <div class="symbol fl">
+                <!-- TODO:这里引入图片还有什么办法，这样引入的话高度好像会变。 之前的高度超出了整个72px， 是因为 logo 设置的 margin 值 超出了整个高度？？？ 59 + 7 + 6==72？？？ 并没有超出宽度的嘛  这里的  margin: 7px 3px 0px 0;  psd稿中的值为 margin: 7px 3px 6px 0; mb的值为 6px, 而在这里设置的话，它的总高度会超出 72px 的总高-->
+                <div class="logo fl"><img src="img/logo.png"></div>
+                <div class="brand fl"><img src="img/brand.png"></div>
+                <div class="clear"></div>
+            </div>
+            <!-- 导航栏 -->
+            <ul class="nav fl">
+                <li class="fl">首页</li>
+                <li class="fl">地区</li>
+                <li class="discount fl">特惠</li>
+                <li class="fl">资讯</li>
+                <li class="fl">游记</li>
+                <div class="clear"></div>
+            </ul>
+            <div class="log_reg fr">
+                <div class="log fl">登录</div>
+                <div class="segment fl">|</div>
+                <div class="reg fr">注册</div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- 二级头部 -->
+        <div class="sub_header">
+            <div class="w1200">
+                <div class="segment fl"></div>
+                <div class="search_icon icon fl"><img src="img/discount/sh_search_icon.png"></div>
+                <div class="segment fl"></div>
+                <div class="segment fr"></div>
+                <div class="user_icon icon fr"><img src="img/discount/sh_user_icon.png"></div>
+                <div class="segment fr"></div>
+                <div class="note icon fr"><img src="img/discount/sh_note_icon.png"></div>
+                <div class="segment fr"></div>
+                <div class="history icon fr"><img src="img/discount/sh_history_icon.png"></div>
+                <div class="segment fr"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 内容部分 -->
+        <div class="body">
+            <div class="banner w1200">
+                <div class="bottom_td">
+                    <div class="character fl">特惠票</div>
+                    <div class="character_en fl">TICKET DEALS</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="right_td">
+                    <div class="character">特惠票</div>
+                    <div class="character_en">TICKET DEALS</div>
+                    <div class="code">
+                        <img src="img/discount/banner_code.png" class="space4">
+                        <img src="img/discount/banner_code.png">
+                    </div>
+                    <div class="origin"><span class="guangzhou">广州</span><span class="start">&nbsp;出发</span></div>
+                    <div class="arrow"><img src="img/discount/banner_arrow.png"></div>
+                    <div class="destination">
+                        <input type="text" placeholder="请输入目的地">
+                        <div class="search_icon"><img src="img/discount/banner_search.png"></div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 主要内容 特惠 -->
+            <div class="main_content w1200">
+                <div class="off_price fl">
+
+                    <!-- TODO: 这里内部的clear 后面直接写另外的同级内容有和不妥 
+                    格式如：
+                    <div class="pic fl"><img src="img/discount/content_water.png"></div>
+                    <div class="info fl">
+                        <div class="sold"><a href="#">已售150</a></div>
+                        <div class="intr">
+                            <div class="presentation">【泼水节预售】广州直飞泰国曼谷+芭提雅+沙美岛6天5晚跟团游（全程无自费+全程5星酒店+沙美岛出海+国际人妖秀+送意外险）
+                            </div>
+                            <div class="schedule">班期：清明五一03/30-06/30</div>
+                            <div class="price"><span class="number">¥ 2099</span><span>起</span></div>
+                            <div class="book">立刻预定</div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="segment"></div>
+                    
+                    -->
+                    <div>
+                        <div class="pic fl"><img src="img/discount/content_water.png"></div>
+                        <div class="info fl">
+                            <div class="sold"><a href="#">已售150</a></div>
+                            <div class="intr">
+                                <div class="presentation">【泼水节预售】广州直飞泰国曼谷+芭提雅+沙美岛6天5晚跟团游（全程无自费+全程5星酒店+沙美岛出海+国际人妖秀+送意外险）
+                                </div>
+                                <div class="schedule">班期：清明五一03/30-06/30</div>
+                                <div class="price"><span class="number">¥ 2099</span><span>起</span></div>
+                                <div class="book">立刻预定</div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/content_phuket.png"></div>
+                        <div class="info fl">
+                            <div class="sold"><a href="#">已售108</a></div>
+                            <div class="intr">
+                                <div class="presentation">
+                                    广州直飞普吉岛6天4/5天4晚晚精致游（无自费+指定4晚网评国际五星酒店+赠送流量卡+大堡礁浮潜+蓝钻珊瑚岛+泰式风情人妖秀）
+                                </div>
+                                <div class="schedule">班期：清明五一03/21-06/28</div>
+                                <div class="price"><span class="number">¥ 2899</span><span>起</span></div>
+                                <div class="book">立刻预定</div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/content_turkey.png"></div>
+                        <div class="info fl">
+                            <div class="sold"><a href="#">已售150</a></div>
+                            <div class="intr">
+                                <div class="presentation">【全景游】广州直飞土耳其12天（女神节赠送玫瑰水+五星酒店·泡温泉+番红花城特色民居+双海寻梦爱琴海+外星美景卡帕多奇亚）
+                                </div>
+                                <div class="schedule">班期：清明五一03/30-05/30</div>
+                                <div class="price"><span class="number">¥ 5999</span><span>起</span></div>
+                                <div class="book">立刻预定</div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/content_japan.png"></div>
+                        <div class="info fl">
+                            <div class="sold"><a href="#">已售89</a></div>
+                            <div class="intr">
+                                <div class="presentation">
+                                    【樱花预售】广州直飞大阪+东京+京都+名古屋+富士山6天5晚品质游（拒签全退+河口湖樱花祭+升级1晚温泉酒店+日式酒店料理+浴衣体验）</div>
+                                <div class="schedule">班期：清明五一04/03-05/31</div>
+                                <div class="price"><span class="number">¥ 4280</span><span>起</span></div>
+                                <div class="book">立刻预定</div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/content_vc.png"></div>
+                        <div class="info fl">
+                            <div class="sold"><a href="#">已售77</a></div>
+                            <div class="intr">
+                                <div class="presentation">
+                                    广州直飞越柬6天5晚游/柬埔寨一地5天4晚经典文化美食之旅（大小吴哥窟+高棉的微笑+金边皇宫+巴肯山日落+赠送柬埔寨特色纪念品）
+                                </div>
+                                <div class="schedule">班期：清明五一暑假04/03-07/28</div>
+                                <div class="price"><span class="number">¥ 3888</span><span>起</span></div>
+                                <div class="book">立刻预定</div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/content_harbin.png"></div>
+                        <div class="info fl">
+                            <div class="sold"><a href="#">已售205</a></div>
+                            <div class="intr">
+                                <div class="presentation">
+                                    【一价全含】广州飞哈尔滨+亚布力+雪乡+民俗村6/7天5晚跟团游（百人销量+全程不带钱包+0购物0自费+天天特色餐+4星5星住宿）
+                                </div>
+                                <div class="schedule">班期：03/22-03/31</div>
+                                <div class="price"><span class="number">¥ 3980</span><span>起</span></div>
+                                <div class="book">立刻预定</div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <!-- 翻页 -->
+                    <div class="page">
+                        <div class="return fl">&lt;上一页</div>
+                        <div class="num fl"><span class="start">1</span><span
+                                class="active">2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>...</span><span
+                                class="end">30</span></div>
+                        <div class="next fr">&lt;下一页</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <!-- 热卖部分 -->
+                <div class="hot fr">
+                    <div class="week">本周热卖</div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/hot_phuket.png"></div>
+                        <div class="info fl">
+                            <div class="intro">
+                                <div class="presentation">上海直飞普吉岛5-6天自由行（3套航班任意选择+可选...</div>
+                                <div class="price"><span class="number">¥ 1899</span><span>起</span></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/hot_hongkong.png"></div>
+                        <div class="info fl">
+                            <div class="intro">
+                                <div class="presentation">上海直飞香港3-4天自由行（地铁商圈附近酒店+航班...</div>
+                                <div class="price"><span class="number">¥ 1220</span><span>起</span></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/hot_karbi.png"></div>
+                        <div class="info fl">
+                            <div class="intro">
+                                <div class="presentation">上海直飞甲米6-7天自由行（预售至5月+可选带无边泳...</div>
+                                <div class="price"><span class="number">¥ 1999</span><span>起</span></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/hot_chiang.png"></div>
+                        <div class="info fl">
+                            <div class="intro">
+                                <div class="presentation">上海直飞清迈5-6天自由行（泼水节预售+古城/宁曼路...</div>
+                                <div class="price"><span class="number">¥ 1899</span><span>起</span></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                    <div>
+                        <div class="pic fl"><img src="img/discount/hot_samui.png"></div>
+                        <div class="info fl">
+                            <div class="intro">
+                                <div class="presentation">全国往返苏梅岛5-7天自由行（Code海景无边泳池+无...</div>
+                                <div class="price"><span class="number">¥ 3299</span><span>起</span></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="segment"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!-- 尾部 -->
+        <div class="footer">
+            <div class="copyright">© 2017 Leyouyou.cn 粤ICP备12345678号 粤公网安备123456789012号 粤ICP证123456号<br>营业执照
+                新出网证(粤)字123号 全国统一客服电话：0000-123-456</div>
+        </div>
+    </div>
+</body>
+
+</html>

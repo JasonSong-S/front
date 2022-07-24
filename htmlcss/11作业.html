@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部分旅游网首页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        .header {
+            width: 1200px;
+            height: 72px;
+            margin: 0 auto;
+        }
+
+
+
+        .logo {
+            margin-right: 3px;
+            /* background-color: pink; */
+            background-image: url(img/logo.png);
+            background-position: center;
+            width: 60px;
+            height: 72px;
+            background-repeat: no-repeat;
+            /* margin: 0 auto; */
+
+        }
+
+        .brand {
+            margin-right: 164px;
+            background-image: url(img/brand.png);
+            /* background-color: green; */
+            background-position: center;
+            width: 57px;
+            height: 72px;
+            /* margin: 0 auto; */
+            background-repeat: no-repeat;
+        }
+
+
+        .nav .item {
+            width: 80px;
+            height: 72px;
+            font-size: 18px;
+            font-family: "微软雅黑";
+            color: #3c3d46;
+            list-style: none;
+            /* background-size: 80px 72px; */
+            text-align: center;
+            line-height: 72px;
+            margin-right: 25px;
+
+
+        }
+
+        .log_in,
+        .register,
+        .segment {
+            font: 18px "微软雅黑" #3c3d46;
+            text-align: center;
+            line-height: 72px;
+            margin-right: 11px;
+        }
+
+        .log_in {
+
+            margin-left: 200px;
+        }
+
+        /* .segment p{
+            width: 1px;
+            height: 14px;
+            color: #999999;
+            background-color: red;
+        } */
+
+
+
+
+        .first {
+            background-color: hsl(217, 100%, 67%);
+        }
+
+
+        .banner {
+
+            height: 594px;
+            background: url(img/banner.jpg) no-repeat;
+            margin: 0 auto;
+            margin-bottom: 170px;
+        }
+
+        .district
+         {
+            width: 327px;
+            height: 32px;
+            margin: 0 auto;
+            line-height: 32px;
+            text-align: center;
+        }
+
+        .info_txt {
+            /* width: 264px; */
+            width: 264px;
+            height: 23px;
+            margin: 0 auto;
+            line-height: 23px;
+            color: #666666;
+            font: 22px "微软雅黑";
+        }
+
+        .segment_h {
+            width: 77px;
+            height: 6px;
+            background-color: #666666;
+        }
+
+        .dis_tour {
+            font: 36px "微软雅黑";
+            color: #5696ff;
+            margin-left: 14px;
+            margin-right: 14px;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 划块 -->
+    <div class="wrap">
+        <div class="header">
+            <!-- logo 和 brand -->
+            <div class="symbol fl">
+                <div class="logo fl">
+                    <!-- <img src="img/logo.png" alt="logo"> -->
+                </div>
+                <div class="brand fl">
+                    <!-- <img src="img/brand.png" alt="brand"> -->
+                </div>
+                <div class="clear"></div>
+            </div>
+            <!-- 导航栏 -->
+            <ul class="nav fl">
+                <li class="item fl">
+                    <p class="first">首页</p>
+                </li>
+                <li class="item fl">
+                    <p>地区</p>
+                </li>
+                <li class="item fl">
+                    <p>特惠</p>
+                </li>
+                <li class="item fl">
+                    <p>资讯</p>
+                </li>
+                <li class="item fl">
+                    <p>游记</p>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <!-- 登录和注册 -->
+            <div class="log fl">
+                <div class="log_in fl">
+                    <p>登录</p>
+                </div>
+                <div class="segment fl">
+                    <p>|</p>
+                </div>
+                <div class="register fl">
+                    <p>注册</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <!-- image -->
+        <div class="banner">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+        </div>
+
+        <!-- district tour -->
+        <div class="footer">
+            <!-- ——地区旅游—— -->
+            <div class="district">
+                <div class="segment_h fl">
+                </div>
+                <div class="dis_tour fl">
+                    <p>地区旅游</p>
+                </div>
+                <div class="segment_h fl"></div>
+                <div class="clear"></div>
+            </div>
+
+            <!-- 从这开始有意思的地区文化 -->
+            <div class="info_txt">
+                <p>从这开始有意思的地区文化</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

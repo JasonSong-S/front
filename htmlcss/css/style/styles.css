@@ -1,0 +1,592 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3f3f3;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}
+
+.header {
+    width: 1200px;
+    /* height: 72px; */
+    margin: 0 auto;
+    font: 18px "微软雅黑";
+    color: #3c3d46;
+}
+
+.logo {
+
+    margin: 7px 3px 0px 0;
+
+}
+
+.brand {
+    /* margin-top: 17px;
+    margin-bottom: 16px;
+    margin-right: 164px; */
+    /* margin: 17px 164px 16px 0; */
+    margin: 16px 164px 11px 0;
+
+}
+
+li {
+    list-style-type: none;
+}
+
+.nav li {
+    width: 80px;
+    height: 72px;
+    line-height: 72px;
+    text-align: center;
+    margin-right: 24px;
+}
+
+.first {
+    background-color: #5696ff;
+    color: #fefeff;
+
+}
+
+.log_reg {
+    line-height: 72px;
+}
+
+.log_reg .segment {
+    margin: 0 10px;
+}
+
+
+
+
+.body {
+    height: 594px;
+    background: url(../../img/banner.jpg) no-repeat center;
+    position: relative;
+}
+
+.points {
+    position: absolute;
+    left: 50%;
+    bottom: 29px;
+    margin-left: -26px;
+}
+
+.point1 {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: #fcfcfd;
+    margin-right: 19px;
+}
+
+.point2 {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    border: 2px solid #fcfcfd;
+}
+
+
+.search {
+    width: 350px;
+    margin: 0 auto;
+    margin-top: 100px;
+    position: relative;
+}
+
+.search input {
+    width: 350px;
+    height: 40px;
+    font-size: 16px;
+    color: #999999;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.search img {
+    position: absolute;
+    top: 9px;
+    right: 13px;
+}
+
+
+.area,
+.trip,.information,.share {
+    width: 328px;
+    height: 81px;
+    margin: 0 auto;
+    margin-top: 87px;
+}
+
+.area .segment,
+.trip .segment,
+.information .segment,
+.share .segment {
+    width: 79px;
+    height: 6px;
+    background-color: #3c3d46;
+    /* margin: 15px 14px; */
+    margin-top: 15px;
+}
+
+.area .space,
+.trip .space,
+.information .space,
+.share .space {
+    margin-right: 14px;
+}
+
+.area .fl p,
+.trip .fl p,
+.information .fl p,
+.share .fl p{
+    font-size: 36px;
+    font-family: "微软雅黑";
+    color: #5696ff;
+    line-height: 36px;
+    margin-bottom: 22px;
+}
+
+.area p,
+.trip p, 
+.information p,
+.share p{
+    font-size: 22px;
+    font-family: "微软雅黑";
+    color: #666666;
+    text-align: center;
+}
+
+.pic_list {
+    width: 1202px;
+    height: 371px;
+    margin: 0 auto;
+    margin-top: 55px;
+}
+
+.pic {
+    width: 118px;
+    height: 372px;
+    margin-right: 3px;
+}
+
+.denmark {
+    width: 594px;
+    background: url(../../img/denmark.jpg);
+
+}
+
+.sichuan {
+    background: url(../../img/sichuan.jpg);
+}
+
+.dali {
+    background: url(../../img/dali.jpg);
+}
+
+.japan {
+    background: url(../../img/japan.jpg);
+}
+
+.italy {
+    background: url(../../img/italy.jpg);
+}
+
+.france {
+    background: url(../../img/france.jpg);
+}
+
+.pic div {
+    width: 118px;
+    height: 372px;
+    background-color: rgba(51, 51, 51, 0.5);
+    padding-top: 70px;
+    padding-left: 24px;
+}
+
+.pic div p {
+    font-size: 28px;
+    font-family: "微软雅黑";
+    color: #fefefe;
+    line-height: 28px;
+    /* margin-top: 70px;
+    margin-left: 24px; */
+
+}
+
+.pic img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.denmark div {
+    width: 594px;
+    height: 372px;
+    background-color: rgba(51, 51, 51, 0.5);
+    position: relative;
+}
+
+.more {
+    width: 160px;
+    border-radius: 5px;
+    border: 2px solid;
+    font-size: 26px;
+    color: #5696ff;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 54px;
+    margin-top: 72px;
+}
+
+.bgrd{
+    
+    background: rgba(86,150,255,1);
+    color: #fefefe;
+}
+
+
+.places {
+    width: 1200px;
+    height: 686px;
+    margin: 0 auto;
+    margin-top: 52px;
+    font-size: 22px;
+    color: #ffffff;
+    /* background-color: pink; */
+}
+
+.places .denmark {
+    width: 441px;
+    height: 307px;
+    background: url(../../img/places_denmark.png);
+    margin-bottom: 8px;
+    margin-right: 8px;
+    padding-top: 48px;
+    padding-left: 56px;
+
+}
+
+.places .vietnam {
+    width: 442px;
+    height: 307px;
+    background: url(../../img/places_vietnam.png);
+    margin-bottom: 8px;
+    margin-right: 8px;
+    padding-top: 21px;
+    padding-left: 22px;
+}
+
+.mask {
+    width: 400px;
+    height: 266px;
+    background-color: rgba(0, 0, 0, .3);
+    border-width: 4px;
+    border-color: #ffffff;
+    border-style: solid;
+    padding-top: 27px;
+    padding-left: 34px;
+}
+
+
+.mask .price {
+    font-size: 26px;
+    line-height: 28px;
+    margin: 32px 25px 0 28px;
+}
+
+.mask .segment {
+    width: 90px;
+    height: 4px;
+    background-color: #ffffff;
+    margin-top: 45px;
+    margin-left: 9px;
+}
+
+
+.places .thailand {
+    width: 362px;
+    height: 369px;
+    background: url(../../img/places_thailand.png);
+    margin-right: 8px;
+    padding-top: 46px;
+    padding-left: 56px;
+
+
+}
+
+.places .malaysia {
+    width: 521px;
+    height: 369px;
+    background: url(../../img/places_malaysia.png);
+    margin-right: 8px;
+    padding-top: 46px;
+    padding-left: 53px;
+
+
+}
+
+.places .japan {
+    width: 300px;
+    height: 472px;
+    background: url(../../img/places_japan.png);
+    margin-bottom: 8px;
+    padding-top: 48px;
+    padding-left: 54px;
+
+}
+
+.places .india {
+    width: 300px;
+    height: 204px;
+    background: url(../../img/places_india.png);
+    padding-left: 54px;
+    padding-top: 46px;
+
+
+}
+
+.w1200{
+    width: 1200px;
+    margin: 0 auto;
+}
+.pho{
+    width: 1200px;
+    height: 745px;
+    position: relative;
+    margin-top: 230px;
+}
+
+.pho .mexico{
+    position: absolute;
+    top: -132px;
+    right: 0px;
+    border:42px solid;
+    border-color: #f3f3f3;
+}
+
+.article .segment,
+.tax .segment {
+    width: 132px;height: 7px;background-color: #666666;
+    margin-top: 50px;margin-bottom: 28px;
+    margin-left: auto;
+}
+
+.article .title,
+.tax .main_title {
+    width: 452px;
+    text-align: right;
+    font-size: 30px;
+    color: #333333;
+
+}
+
+.article .paras {
+    width: 550px;
+    margin-top: 28px;
+    font-size: 24px;
+    line-height: 48px;
+    color: #333333;
+}
+
+.paras p{
+    text-indent: 2em;
+}
+.paras .no_indent{
+    text-indent: 0;
+}
+
+.full_text{
+    width: 180px;
+    height: 60px;
+    border-radius: 5px;
+    border: #999999 3px solid;
+    margin-top: 49px;
+    margin-bottom: 71px;
+}
+
+.full_text p{
+    font-size: 26px;
+    text-align: center;
+    text-indent: 0;
+}
+
+
+.tax .photos .newzland_2{
+    margin-top: -717px;
+}
+.tax .photos .newzland_2 img{
+    
+    border: #f3f3f3 47px solid;
+}
+
+.tax .paras{
+    margin-top: -155px;
+
+}
+
+.tax .paras p{
+    font-style: 28px;
+    line-height: 56px;
+    text-align: left;
+    text-indent: 0;
+}
+
+.tax .more {
+    margin-top: 69px;
+}
+
+.main_article {
+    width: 730px;
+    height: 962px;
+    background: url(../../img/share_dali.png);
+    margin-top: 51px;
+}
+
+.main_article .mask{
+    padding: 64px 56px 0 36px;
+    width: 502px;
+    height: 962px;
+
+    border:none
+}
+
+.main_article .mask p{
+    font-size: 18px;
+    color: #ffffff;
+}
+
+
+.main_article .mask .selected_article{
+    font-size: 24px;
+    color: #5696ff;
+    margin-bottom: 73px;
+}
+
+.main_article .mask .selected_title{
+    font-size: 24px;
+    color: #fefefe;
+    margin-bottom: 12px;
+}
+
+.region{
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.date{
+    
+    text-align: right;
+    margin: 26px 0 27px 0;
+}
+
+.main_article .mask .indent {
+    text-indent: 2em;
+    line-height: 45px;
+}
+
+.main_article .mask .full_text{
+    width: 160px;
+    height: 60px;
+    text-align: center;
+    text-indent: 0;
+    
+    line-height: 60px;
+    border: 2px solid;
+    color: #ffffff;
+    margin-top: 130px;
+}
+
+.main_article .mask .full_text p{
+    font-size: 22px;
+}
+
+.article_list .palace{
+    width: 375px;
+    height: 297px;
+    background: url(../../img/share_palace.png);
+    /*margin-top: 51px;*/
+    padding-top: 13px;
+
+}
+
+.kwgb, .sunset{
+    width: 60px;
+    height: 18px;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #a3c1df;
+    line-height: 18px;
+    margin-left: 9px;
+}
+
+
+.sunset{
+    
+    width: 32px;
+}
+
+.article_list .article{width: 375px;color: #333333;text-align-last: left;font-size: 12px;}
+
+.article_list .article .date{margin: 5px 0;}
+
+.article_list .article .title{font-size: 14px;margin-bottom: 5px;}
+
+.article_list .article .content{line-height: 18px;}
+.article_list .article .content span{color: #5696ff;}
+.sunset1,.sunset2{box-shadow: 0 0 20px 1px #696969;border: #ffffff 34px solid;background-color: #ffffff;margin-top: 51px;margin-bottom: 31px;height: 466px;}
+.sunset2{margin-top: 31px;}
+
+
+.sunset2 .peak{width: 375px;height: 297px;background: url(../../img/share_peak.png);padding-top: 13px;}
+.peak .kwgb, .peak .sunset{
+    width: 60px;
+    height: 18px;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #3c6cbc;
+    line-height: 18px;
+    margin-left: 9px;
+}
+
+
+.peak .sunset{width: 32px;}
+
+
+.selected_pho{padding: 27px 18px;background-color: #ffffff;position: relative;}
+.selected_pho .title{font-size: 24px;color: #5696ff;margin-bottom: 27px;}
+.selected_pho .pho_list img{margin-right: 15px;}
+.selected_pho .pho_list .jay{margin-right: 0;}
+
+.selected_pho .pho_info{margin-top: 18px;}
+.selected_pho .pho_info .date_author{font-size: 12px;color: #666666;}
+.selected_pho .pho_info .author{margin-left: 21px;}
+.selected_pho .pho_info .name{font-size: 18px;margin-top: 10px;}
+.selected_pho .pho_info .ben,.selected_pho .pho_info .ever,.selected_pho .pho_info .wendy{margin-right: 172px;}
+
+.arrow_l,.arrow_r{width: 52px;height: 50px;background-color: #ffffff;padding: 12px 19px;}
+.arrow_l{position: absolute;top: 210px;left: 18px;}
+.arrow_r{position: absolute;top: 210px;right: 19px;}
+
+
+.ft{margin-top: 100px;margin-bottom: 67px;}
+
+.footer{height: 130px;background-color: #5696ff;padding-top: 36px;}
+.copyright{width: 670px;height: 51px;margin:0 auto;font-size: 16px;color: #fafafc;text-align: left;line-height: 35px;}
+

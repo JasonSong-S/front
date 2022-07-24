@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        .red {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            float: left;
+        }
+
+        .blue {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            float: left;
+        }
+
+        .yellow {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            float: left;
+        }
+
+        .box {
+            width: 700px;
+            /* height: 1000px; */
+            background-color: grey;
+            margin: 0 auto;
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+        
+        .foot {
+            width: 500px;
+            
+            background-color: purple;
+            float: left;
+
+        }
+
+        .pink {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            float: left;
+        }
+
+        .green {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            float: left;
+
+        }
+
+        .test {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>浮动： (float) 也会产生脱离文档流的问题，但是是半脱的状态，文字会环绕在周围。解决脱离文档流问题的方法是：在需要清楚脱离文档流的下面添加样式 clear:both;</p>
+
+
+    <!-- float: 浮动，可以让块元素在一行上显示  
+        float: left/right
+        需要哪几个元素浮动，就给哪几个元素加浮动
+        浮动也会脱离文档流 
+    
+    -->
+
+    <div class="box">
+        <div class="red"></div>
+        
+        <div class="blue"></div>
+        
+        <div class="yellow"></div>
+        <div class="clear"></div>
+        
+    </div>
+
+    <div class="foot">
+        <div class="pink"></div>
+        <div class="green"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div class="test"></div>
+
+</body>
+
+</html>

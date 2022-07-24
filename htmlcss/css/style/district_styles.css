@@ -1,0 +1,85 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{font-size: 18px;color: #3c3d46;background-color: #f3f3f3;}
+.w1200{width: 1200px;margin: 0 auto;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear: both;}
+/* header */
+.header{font-size: 18px;color:#3c3d46;background-color: #ffffff;}
+.header .logo{margin: 7px 3px 0px 0;}
+.header .brand{margin: 20px 185px 0 0;}
+.header li{list-style: none;width: 80px;height: 72px;margin-right: 25px;text-align: center;line-height: 72px;}
+.header .district{color:#fefefe;background-color:  #5696ff;}
+.header .log_reg{margin-top: 25px;}
+.header .segment{margin: 0 11px;}
+/* sub_header */
+.sub_header{background-color: #666666;}
+.sub_header .segment{width: 1px;height: 20px;background-color: #f3f1f1;margin:20px 0;}
+.sub_header .icon{margin: 20px 41px;}
+/* body banner */
+.banner{margin-top: 56px;}
+/* .banner .pic{margin-right: 69px;} */
+.banner .place{width: 160px;height: 560px;background-color: #666666;/*padding: 36px 45px 0 45px;*/font-size: 24px; color:#ffffff;text-align: center;padding: 36px 0;}
+.banner .segment{width: 70px;height: 1px;margin: 0 auto;background-color: #fefefe;margin-top: 14px;margin-bottom: 18px;}
+/* recommend */
+.recommend .title{font-size: 24px;color: #333333;margin-top: 53px;margin-bottom: 26px;}
+.recommend .big_box{background-color: #ffffff;padding-top: 48px;}
+.recommend .big_box .box{width: 200px;height: 258px;border: #ffffff 8px solid;box-shadow: 0 0 10px 1px #a5a2a2;margin-left: 30px;}
+.recommend .japan{background: url(../../img/district/recommend_japan.png);padding-top: 33px;padding-left: 10px;}
+.big_box .english{color: #fefefe;margin-bottom: 17px;line-height: 30px;}
+.big_box .character{font-size: 20px;color: #fefefe;}
+.recommend .german{background: url(../../img/district/recommend_german.png);padding-top: 33px;padding-left: 10px;}
+.recommend .russia{background: url(../../img/district/recommend_russia.png);padding-top: 33px;padding-left: 10px;}
+.recommend .newzland{background: url(../../img/district/recommend_newzland.png);padding-top: 33px;padding-left: 10px;}
+.recommend .melb{background: url(../../img/district/recommend_malb.png);padding-top: 33px;padding-left: 10px;}
+/* .recommend .other{width: 200px;} */
+.recommend .other .item{margin-left: 30px;}
+.recommend .other .character{font-size: 20px;color: #5696ff;margin: 19px 0;}
+.recommend .other .download{width: 200px;height: 40px;background-color: #5696ff;color: #ffffff;text-align: center;line-height: 40px;border-radius: 4px;margin-bottom: 48px;}
+/* guide */
+.guide{margin-top: 54px;}
+.guide .person .title{color: #333333;font-size: 18px;margin-bottom: 20px;}
+.guide .person ul{width: 363px;list-style: none;font-size: 16px;color: #333333;}
+.guide .person ul span{color: #5696ff;}
+.guide .person .info{margin-left: 12px;margin-top: 7px;}
+.guide .author{width: 350px;height: 200px;background: url(../../img/district/person_author.png) no-repeat center;margin-top: 38px;font-size: 28px;color: #ffffff;padding-top: 60px;padding-left: 35px;}
+.guide .place{margin-left: 36px;}
+.guide .place .title{font-size: 24px;color: #333333;margin-bottom: 20px;}
+.guide .place .sort{color: #333333;margin-bottom: 23px;}
+.guide .place .sort .blue{color: #5696ff;}
+.guide .place .segment{width: 1px;height: 16px;background-color: #999999;margin: 5px 15px;}
+.guide .pic_list .pic{width: 178px;height:250px;padding-top: 28px;padding-left: 9px;border: #ffffff 7px solid;box-shadow: 0 0 5px 1px #8b8383;}
+.guide .pic_list .sydney .pic{background: url(../../img/district/places_sydney.png) no-repeat;}
+.guide .pic_list .pic .english{font-size: 16px;color: #fefefe;line-height: 27px;}
+.guide .pic_list .pic .character{font-size: 18px;color: #fefefe;}
+.guide .pic_list .name{margin-top: 17px;margin-bottom: 11px;color: #5696ff;}
+.guide .pic_list .date{font-size: 16px;color: #666666;}
+.guide .pic_list .fl{margin-right: 29px;}
+.guide .pic_list .singapore .pic{background: url(../../img/district/places_singapore.png) no-repeat;}
+.guide .pic_list .milan .pic{background: url(../../img/district/places_milan.png) no-repeat;}
+.guide .pic_list .italian .pic{background: url(../../img/district/places_italy.png) no-repeat;}
+.guide .pic_list .indonesia .pic{background: url(../../img/district/places_indoneisa.png) no-repeat;} 
+.guide .pic_list .hangzhou .pic{background: url(../../img/district/places_hangzhou.png) no-repeat;}
+.guide .pic_list .denmark .pic{background: url(../../img/district/places_denmark.png) no-repeat;}
+.guide .pic_list .thailand .pic{background: url(../../img/district/places_thailand.png) no-repeat;}
+.guide .pic_list .american .pic{background: url(../../img/district/places_america.png) no-repeat;}
+.guide .pic_list .dutch .pic{background: url(../../img/district/places_dutch.png) no-repeat;}
+.guide .pic_list .france .pic{background: url(../../img/district/places_france.png) no-repeat;}
+.guide .pic_list .egyptian .pic{background: url(../../img/district/places_egyptian.png) no-repeat;}
+.guide .between{margin: 24px 0;}
+/* page */
+.page{margin-top: 86px;width: 801px;margin-bottom: 76px;}
+.page .num{font-size: 19px;color: #666666;text-align: center;line-height: 59px;}
+.page .num span{margin-right: 36px;}
+.page .num .start{margin-left: 22px;}
+.page .num .start{margin-right: 24px;}
+.page .num .active{color: #5696ff;}
+.page .return,
+.page .next{width: 198px;height: 59px;border: #dcdcdc 1px solid;font-size: 18px;color: #333333;text-align: center;line-height: 59px;}
+
+
+
+
+/* footer */
+.footer{height: 130px;background-color: #5696ff;padding-top: 36px;}
+.copyright{width: 670px;/*height: 51px;*/margin:0 auto;font-size: 16px;color: #fafafc;/*text-align: left;*/line-height: 35px;}

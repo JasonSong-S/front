@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次复习 float</title>
+</head>
+<style>
+    *{
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .header {
+        width: 1000px;
+        height: 150px;
+        background-color: red;
+        padding-left: 67px;
+    }
+
+    .part {
+        width: 400px;
+        height: 80px;
+        background-color:black;
+        float: left;
+        margin-top: 35px;
+        margin-right: 66px;
+    }
+
+    .content {
+        width: 1000px;
+        height: 600px;
+        background-color: red;
+        margin: 10px auto;
+        padding: 50px 0;
+    }
+
+    .box {
+        width: 400px;
+        height: 500px;
+        background-color: black;
+        float: left;
+        margin-left: 67px;
+    }
+
+    .inner-box {
+        width: 300px;
+        height: 200px;
+        background-color: yellow;
+        margin: 33px auto;
+    }
+
+    .footer {
+        width: 1000px;
+        height: 200px;
+        background-color: red;
+    }
+
+    .clear {
+        clear: both;
+    }
+</style>
+<body>
+    
+    <div class="wrapper">
+        <!-- 三大部分的第一部分 -->
+        <div class="header">
+            <div class="part"></div>
+            <div class="part"></div>
+            <div class="clear"></div>
+        </div>
+       
+       
+        <!-- 三大部分的第二部分 -->
+        <div class="content">
+            <div class="box"></div>
+            <div class="box">
+                <div class="inner-box"></div>
+                <div class="inner-box"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        
+        <!-- 三大部分的第三部分 -->
+        <div class="footer"></div>
+    </div>
+</body>
+</html>

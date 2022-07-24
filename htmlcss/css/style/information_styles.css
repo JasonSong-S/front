@@ -1,0 +1,73 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{font-size: 18px;color: #3c3d46;background-color: #f3f3f3;}
+.w1200{width: 1200px;margin: 0 auto;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear: both;}
+/* 头部 */
+.header{background-color: #ffffff;}
+.header .symbol .logo{margin: 7px 3px 0 0;}
+.header .symbol .brand{margin: 17px 185px 0 0;}
+.header .nav li{list-style-type: none;width: 80px;height: 72px;margin-right: 24px;line-height: 72px;text-align: center;}
+.header .active{background-color: #5696ff;}
+.header .log_reg{text-align: center;line-height: 72px;}
+.header .log_reg .rborder{border-right: #3c3d46 2px solid;padding-right: 11px;}
+.header .log_reg span{margin-left: 11px;}
+/* sub_header */
+.sub_header{background-color: #666666;}
+.sub_header .segment{width: 1px;height: 20px;background-color: #f3f1f1;margin:20px 0;}
+.sub_header .icon{margin: 20px 41px;}
+/* body */
+.body{margin-top: 47px;}
+.banner .news{width: 422px;height: 350px;background-color: #ffffff;font-size: 20px;color: #333333;padding: 39px 29px 0 22px;text-align: left;/*line-height: 35px;*/list-style: none;}
+.banner .circle{width: 12px;height: 12px;border-radius: 6px;background-color:#fe5308;margin-right: 9px;margin-top: 7px;}
+.banner .news .info{width: 348px;}
+.banner .news .segment{width: 348px;height: 1px;background-color: #e8e7e7;margin: 29px 0;} 
+/* information */
+.information{margin-top: 85px;}
+.information .square{width: 58px;height: 65px;background-color: #5696ff;font-size: 18px;color: #ffffff;/*line-height: 24px;*/text-align: center;padding: 10px 0;}
+.information .content .cannada{background: url(../../img/information/content_cannada.png);width: 420px;height: 253px;padding: 16px;}
+.information .content .segment{width: 419px;height: 1px;background-color: #eaeaea;margin-top: 18px;margin-bottom: 14px;}
+.information .content .title{font-size: 20px;color: #222222;margin-bottom: 18px;margin-top: 24px;}
+.information .content .web{font-size: 16px;color: #666666;}
+.information .content .web span{color: #8ab2fc;}
+.information .content .intr{width: 420px;font-size: 16px;color: #666666;line-height: 24px;}
+.information .content .austria{background: url(../../img/information/content_austria.png);width: 420px;height: 253px;padding: 16px;margin-top: 35px;}
+.information .content .passport{background: url(../../img/information/content_passport.png);width: 420px;height: 253px;padding: 16px;margin-top: 35px;}
+.information .content .newzland{background: url(../../img/information/content_newzland.png);width: 420px;height: 253px;padding: 16px;}
+.information .content .thailand{background: url(../../img/information/content_tailand.png);width: 420px;height: 253px;padding: 16px;margin-top: 35px;}
+.information .content .sea{background: url(../../img/information/content_sea.png);width: 420px;height: 253px;padding: 16px;margin-top: 35px;}
+.information .content .right3{margin-left: 31px;}
+/* page */
+.information .content .page{margin-top: 86px;width: 860px;margin-bottom: 76px;}
+.information .content .page .num{font-size: 19px;color: #666666;text-align: center;line-height: 59px;}
+.information .content .page .num span{margin-right: 37px;}
+.information .content .page .num .start{margin-left: 22px;}
+.information .content .page .num .start{margin-right: 24px;}
+.information .content .page .num .active{color: #5696ff;}
+.information .content .page .return,
+.information .content .page .next{width: 198px;height: 59px;border: #dcdcdc 1px solid;font-size: 18px;color: #333333;text-align: center;line-height: 59px;}
+/* trends */
+.information .trends{margin-left: 62px;}
+.information .trends .title{font-size: 24px;color: #2e2e2e;}
+.information .trends .segment{width: 56px;height: 3px;background-color: #5696ff;margin-top: 19px;margin-bottom: 26px;}
+.information .trends .pic{margin-right: 10px;}
+.information .trends .date{font-size: 15px;color: #5696ff;margin-bottom: 8px;}
+.information .trends .sp{color:#01b1d7}
+.information .trends .rule{width: 187px;font-size: 14px;color: #222222;line-height: 18px;}
+.information .trends .place{margin-bottom: 23px;}
+.information .label .title{margin-top: 35px;}
+.label .words{font-size: 16px;color: #a1a1a1;text-align: center;line-height: 38px;margin-bottom: 6px;}
+/* .label .words .samew{height: 38px;margin-right: 7px;} */
+.label .words .bg{width: 141px;background-color: #5696ff;color: #ffffff;border: #d7d7d7 0.83px solid;}
+.label .words .german{width: 122px;border: #d7d7d7 0.83px solid;}
+.label .words .japan{width: 122px;border: #d7d7d7 0.83px solid;}
+.label .words .plane{width: 141px;border: #d7d7d7 0.83px solid;}
+.label .words .passport{width: 82px;border: #d7d7d7 0.83px solid;margin-right: 4px;}
+.label .words .policy{width: 91px;border: #d7d7d7 0.83px solid;}
+.label .words .transport{width: 86px;border: #d7d7d7 0.83px solid;}
+/* footer */
+.footer{height: 130px;background-color: #5696ff;padding-top: 36px;}
+.copyright{width: 670px;/*height: 51px;*/margin:0 auto;font-size: 16px;color: #fafafc;/*text-align: left;*/line-height: 35px;}
+
+

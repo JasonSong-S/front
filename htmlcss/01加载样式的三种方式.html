@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度一下，你就知道</title>
+</head>
+
+<body>
+    <p>1. 内联样式 也叫行内样式。在需要添加样式的标签的内部直接添加属性。 style=""</p>
+    <p>2. 内部样式， 在 html 文件中的 head 标签内部添加 style 标签， 标签内部添加样式。</p>
+    <p>3. 外部样式， 将 html 文件和 css 文件分离，写在不同的文件中，然后通过 link 标签将这两个文件相关联起来。</p>
+
+
+    <p style="color: red;">疑问的地方 1. 块级元素默认的长度是父元素的长度，为什么这里不设置长度和宽度，div 作为块级元素，它有背景颜色但是显示不出来。后来经过实验发现，它有默认的长度，但是没有默认的宽度，所以我们看不见。解决的方法也很简单，第一个是手动的给元素设置高度；第二种是没有设置高度，但是它的默认高度是其中的内容高度，所以可以在其中添加内容。第三种是没有设置高度和添加内容，通过 padding 来增宽增高。</p>
+    <p style="background-color: pink;">这里有文字，块级元素未设置长度和高度，块级元素可以显示出来了。如果这里没有设置块级元素的长度和高度，也没有文字等内容，这个块级元素在屏幕上是不可见的。例子如下
+    </p>
+    <p style="background-color: pink;"></p>
+    <p>只设置了宽度，没有高度也显示不出来</p>
+    <p style="background-color: black; width: 100px;"></p>
+    <p>只设置了高度，可以显示出来，长度是默认的父容器的长度</p>
+    <p style="background-color: pink; height: 100px"></p>
+    <p>总结一下块级元素：
+        块级元素总的来说还是要有长度和高度，虽然长度可以是默认的父容器的长度，但是只有长度没有高度仍然显示不出来，所以有两种方式，第一种是在块元素内部添加内容，块元素的长度是父容器默认的长度，高度是内容的高度；第二种方式是手动的设置块元素的长度和高度，还有不要忘记了设置背景颜色。
+    </p>
+    <!-- 1. 内联样式、行内样式。 不建议使用，这个方法把 html 和 css 放在了一起，不能够复用，也难以维护 -->
+    <div style="background-color:red;width: 300px;height: 300px;">
+        <div style="background-color: blue;width: 100px;height: 100px;"></div>
+    </div>
+    <div style="background-color: yellow;width: 100px;height: 100px;"></div>
+
+    <!-- 手动的添加内容到 div 块元素中去 -->
+    <p>手动添加内容到 div 块元素中去。 我们可以看到下面的父容器未设置长度和高度，所以父容器的高度是内容高度，这里的是子容器 div 的高度。父容器的长度是 外面的那个 div 的父容器默认的长度。</p>
+
+    <div style="background-color:red;">
+        <div style="background-color: blue;width: 100px;height: 100px;"></div>
+    </div>
+    <div style="background-color: yellow;width: 100px;height: 100px;"></div>
+</body>
+
+</html>

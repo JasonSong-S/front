@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+<body>
+    <script>
+        /*  
+            数据类型：
+                原始数据类型：数据直接存放在变量本地    栈
+                     number, string, boolean,Null,undefined
+                引用数据类型：数据不存放在数据本地    堆
+                    array(数组)：一堆数据的集合，批量存储同类型的数据
+                        1. 数组内的元素的数量没有限制，想存多少个就存多少个
+                        2. 没有数据类型的限制，可以存储任何类型的元素，并且在同一个数组内都可以存储不同类型的数据
+                        3. 数组中的每一个元素都有一个索引
+                        4. 取数据的方法 数组名[角标]
+                        5. 更改数据的方法 数组名[角标]=新值
+                        6. length 能够返回数组的长度
+                    
+                    
+                    对象：多个数据的集合
+                        1. 对象内的元素的数量没有限制，想存多少个就存多少个
+                        2. 没有数据类型的限制，可以存储任何类型的元素，并且在同一个对象内都可以存储不同类型的数据
+                        3. 属性名的类型只能是 string 类型
+                        4. 取值   对象.属性名
+                        5. 改值    对象.属性名 = 新值
+                        6. 删除   delete 对象.属性名 
+                        7. 属性名是变量，在对象里面的正确写法是 用中括号括起来[]。[属性名变量]
+                        8. 添加属性：如果本身不存在这个属性的话，会自动添加。
+                        9. 循环：for in 循环  for (var 属性名变量 in 对象)
+
+            浅复制和深复制：
+                浅复制只复制指针不复制内容
+                深复制通过递归的方式还要复制内容。
+            
+
+            null: 空对象指针
+        */
+         var arr = [];  // arr 变量中不存放数据，数据存放在堆中， arr 中存放的是指针，指针指向数据存放的地址。
+
+        //  作业
+        var girlFriend={
+            height:"180cm",
+            weight:"50kg",
+            gender:["男","女"],
+            hobby:["打游戏","会做饭","会按摩","能挣钱"],
+            pets:[
+                {name:"小花",type:"狗",color:"白黄色"},
+                {name:"旺财",type:"猫",color:"black"},
+            ],
+            words:{
+                angry:["滚","离婚","分手","你不爱我了"],
+                happy:["买","陪我吃饭","陪我看电影",]
+            },
+            say:function(){
+                console.log("你有房吗 你有车吗 你有存款吗");
+            }
+        }
+
+        for (var i=0; i<girlFriend.pets.length; i++){
+            console.log("我的女朋友有只"+girlFriend.pets[i].type + "名字叫" +girlFriend.pets[i].name + "是" + girlFriend.pets[i].color);
+        }
+    </script>
+</body>
+</html>

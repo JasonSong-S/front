@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.header {
+    width: 800px;
+    height: 150px;
+    background-color: red;
+    padding-top:35px;
+    /* margin-bottom:15px; */
+}
+
+.header div {
+    width: 700px;
+    height: 80px;
+    background-color: black;
+    margin:0px auto;
+    
+}

@@ -1,0 +1,21 @@
+*{margin: 0;padding: 0;box-sizing: border-box;}
+body{font-size: 12px;color: #999999;}
+.fl{float: left;}
+.fr{float: right;}
+.clear{clear:both}
+.background{height: 640px;background: url(../../img/log/background.png) no-repeat center;padding-top: 21px;}
+.logo{margin: 0 auto;width: 93px;margin-bottom: 21px;}
+.box{width: 380px;height: 310px;background-color: #ffffff;border-radius: 8px;box-shadow: 0 0 5px 1px #5a5a5b;margin: 0 auto;padding-top: 40px;}
+.samewh{margin: 0 auto;width: 300px;height: 40px;/*border-radius: 4px;border: #cecece 1px solid;*/}
+.samewh .phonum{width: 300px;height: 40px;font-size: 14px;padding-left: 17px;}
+.bcgd{background-color: #5696ff;margin-top: 18px;margin-bottom: 15px;font-size: 18px;color: #ffffff;text-align: center;line-height: 40px;}
+.deal{text-align: right;margin-right: 47px;}
+.deal span{color: #5a5a5b;}
+.segment{width: 380px;height: 1px;background-color: #cecece;margin: 14px 0 16px 0;}
+.hint{margin-left: 39px;margin-bottom: 10px;}
+.account{text-align: center;}
+.account img{margin-bottom: 3px;}
+.account .sina{margin-left: 46px;margin-right: 55px;}
+.account .qq{margin-right: 55px;}
+.yorn{width: 160px;height: 26px;border-radius: 8px;margin: 0 auto;margin-top: 18px;font-size: 12px;background-color:rgba(0,0,0,0.2);text-align: center;color: #ffffff;line-height: 26px;}
+.yorn span{color: #5696ff;}
