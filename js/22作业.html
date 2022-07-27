@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <style>
+        span{font-size: 12px;color: red;display: none;}
+    </style>
+</head>
+<body>
+    <div>用户名<input type="text"><span>用户名输入错误</span></div>
+    <div>输入密码<input type="text"><span>密码输入错误</span></div>
+    <div>再次输入密码<input type="text"><span>两次输入的密码不一致</span></div>
+    <button>注册</button>
+    <script>
+        // 作业：构建一个函数封装了的注册页面
+        var input = document.getElementsByTagName("input");
+        var span = document.getElementsByTagName("span");
+        var button = document.getElementsByTagName("button")[0];
+        // 正则表达式
+        var user=/^\w{4,8}$/;
+        var password=/^\d{6}$/;
+        // 验证用户名
+        input[0].onblur=function(){
+            test(user,0);
+        }
+        // 密码
+        input[1].onblur=function(){
+            if (input[1].value !==""){
+                test(password,1);
+            }
+            if (input[2].value !==""){
+                check();
+            }
+        }
+        // 验证密码
+        input[2].onblur=check;
+        // 注册
+        button.onclick=function(){
+            if (user.test(input[0].value)&&password.test(input[1].value)&&span[0].style.display=="none"&&span[1].style.display=="none"&&span[2].style.display=="none"){
+                alert("恭喜你，注册成功了！！！");
+            }else{
+                alert("请填写正确的信息！！！");
+            }
+        }
+        // 封装函数
+        // 用户名和密码验证
+        function test(reg,index){
+            if (input[index].value !==""){
+                if (!reg.test(input[index].value)){
+                    span[index].style.display="inline";
+                }else{
+                    span[index].style.display="none";
+                }
+            }
+        }
+        // 密码一致性言验证
+        function check(){
+            if (input[1].value !==input[2].value){
+                    span[2].style.display="inline";
+                }else{
+                    span[2].style.display="none";
+                }
+        }
+
+        
+    </script>
+</body>
+</html>
