@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两个作业</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            作业一：使用冒泡排序的思想实现排序(从大到小)不能用reverse，要求封装成函数，给我传递一个数字的数组，我就能给你返回排好的数组。
+
+            作业二：实现数组的去重，用倒序循环的思想去做
+
+
+            作业三：要求封装一个函数，接收两个参数，两个参数是数组的形式，然后要求函数的返回值是一个新数组，新数组就是传入的两个数组合并的结果，并且要求合并后如果两个数组中产生了重复的项，要剔除掉
+        */
+
+        // 作业1
+        function sortNumber(array) {
+            
+            for (var i = 0; i < array.length - 1; i++) {
+                for (var j = 0; j < array.length - 1 - i; j++) {
+                    if (array[j] < array[j + 1]) {
+                        var newarr = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = newarr;
+                    }
+                }
+            }
+            return array;
+        }
+        var sort = [1];
+        console.log(sortNumber(sort));
+
+
+        // 作业2
+        // var list = [100, 50, 100, 50, 100, 50,300,200,500,500,100,10,10,5,5,2,2,3];
+        // var a=[100,100,100,100,100,50,50,50,50];
+        // 方法1： 从前向后进行遍历，将每一个数据和当前的数据进行比较
+        /* function deDup(arr) {
+            for (var i = 0; i < arr.length - 1; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    if (arr[i] === arr[j]) {
+                        arr.splice(j, 1);
+                        j--;   // 注意这步骤的操作
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(deDup(list)); */
+
+        // 方法2： 从后向前进行遍历，将每一个数据和当前的数据进行比较
+        function deDup(arr) {
+            for (var i = arr.length-1; i >0 ; i--) {
+                for (var j = i - 1; j >=0; j--) {
+                    if (arr[i] === arr[j]) {
+                        arr.splice(j, 1);
+                    }
+                }
+            }
+            return arr;
+        } 
+        console.log(deDup(a));
+
+
+        // 方法3： 从后向前进行遍历，将每一个数据和当前的数据进行比较
+        // function deDup(arr) {
+        //     for (var i = arr.length; i >0 ; i--) {
+        //         for (var j = 0; j < i; j++) {
+        //             if (arr[i] === arr[j]) {
+        //                 arr.splice(j, 1);
+        //                 // j--;   // 这个可以不要吗
+        //             }
+
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // console.log(deDup(a));
+
+
+
+
+
+        // indexOf()
+
+        /* var list=[100,50,100,50,100,50];
+        var ans=[];
+        for (var i =0; i < list.length;i++){
+            if (ans.indexOf(list[i])===-1){
+                ans.push(list[i]);
+            }
+        }
+
+        console.log(ans); */
+
+
+        // 作业3：
+        var a = [1, 2, 3];
+        var b = [4, 5, 6, 1, 2, 3, 7,true,'true',11];
+
+        // 方法1：直接调用了去重的函数法
+        /* function contactD(arr1, arr2) {
+            var arr = arr1;
+            for (var i = 0; i < arr2.length; i++) {
+                arr.push(arr2[i]);
+            }
+            function deDup(arr) {
+                for (var i = 0; i < arr.length - 1; i++) {
+                    for (var j = i + 1; j < arr.length; j++) {
+                        if (arr[i] === arr[j]) {
+                            arr.splice(j, 1);
+                            j--;   // 注意这步骤的操作
+                        }
+                    }
+                }
+                return arr;
+            }
+            return deDup(arr);
+        }
+
+        console.log(contactD(a, b)); */
+
+        // 方法2：用indexOf 来去重复
+        function contactD(arr1, arr2) {
+            var arr = arr1;
+            var ans=[];
+            for (var i = 0; i < arr2.length; i++) {
+                arr.push(arr2[i]);
+            }
+            for (var j=0;j<arr.length;j++){
+                if (ans.indexOf(arr[j])===-1){
+                    ans.push(arr[j]);
+                }
+            }
+            return ans;
+        }
+
+        console.log(contactD(a,b));
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

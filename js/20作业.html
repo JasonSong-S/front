@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td,
+        tr {
+            width: 1000px;
+            border: 1px solid;
+            margin: 0 auto;
+            border-collapse: collapse;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        span {
+            font-size: 12px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 作业三：密码轻度验证 -->
+    <!--     <input type="text" id="password"><span id="hint"></span>
+ -->
+
+    <!-- 作业二： js 完成一个注册界面 -->
+    <div>用户名<input type="text"><span>用户名错误</span></div>
+    <div>密码<input type="text"><span>密码错误</span></div>
+    <div>再次输入密码<input type="text"><span>两次密码不一致</span></div>
+    <div><button id="btn">注册</button></div>
+    
+
+
+
+    <script>
+        /* 
+        
+            作业一：通过 js 构建一个表格
+
+
+            作业二：通过 js 完成一个注册界面
+                    名称：
+                    密码：密码验证（只有数字，只有小写字母，只有大写字母  低强度（红色）；如果有特殊字符就是高强度（红色））
+                    确认密码：
+                    注册：
+
+
+            作业三： 做一个验证密码强度的案例
+                        如果是纯数字或者纯小写或者纯大写字母    低强度（红色）
+                        如果有特殊字符     高强度（绿色）
+        
+        */
+
+
+       /*  // 作业一： 构建一个表格   （作业中要注意返回的是对象还是类数组）
+        // 数据
+        var data = [{ brand: "Benz", type: "Maybach", price: 400 }, { brand: "Rolls royce", type: "Phantom", price: 1200 }, { brand: "Bentley", type: "Continental", price: 450 },{ brand: "BYD", type: "Song++++++", price: 500 }];
+
+        // 建表
+        var body = document.getElementsByTagName("body")[0];     // tagname 返回的是类数组
+        var tb = document.createElement("table");
+        body.appendChild(tb);
+        // 表头
+        var tr = document.createElement("tr");
+        tb.appendChild(tr);
+        for (var key in data[0]) {
+            var td = document.createElement("td");
+            td.innerText = key;
+            tr.appendChild(td);
+        }
+
+        // 内容
+        for (var i = 0; i < data.length; i++) {
+            var tr = document.createElement("tr");
+            tb.appendChild(tr);
+            for (var key in data[i]) {
+                td = document.createElement("td");
+                td.innerText = data[i][key];
+                tr.appendChild(td);
+            }
+        } */
+
+
+        /* // 作业二：通过 js 完成一个注册界面
+
+        var input = document.createElement("input");
+        input.style.width="500px";
+        input.style.height="100px";
+        document.body.appendChild(input);
+ */
+
+
+        /* /*  作业二： 做一个验证密码强度的案例
+                     如果是纯数字或者纯小写或者纯大写字母    低强度（红色）
+                     如果有特殊字符     高强度（绿色） */
+
+
+         /* var password = document.getElementById("password");
+         var hint = document.getElementById("hint");
+         // 正则表达式判断
+         var a = /^\d+$/;
+         var b = /^[a-z]+$/;
+         var c = /^[A-Z]+$/;
+         var d = /[^(\w|\s)]+/;
+ 
+         password.onchange = function () {
+             var value = password.value;
+             if (a.test(value) || b.test(value) || c.test(value)) {
+                 hint.innerText = "低强度";
+                 hint.style.color = "red";
+             } else if (d.test(value)) {
+                 hint.innerText = "高强度";
+                 hint.style.color = "green";
+             }
+         } */
+
+
+        // 作业三：通过 js 完成一个注册界面
+
+        var input = document.getElementsByTagName("input");
+        var span = document.getElementsByTagName("span");
+        var btn = document.getElementsByTagName("button")[0];
+        
+        // 正则表达式
+        var username = /^\w{4,8}$/;
+        var password = /^\d{6}$/;
+        // 用户名判断
+        input[0].onblur = function () {
+            if (input[0].value !== "") {
+                if (!username.test(input[0].value)) {
+                    span[0].style.display = "inline";
+                } else {
+                    span[0].style.display = "none";
+                }
+            }
+
+        }
+        // 密码
+        input[1].onblur = function () {
+            if (input[1].value !== "") {
+                if (!password.test(input[1].value)) {
+                    span[1].style.display = "inline";
+                } else {
+                    span[1].style.display = "none";
+                }
+
+
+                // 把密码框和验证密码框联系起来，防止密码一致后再次修改密码框的密码，然后出现错误的情况
+                if (input[2].value == "") {
+                    // if (!password.test(input[1].value)) {
+                    //     span[1].style.display = "inline";
+                    // } else {
+                    //     span[1].style.display = "none";
+                    // }
+                } else {
+                    if (input[2].value !== input[1].value) {
+                        span[2].style.display = "inline";
+                    } else {
+                        span[2].style.display = "none";
+                    }
+                }
+            }
+        }
+        // 验证密码
+        input[2].onblur = function () {
+            if (input[2].value !== input[1].value) {
+                span[2].style.display = "inline";
+            } else {
+                span[2].style.display = "none";
+            }
+        }
+        // 注册
+
+        // 为什么设置变量不行啊
+        var v0 = input[0].value;
+        var v1 = input[1].value;
+        var v2 = input[2].value;
+        var visible0;
+        visible0 = (span[0].style.display == "none");
+        var visible1 = span[1].style.display == "none";
+        var visible2 = span[2].style.display == "none";
+        // && (visible0&&visible1&&visible2)==false
+
+        btn.onclick=function(){
+            if (username.test(input[0].value)&&password.test(input[1].value)&&span[0].style.display == "none"&& span[1].style.display == "none" && span[2].style.display == "none"){
+                alert("恭喜你，注册成功了！！！");
+            }else{
+                alert("请填写正确信息！！");
+            }
+        }
+        
+        
+        
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
