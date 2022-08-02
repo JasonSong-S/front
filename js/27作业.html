@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广告弹窗</title>
+    <style>
+        #adv{position: fixed;bottom: -760px;right: 0;}
+    </style>
+</head>
+
+<body>
+    <div id="adv"><div id="close">关闭</div><img src="img/adv.jpg"></div>
+    <script>
+        // 周期性定时器
+        var timer = null;
+        var adv =document.getElementById("adv");
+        var close =document.getElementById("close");
+        // 一次性定时器
+        var timer2 = null;
+        // 向上运动
+        function moveUp(){
+            var cssStyle = document.defaultView.getComputedStyle(adv,null);
+            var cssbottom = cssStyle.bottom;
+            var bottom = parseInt(cssbottom);
+            if (bottom<0){
+                bottom += 20;
+                adv.style.bottom = bottom + 'px';
+            }else{
+                clearInterval(timer);
+                timer=null;
+            }
+        }
+        // timer = setInterval(moveUp,50);
+        // 向下运动
+        function moveDown(){
+            var cssStyle = document.defaultView.getComputedStyle(adv,null);
+            var cssbottom = cssStyle.bottom;
+            var bottom = parseInt(cssbottom);
+            if (bottom>-760){
+                bottom -= 20;
+                adv.style.bottom = bottom + 'px';
+            }else{
+                clearInterval(timer);
+                timer=null;
+                timer2=setTimeout(function(){timer=setInterval(moveUp,50)},3000);
+            }
+        }
+        close.onclick=function(){if (timer == null){timer=setInterval(moveDown,50);}}
+        window.onload=function(){
+            timer2=setTimeout(function(){timer=setInterval(moveUp,500)},3000);
+        }
+    </script>
+</body>
+
+</html>

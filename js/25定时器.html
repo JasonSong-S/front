@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+<button id="start">start</button>
+<button id="stop">stop</button>
+<body>
+    <script>
+    /* 
+        定时器：定时器可以设定时间自动的做某件事情。定时器是一种方法，不是对象，定时器属于 window 对象。
+            1.周期性定时器：间隔一定的时间，自动的做某件事情 setInterval(函数名，间隔时间)
+            2.一次性定时器：延迟多长时间做某件事情一次 setTimeout(函数名，间隔时间)
+            3. 上面这两个设置定时器的方法会返回一个线程号，这个线程号可以用来清除定时器，脚本中包含多个定时器，这个线程号就可以用来标记清除哪一个  var index  = console.log(setInterval(函数名，间隔时间))
+            4.清除定时器的方法 clearInterval(线程号)  clearTimeout(线程号)
+            5.定时器最好设置在全局作用域中，因为设置在局部作用域中的话，只能在设置定时器的那个函数中去暂停定时器，但是实际工作中，暂停定时器和设置定时器时在不同的函数中进行的，所以定时器的变量要设置成全局变量，方便使用。
+            6.定时器是我们第一个遇到的异步的方法
+            7.之前的所有方法都是同步的，同步的在 js 中执行的顺序上是写在前面的代码就会先执行，不管前面的语句需要多久的时间来执行完毕，前面的语句执行完成之后，后面的代码才会执行。
+            8.同步和异步的语句同时存在的时候，同步的一定先于异步的执行完毕。就算异步的代码的间隔时间设置为0，并且异步的代码写在了同步的代码之前。同步的代码也会先于异步的代码执行完毕。
+
+    */
+
+        /* // 基本的语法
+        const intervalID = setInterval(myCallback,1000);  // setInterval() 的返回值为一个线程号，这个线程号可以用在清除定时器的函数中 clearInterval(线程号)
+        function myCallback(a,b){
+            var a = "jason";
+            var b = "song";
+            console.log(a);
+            console.log(b);
+        } */
+        /* 
+        // 通过点击开始按钮就开始显示时间，通过点击结束按钮就结束显示时间
+
+        var start = document.getElementById("start");
+        var stop = document.getElementById("stop");
+        // var index = setInterval(go,1000);
+        var index;
+        function begin(){
+            index = setInterval(go,1000);    // setInterval() 函数返回线程号  //通过在外面声明的全局变量 index 使得其他地方可以使用这个线程号
+        }
+        // console.log(index);
+        function go(){
+            var date = new Date();
+            console.log(date);
+        }
+        start.onclick = begin;
+        stop.onclick=function(){
+            clearInterval(index);
+        }
+        */
+        
+
+    
+
+</script>
+</body>
+</html>

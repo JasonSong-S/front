@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广告弹窗</title>
+    <style>
+        #adv{position: fixed;right: 0;bottom: -760px;}
+    </style>
+</head>
+<body>
+    <div id="adv"><p>关闭</p>
+        <img src="img/adv.jpg">
+    </div>
+    <script>
+        /* 
+            Number()  可以将字符串型的数字和布尔值转换成数字
+            parseInt() parseFloat()  解析懿数字开头的字符串，并截取其中的数字
+            document.defaultView.getComputedStyle(对象,null)  获取对象的所有的属性
+        */
+        // 周期性定时器
+        var timer=null;
+        var timer2=null;
+        var adv = document.getElementById("adv");
+        var close  = document.getElementsByTagName("p")[0];
+        // 向上运动
+        function moveUp(){
+            var cssStyle = document.defaultView.getComputedStyle(adv,null);
+            var bottom = parseInt(cssStyle.bottom);
+            if (bottom<0){
+                bottom+=20;
+                adv.style.bottom=bottom + 'px';
+            }else{
+                clearInterval(timer);
+                timer=null;
+            }
+        }
+        // 向下运动
+        function moveDown(){
+            var cssStyle = document.defaultView.getComputedStyle(adv,null);
+            var bottom = parseInt(cssStyle.bottom);
+            if(bottom>-760){
+                bottom-=20;
+                adv.style.bottom=bottom + 'px';
+            }else{
+                clearInterval(timer);
+                timer=null;
+                timer2=setTimeout(function(){setInterval(moveUp,50)},3000);
+            }
+        }
+        close.onclick=function(){
+            setInterval(moveDown,50);
+            clearInterval(timer)
+            timer=null;
+        }
+        // 一次性定时器
+        window.onload=function(){
+            timer2=setTimeout(function(){setInterval(moveUp,50)},3000);
+        }
+    </script>
+</body>
+</html>

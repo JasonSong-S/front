@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this 的用法</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        "use strict";
+        /* 
+            this 指向当前调用函数的对象。
+            this 指向的是函数运行时所在的对象（谁调用了函数，那么函数中的 this 就指向谁)
+        
+        */
+
+        /* 例子一： 谁调用了函数， 函数中的 this 就指向谁
+        var p = document.getElementsByTagName("p");
+            var person={
+            firstName:"jason",
+            lastName:"song",
+            id:3418,
+            fullName:function(){
+                console.log(this);   // 注意 return 是结束的语句，放在其后的语句不会执行的。
+                return this.firstName + " " + this.lastName;
+                
+            }
+        };
+        p[0].innerHTML=person.fullName();
+        
+        */
+
+        /* 
+            例子二：函数中的 this 要区分是不是严格模式，默认情况是 window ，严格模式下 this 的值为 undefined
+            var x = function (){
+                return this;
+            }
+            p[0].innerHTML = x();
+        */
+        var p = document.getElementsByTagName("p");
+
+        const test = {
+            prop:42,
+            func:function(){
+                console.log(this.prop);
+                return this.prop;
+            }
+        }
+        console.log(test.func());
+
+        
+        
+
+       
+        
+        
+    </script>
+</body>
+</html>

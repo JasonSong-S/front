@@ -46,27 +46,22 @@
                 alert("请填写正确的信息！！！");
             }
         }
-        
-        // 为什么这样写不行,在函数内部调用不行，而在直接写函数名就可以，再看看事件的使用方法
-        /* // 这样是不可以的   直接用原函数调用。就没有办法改变外层函数变量的值，为什么？因为函数为局部作用域，局部作用域在执行之后会被立即销毁。所以每次调用都是重新开始的，不可能在之前的基础上进行运算、
-        img[0].onclick=function(){
-            // console.log(1);
-            eyes(0)();
-        }  */
-        /* // 这样是可以的   声明了一个新的变量来调用内层的函数，外部的变量就可以被改变。这是因为声明了一个全局变量，而全局变量是不会被垃圾回收的，这个全局变量里面保存得有局部变量，所以这个局部变量就不会被回收，每次运算的时候就是在上次运算的结果上再进行的运算。
-        var c = eyes(0);
-        img[0].onclick=function(){
-            // console.log(1);
-            c();
-        } */
-        /* // 这样是可以的
-        img[0].onclick=eyes(0); */
-        img[0].onclick=function(){
-            alert("hello");
-            eyes(0)();
-        };
-
-        img[1].onclick=eyes(1);
+        img[0].onclick=(function(){
+            var tag = true;
+            function a(){
+                visible(tag,0);
+                tag=!tag;
+            }
+            return a;
+        })();
+        img[1].onclick=(function(){
+            var tag = true;
+            function a(){
+                visible(tag,1);
+                tag=!tag;
+            }
+            return a;
+        })();
         // 封装函数
         // 用户名和密码验证
         function test(reg,index){
@@ -90,34 +85,13 @@
         function visible(flag,index){
             console.log(flag);
             if(flag){
-                input[index+1].type="password";
+                input[index+1].type="text";
                 img[index].src="img/open.png";
             }else{
-                input[index+1].type="text";
+                input[index+1].type="password";
                 img[index].src="img/close.png";
             }
         }
-        function eyes(index){
-            var flag = true;
-            console.log(0);
-            function fn(){
-                console.log(flag);
-                if(flag){
-                    input[index+1].type="text";
-                    img[index].src="img/open.png";
-                }else{
-                    input[index+1].type="password";
-                    img[index].src="img/close.png";
-                }
-                flag=!flag;
-            }
-            return fn;
-        }
-
-
-        // 闭包作用域的问题
-
-        
     </script>
 </body>
 </html>

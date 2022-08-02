@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+</head>
+<body>
+    <button id="btn">运行</button>
+    <script>
+        /* 
+            节流：通过一次性定时器来延迟运行在很短的时间内连续的触发一件事情，它按照一定的频率给你执行远小于触发的次数。
+        */
+        /* // 1. 节流
+        var btn = document.getElementById("btn");
+        var timer = null;
+        var flag = true;
+        btn.onclick = function(){
+            
+            if(!flag){
+                return;
+            }
+            flag=false;
+            timer=setTimeout(function(){console.log("加油啊！！！");flag=true;},1000);
+            
+        } */
+         // 2. 封装的节流
+        var btn = document.getElementById("btn");
+        
+        function doThroattling(fn){
+            var timer = null;
+            var flag = true;
+            return function(){
+                if (!flag){
+                    return;
+                }
+                flag=false
+                timer=setTimeout(fn,1000);
+                setTimeout(function(){flag=true;},1000);
+            }   
+        }
+        function fn(){console.log("加油啊！！！");}
+        btn.onclick = doThroattling(fn);
+    </script>
+</body>
+</html>

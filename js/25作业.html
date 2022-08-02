@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>520倒计时</title>
+</head>
+<body>
+    <h1 id="txt">离国庆时</h1>
+    <script>
+        var txt = document.getElementById("txt");
+        var target  = new Date('2022-01-01');
+        var colon = ":";
+        function clock(){
+            var now = new Date();
+            var ms = target - now;
+            if (ms>=0){
+                var day = Math.floor(ms/1000/60/60/24);
+                var h = Math.floor((ms-day*24*60*60*1000)/1000/60/60);
+                h=h<10?"0"+h:h;
+                var min = Math.floor((ms -day*24*60*60*1000- h*60*60*1000)/1000/60);
+                min=min<10?"0"+min:min;
+                var second = Math.floor((ms -day*24*60*60*1000- h*60*60*1000 - min*60*1000)/1000);
+                second=second<10?"0"+second:second;
+                var c = change();
+                txt.innerHTML="离国庆倒计时"+day+"天"+h+c+min+c+second;
+            }else{
+                txt.innerHTML="等待明年";
+                clearInterval(index);
+                index=null; 
+            }
+        }
+
+        function change(){
+            if (colon===":"){
+                colon = " ";
+            }else{
+                colon=":";
+            }
+            return colon;
+        }
+        var index = setInterval(clock,1000);
+    </script>
+</body>
+</html>
