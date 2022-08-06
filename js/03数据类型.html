@@ -48,10 +48,20 @@
                     4. 只要 && 前为 false，后面无论是什么，都返回前面的值
                 7. 三元运算符： 条件？条件成立的值：条件不成立的时候的值
                 8. typeof 检测数据类型
+                9. instanceof 运算符用来检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
 
             表达式：纯运算符连接的就是表达式，表达式跟值一定是等效的，因为表达式可以进行运算，运算的结果就是值。
 
+            
+
         */
+       // undefined 表示变量的值不存在  
+       // TODO：null 和 "" 的区别
+        var a;
+        console.log(a===undefined); // true
+        console.log(null=="");  // false
+        console.log(null==="");  // false
+
     </script>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1>天气预报</h1>
+<h2 id="weather"></h2>
+<input type="text" id="city">
+
+<body>
+    <script>
+        var city = document.getElementById("city");
+        var weather = document.getElementById("weather");
+
+        city.onblur = function () {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("get", "https://restapi.amap.com/v3/weather/weatherInfo?key=b51d40625115ffd635190dfea1f6167e&city=" + city.value + "&extensions=all", true);
+            xmlhttp.send(null);
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var data = JSON.parse(xmlhttp.responseText);
+                    // console.log(data.forecasts[0].casts);
+                    // console.log(data.forecasts[0]);
+
+                    /* if (data.lives[0]){
+                        weather.innerHTML = data.lives[0].city +"的天气是" + data.lives[0].weather + "温度是" + data.lives[0].temperature;
+                    }else{
+                        weather.innerHTML = "暂时没有该城市的天气信息"
+                    } */
+                    weather.innerHTML = "";
+                    if (data.forecasts[0]) {
+                        for (var i = 0; i < data.forecasts[0].casts.length; i++) {
+                            weather.innerHTML += city.value + data.forecasts[0].casts[i].date + "的天气是" + data.forecasts[0].casts[i].dayweather + "气温是" + data.forecasts[0].casts[i].daytemp + "<br>";
+                        }
+                    } else {
+                        weather.innerHTML = "暂时没有该城市的天气信息";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

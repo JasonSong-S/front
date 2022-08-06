@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            原型(prototype)：方法背后，专门保存由方法创建出来对象的共有属性。
+               原型对象  prototype={}
+            
+            只有函数才有原型属性
+
+            new:
+
+            构造函数/对象模板：专门用来创建相同结构对象的专门方法
+             
+            共有属性：通过构造函数和 prototype 属性添加的属性是共有属性。构造函数.prototype.属性 = 属性值
+                共有属性不同于在构造函数体内赋值的属性。构造体内赋值的属性会被对象实例所继承并展示在对象实例的内部，共有属性也会被继承，但是不会展示在对象实例的内部。简言之，对象实例的显示的属性是构造体内部有的属性，共有属性不显示。
+            自有属性：属于对象实例自身的属性（不共享）
+                    任何实例对象无权修改原型中的数据
+        
+        */
+        /*  function Learner(name,age,car){
+            this.name = name;
+            this.age = age;
+            this.car=car;
+         }
+
+        Learner.prototype.car="bentley";
+        
+        var jason = new Learner("jason",27,"benz");
+        console.log(jason);
+        console.log(jason.car);   //  benz */
+
+
+       /*  // 区分共有属性和自有属性的差别
+       function Learner(name,age){
+            this.name = name;
+            this.age = age;
+            // this.car=car;
+         }
+
+        Learner.prototype.car="bentley";
+        
+        var jason = new Learner("jason",27,"benz");
+        console.log(jason);
+        console.log(jason.car);   //  bentley  这里的 car 是共有的属性，经过 prototype 定义之后的共有属性，对象实例中并不包含共有属性，但是可以使用这个共有属性。 */
+    </script>
+</body>
+</html>

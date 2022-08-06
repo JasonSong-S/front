@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            1.instanceof: 用于判断某个属性是否出现在某个实例的原型链上
+
+            2.instanceof 只适用于引用数据类型
+                子孙 instanceof 祖宗
+            
+            3.手写 instanceof 源码
+                _instanceof(子孙，祖宗)
+        */
+
+        function _instanceof(children, parent){
+            var left = children.__proto__;
+            var right = parent.prototype;
+            while(left!=null){
+                if (left === right){
+                    return true;
+                }
+                left = left.__proto__;
+            }
+            return false;
+        }
+
+
+        var arr = new Date();
+        console.log(_instanceof(arr, Date));
+
+    </script>
+</body>
+</html>

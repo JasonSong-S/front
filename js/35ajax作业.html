@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>省市区三级联动菜单</title>
+</head>
+<select  id="province">
+    <option>---请选择省份---</option>
+</select>
+<select  id="city">
+    <option>---请选择城市---</option>
+</select>
+<select  id="county">
+    <option>---请选择区县---</option>
+</select>
+
+<body>
+    <script>
+        var province = document.getElementById("province");
+        var city = document.getElementById("city");
+        var county = document.getElementById("county");
+        var xmlhttp = new XMLHttpRequest();
+        
+        xmlhttp.open("get","province.php",true);
+        xmlhttp.send(null);
+        xmlhttp.onreadystatechange = function(){
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                var provinces = xmlhttp.responseText;
+                var provincesArr=provinces.split(",");
+                for (var i = 0; i < provincesArr.length;i++){
+                    var option = document.createElement("option");
+                    province.appendChild(option);
+                    option.innerHTML=provincesArr[i];
+                }
+            }
+        }
+        // 城市的 ajax
+        province.onchange=function(){
+            city.innerHTML="<option>---请选择城市---</option>"
+            xmlhttp.open("post","city.php",true);
+            xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlhttp.send("provinceValue="+province.value);
+            xmlhttp.onreadystatechange=function(){
+                var cities = xmlhttp.responseText;
+                var citiesArr = cities.split(",");
+                for (var i = 0; i < citiesArr.length;i++){
+                    var option = document.createElement("option");
+                    city.appendChild(option);
+                    option.innerHTML=citiesArr[i];
+                }
+            }
+        }
+
+        // 地区的 ajax
+        city.onchange=function(){
+            county.innerHTML="<option>---请选择区县---</option>"
+            xmlhttp.open("post","county.php",true);
+            xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlhttp.send("cityValue="+city.value);
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status ==200){
+                    var counties = xmlhttp.responseText;
+                    var countiesArr = counties.split(",");
+                    for(var i=0; i <counties.length;i++){
+                        var option = document.createElement("option");
+                        county.appendChild(option);
+                        option.innerHTML=countiesArr[i];
+                    }
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

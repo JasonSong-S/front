@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+          ajax: 前端向后端取数据而无序刷新页面的技术
+            XMLHttpRequest()
+
+
+         跨域问题： 浏览器的同源策略，浏览器端与服务器端才会产生跨域的问题，服务器与服务器之间没有跨域的问题
+         同源： 三个同：    同协议 同端口 同域名
+
+
+         post 方式 在 ajax 中需要设置请求头  xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        
+        */
+
+        // 1. 创建 ajax 核心对象
+        var xmlhttp = new XMLHttpRequest();
+        // 2. 创建请求   请求方式(get/post) 请求地址(后端服务器地址) 是否异步(true)
+        xmlhttp.open("get","http:www.baidu.com?user=8888888&psd=123456",true);
+        // 3. 发送请求参数 key  = value 形式的字符串，如果有多个参数，中间以 & 连接
+            // 如果请求方式为 get，参数应该拼接在请求地址后面以 ? 连接
+            // 如果请求方式为 get， send()方法内的参数为 null 
+            // 如果请求方式为 post， send()方法内的参数为  key  = value 形式的字符串，如果有多个参数，中间以 & 连接
+        xmlhttp.send(null);  
+        // 4. 接收响应
+            // readyState   0(尚未初始化) 1(正在请求) 2(请求完毕) 3(正在响应) 4(响应完毕)
+            // status  请求的状态码 200(成功) 404(找不到) 500(服务器崩溃) 301 304
+            // onreadystatechange 这个属性用来监听状态改变
+            // responseText 接收服务端返回的文本格式的数据
+        xmlhttp.onreadystatechange = function(){
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                var data = xmlhttp.responseText;
+        }
+        }
+
+        
+
+    </script>
+</body>
+</html>

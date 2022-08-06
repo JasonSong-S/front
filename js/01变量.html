@@ -11,30 +11,64 @@
 <body>
     <script>
     /* 变量的使用：
-            1. 声明变量
-            2. 命名
-            3. 初始化
+            1. 声明变量：js 中创建变量又叫做声明变量，使用 var 来声明变量。
+            2. 命名规则：小驼峰
+            3. 初始化：赋值操作
         
 
         1. 使用变量就相当于使用变量里面的数据
         2. 一个变量只能存一个数据
-        3. 变量可以改
-        4. 对于未声明的变量直接赋值，那么 js 会自动帮你声明
+        3. 变量可以改  变量=新值
+        4. 对于未声明的变量直接赋值，那么 js 会自动帮你声明，并且是在全局作用域帮你声明
         5. 变量声明的时候有默认值， undefined
-        6. 变量声明提升： 变量声明语句会自动的提前到最前面，注意只是声明会提前，赋值并不会提前。
+        6. 变量声明提升： 变量声明语句会自动的提前到当前作用域的最前面，注意只是声明会提前，赋值并不会提前。
+        7. js 中可以用 var 重新声明一个变量但是没有重新赋值的话，变量的值并不会改变。
+        8.一条语句，可以声明多个变量。语句以 var 开头，中间使用逗号分隔多个变量即可
     */
-        /* var a = 10;
+       /*  var a = 10;
         var b = 20;
-        var c = b = a;
+        var c = b = a;   //  会将 a 的值赋值给 b 然后赋值给 c， 所以最后的结果都是一样的 10
         console.log(a);  // 10
         console.log(b);  // 10
         console.log(c);  // 10 */
 
         
-        /* console.log(a);   // undefined
+       /*  console.log(a);   // undefined  a 变量之前没有声明，下面一句的初始化语句声明提前，但是赋值不提前，所以这句不会弹出 a 变量没有定义的错误，但是也不会将 a 的值变为 5，而是使用默认的初始值 undefined。
         var a = 5;
         console.log(a); // 5 */
 
+
+        /* // js 中可以用 var 重新声明一个变量但是没有重新赋值的话，变量的值并不会改变。
+        var my = "jason";
+        console.log(my);
+        var my;
+        console.log(my); */
+
+        /* // 一条语句，可以声明多个变量。语句以 var 开头，中间使用逗号分隔多个变量即可
+        var my="jason", age=27;
+        console.log(my);
+        console.log(age); */
+
+        /* // var 和 let 的不同
+        function varTest() {
+            var x = 1;
+            if (true) {
+                var x = 2;       // 同样的变量!
+                console.log(x);  // 2
+            }
+            console.log(x);  // 2
+         }
+        //  varTest()
+
+        function letTest() {
+            let x = 1;
+            if (true) {
+                let x = 2;       // 不同的变量    
+                console.log(x);  // 2  
+            }
+            console.log(x);  // 1
+        }
+        letTest() */
 
     </script>
 </body>

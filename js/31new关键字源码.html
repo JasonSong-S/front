@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+           1. _new(构造函数，参数1，参数2，...)
+           2. js 的函数参数
+                显示参数：函数定义的时候列出的参数
+                隐式参数：函数调用的时候真正传递给函数的参数， 可以使用 arguments 关键字来检测和返回。因为是函数参数，所以在函数的内部生效。
+                    arguments 是 js 内置的关键字，它是一个对象，类似数组的对象但是不是数组，
+        */
+
+        // 手写 new 关键字源码
+        function _new(){
+            // 1.创建空对象
+            var obj = {};
+            // 获取构造函数和参数，此时的 fn 就是我们的构造函数
+            var fn = [].shift.call(arguments);   // shift 返回数组的第一个值，并且会修改原来的数组
+            // 2.绑定原型链, 将对象的隐式原型指向父类的原型
+            obj.__proto__ = fn.prototype;
+            // 3.继承构造函数的属性和方法，改变 this 的指向，调用方法
+            fn.apply(obj,arguments);
+            // 4.返回对象
+            return obj;
+        }
+
+
+        function Student(name,age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Student.prototype.car = "benz";
+        
+        var jason = _new(Student,"jason",27);
+        console.log(jason);
+
+    </script>
+</body>
+</html>
