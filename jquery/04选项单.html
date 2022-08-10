@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .box {
+            background-color: azure;
+            font-size: 20px;
+        }
+
+        ul {
+            background-color: rgb(0, 255, 225);
+            list-style-type: none;
+            width: 1000px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        li {
+            margin-right: 50px;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        /* .choice{text-align: left;} */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="tops">
+            <li class="fl">上装：</li>
+            <li class="fl all1">全部</li>
+            <li class="fl">针织衫</li>
+            <li class="fl">毛呢外套</li>
+            <li class="fl">T恤</li>
+            <li class="fl">羽绒服</li>
+            <li class="fl">棉衣</li>
+            <li class="fl">卫衣</li>
+            <li class="fl">风衣</li>
+            <li class="clear"></li>
+        </ul>
+        <ul class="pants">
+            <li class="fl">裤装：</li>
+            <li class="fl all2">全部</li>
+            <li class="fl">牛仔裤</li>
+            <li class="fl">小脚铅笔裤</li>
+            <li class="fl">休闲裤</li>
+            <li class="fl">打底裤</li>
+            <li class="fl">哈伦裤</li>
+            <li class="clear"></li>
+        </ul>
+        <ul class="dress">
+            <li class="fl">裙装：</li>
+            <li class="fl all3">全部</li>
+            <li class="fl">连衣裙</li>
+            <li class="fl">半身裙</li>
+            <li class="fl">长袖连衣裙</li>
+            <li class="fl">中长款连衣裙</li>
+            <li class="clear"></li>
+        </ul>
+        <ul class="choice">
+            <li class="fl last">已选条件：</li>
+            <li class="clear"></li>
+        </ul>
+    </div>
+    <script>
+
+        // 选中的时候高亮
+        $("li").click(function () {
+            if ($(this).siblings().length === 9) {
+                $(this).addClass("row1");
+
+            } else if ($(this).siblings().length === 7) {
+                $(this).addClass("row2");
+            } else {
+                $(this).addClass("row3");
+            }
+
+            if ($(this).siblings().length === 9 || $(this).siblings().length === 7 || $(this).siblings().length === 6) {
+                if ($(this).text() != "全部") {
+                    if ($(this).siblings().length === 9) { $(".choice li").remove(".row1"); }
+                    if ($(this).siblings().length === 7) { $(".choice li").remove(".row2"); }
+                    if ($(this).siblings().length === 6) { $(".choice li").remove(".row3"); }
+
+                    // $(this).css("background-color", "red").clone().appendTo($(".choice>li.fl"));
+                    $(".choice li.last").after($(this).css("background-color", "red").clone());
+
+                } else {
+                    $(this).css("background-color", "red");
+                    if ($(this).siblings().length === 9) { $(".choice li").remove(".row1"); }
+                    if ($(this).siblings().length === 7) { $(".choice li").remove(".row2"); }
+                    if ($(this).siblings().length === 6) { $(".choice li").remove(".row3"); }
+                }
+            }
+            $(this).siblings().css("background-color", "rgb(0, 255, 225)");
+        });
+        // 滑过时候的背景色
+        $("li").hover(function () {
+            $(this).css("background-color", "orange");
+        }, function () { if (($(this).css("background-color") !== "rgb(255, 0, 0)")) { $(this).css("background-color", "rgb(0, 255, 225)"); } });
+        // 添加 全部选项的功能
+        $(".all").click(function () { });
+
+
+        // 添加已选条件的功能
+
+        $(".choice li").click(function () {
+            // console.log($(this).hasClass("row1"));
+            console.log($(this).text());
+            if ($(this).hasClass("row1")) { $(".choice li").remove(".row1");
+        console.log(1); }
+            /* if ($(this).siblings().length === 7) { $(".choice li").remove(".row2"); }
+            if ($(this).siblings().length === 6) { $(".choice li").remove(".row3"); } */
+        });
+    </script>
+</body>
+
+</html>

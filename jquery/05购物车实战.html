@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .box,.check{width: 800px;margin: auto;font-size: 30px;margin-bottom: 100px;}
+        div img, .product,.price,div button,div span{float: left;padding: 10px;}
+        .check img,.check p,.check button{float: left;padding: 10px;}
+        .pay{background-color: gray;padding: 10px;}
+        .clear{clear: both;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>
+            <img src="img/unselected.png">
+            <p class="product">mac pro：</p>
+            <p class="price">￥20000</p>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+            <button>删除</button>
+            <div class="clear"></div>
+        </div>
+        <div>
+            <img src="img/unselected.png">
+            <p class="product">iphone 14</p>
+            <p class="price">￥9000</p>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+            <button>删除</button>
+            <div class="clear"></div>
+        </div>
+        <div>
+            <img src="img/unselected.png">
+            <p class="product">外星人：</p>
+            <p class="price">￥18000</p>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+            <button>删除</button>
+            <div class="clear"></div>
+        </div>
+        <div>
+            <img src="img/unselected.png">
+            <p class="product">按摩椅：</p>
+            <p class="price">￥10000</p>
+            <button>-</button>
+            <span>1</span>
+            <button>+</button>
+            <button>删除</button>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 底部结算菜单 -->
+    <div class="check">
+        <img src="img/unselected.png">
+        <p class="num">已选（0）</p>
+        <p class="total">￥0.00</p>
+        <span class="pay">结算</span>
+        <div class="clear"></div>
+    </div>
+
+    <script>
+        
+
+$(document).ready(function(){
+        // 全局变量
+        // 记录选中类型的数量
+        var n = 0; 
+        //总价格
+        var total=0.00;
+        // 单价
+        //  var price = 0;
+        // 数量
+        var num=0;
+        // 数量变化
+        var numc = 0;
+        var num1=1,num2=1;
+        // 1.增加减少数量以及删除元素  index()返回的角标
+        $("button").click(function(){
+            // 获取数量
+            num = Number($(this).siblings("span").text());
+            // index ： - 0， + 1， 删除 2
+            var index = $(this).index("button");
+            if (index % 3===0 && num > 1){
+                $(this).siblings("span").text(num -1);
+
+            }else if (index % 3 === 1){
+                $(this).siblings("span").text(num +1);
+            }else if(index%3 == 2){
+                // 删除元素
+                $(this).parent().remove();
+            }
+            // 获取数量
+            num = Number($(this).siblings("span").text());
+            console.log("num:"+num);
+            num2 = num;
+            numc = num2 - num1;
+            // console.log(numc);
+            // 点击增加删除按钮改变价格
+            // 记录已选图标的数量，初始值为0  记录已经选择的数量和单价
+            var src = $(this).siblings("img").attr("src");
+            // 单价
+            var price = Number(($(this).siblings(".price").text().slice(1,)));
+            
+            /* if(src =="img/selected.png"){
+                
+                total += price * numc;
+                console.log(total);
+             }
+            num1 = num2;
+            console.log("num1:"+num1);
+            console.log("num2:"+num2); */
+            total = 0.00;
+        for (var i = 0; i < $(".box img").length;i++){
+        
+        // 找出被选中的行
+        var rowi = $(".box img")[i];
+        var srct = $(".box img")[i];
+        var srctag=$(srct).attr("src")   
+        console.log(srctag);
+        // 单价
+        // var price = Number(($(this).siblings(".price").text().slice(1,)));
+        var price = Number(($(rowi).siblings(".price").text().slice(1,)));
+        // 数量
+        var num = Number($(rowi).siblings("span").text());
+    
+        if(srctag =="img/selected.png"){
+                total += price * num;
+                console.log(total);
+        }
+        
+    }
+            
+            // 添加总价格
+            $(".check .total").text("￥"+total);
+
+        });
+  
+        /* // 1.增加减少数量以及删除元素  index()返回的角标
+        $("button").on("click",function(e){
+            // 获取数量
+            var num = Number($(this).siblings("span").text());
+            // index ： - 0， + 1， 删除 2
+            var index = $(this).index("button");
+            if (index % 3===0 && num > 1){
+                $(this).siblings("span").text(num -1);
+            }else if (index % 3 === 1){
+                $(this).siblings("span").text(num +1);
+            }else if(index%3 == 2){
+                // 删除元素
+                $(this).parent().remove();
+            }
+        }); */
+        //2.添加已选和未选的图标 , 计算价格
+        
+        $(".box img").click(function(){
+    // var src = $(this).attr("src");
+    // if(src =="img/unselected.png"){
+    //     $(this).attr("src","img/selected.png");
+    //     n++;
+    // }else{
+    //     $(this).attr("src","img/unselected.png");
+    //     n--;
+    // }
+     // 记录已选图标的数量，初始值为0  记录已经选择的数量和单价
+    var src = $(this).attr("src");
+    // console.log(src);
+    // console.log($(".box img"));
+    
+    
+    if(src =="img/unselected.png"){
+        $(this).attr("src","img/selected.png");
+        n++;
+        // num = Number($(this).siblings("span").text());
+        // total += price * num;
+    }else{
+        $(this).attr("src","img/unselected.png");
+        n--;
+        // num = Number($(this).siblings("span").text());
+        // total -= price * num;
+    }
+    total=0.00;
+    for (var i = 0; i < $(".box img").length;i++){
+        
+        // 找出被选中的行
+        var rowi = $(".box img")[i];
+        var srct = $(".box img")[i];
+        var srctag=$(srct).attr("src")   
+        console.log(srctag);
+        // 单价
+        // var price = Number(($(this).siblings(".price").text().slice(1,)));
+        var price = Number(($(rowi).siblings(".price").text().slice(1,)));
+        // 数量
+        var num = Number($(rowi).siblings("span").text());
+    
+        if(srctag =="img/selected.png"){
+                total += price * num;
+                console.log(total);
+        }
+        
+    }
+    // console.log(total);
+    // 改变已选类型的数量和图标  // 价格计算
+    if(n!=0){
+        $(".check img").attr("src","img/selected.png");
+        $(".check .num").text("已选（"+n+")");
+    }else{
+        $(".check img").attr("src","img/unselected.png");
+        $(".check .num").text("已选（"+n+")");
+    }
+     // 添加总价格
+     $(".check .total").text("￥"+total);
+});
+    // 3.结算(yes)
+    $(".check .pay").click(function(){
+        if(total >0){
+            $(".check .pay").css("background-color","red");
+        }else{
+            alert("还未选购商品");
+        }
+    });
+    // 4. 全选的操作(yes)
+    $(".check img").click(function(){
+        var src = $(this).attr("src");
+        // console.log($(".price").text().split("￥"));
+        // console.log($(".price").siblings("span")[0]);
+        var priceArr = $(".price").text().split("￥")
+        var total0=0;
+        for (var i = 0; i < 4; i++){
+            var span = $(".price").siblings("span")[i];
+            var spannum = Number(span.innerText);
+            total0 += priceArr[i+1] * spannum;
+        }
+        total = total0;
+        if(src =="img/unselected.png"){
+            $("img").attr("src","img/selected.png");
+            $(".check .num").text("全选");
+            $(".check .total").text("￥"+total);
+        }else{
+            $("img").attr("src","img/unselected.png");
+            $(".check .num").text("已选（0）");
+            $(".check .total").text("￥0.00");
+        }
+        
+    });
+    /* // 计算价格  box img
+$(".box img").click(function(){
+    var src = $(this).attr("src");
+    console.log(src);
+    if(src =="img/unselected.png"){
+        $(this).attr("src","img/selected.png");
+        n++;
+        num = Number($(this).siblings("span").text());
+        
+    }else{
+        $(this).attr("src","img/unselected.png");
+        n--;
+        num = Number($(this).siblings("span").text());
+        
+    }
+        // console.log($(".price").text().split("￥"));
+        // console.log($(".price").siblings("span")[0]);
+        var priceArr = $(".price").text().split("￥")
+        var total0=0;
+        for (var i = 0; i < 4; i++){
+            var span = $(".price").siblings("span")[i];
+            var spannum = Number(span.innerText);
+            total0 += priceArr[i+1] * spannum;
+        }
+        total = total0;
+       
+}); */
+
+});
+
+
+
+    </script>
+</body>
+</html>

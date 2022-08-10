@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        .box{margin: 200px auto;width: 1500px;}
+        ul{list-style-type: none;}
+        ul p,.selected p{margin-top: 50px;}
+        li{padding: 5px;font-size: 20px;text-align: center;margin-top: 40px; margin-right: 40px;}
+        li:hover{background-color: antiquewhite;}
+        .act{background-color: red !important;}
+        .selected p,.selected div{display: inline-block;}
+        .selected div{background-color: red !important;padding: 5px;font-size: 20px;text-align: center;margin-top: 40px; margin-right: 40px;}
+        .fl{float: left;}
+        .clear{clear: both;}
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="coat">
+            <p class="fl">上装：</p>
+            <li class="fl act">全部</li>
+            <li class="fl">针织衫</li>
+            <li class="fl">毛呢外套</li>
+            <li class="fl">T恤</li>
+            <li class="fl">羽绒服</li>
+            <li class="fl">棉衣</li>
+            <li class="fl">卫衣</li>
+            <li class="fl">风衣</li>
+            <li class="clear"></li>
+        </ul>
+        <ul class="pants">
+            <p class="fl">裤装：</p>
+            <li class="fl act">全部</li>
+            <li class="fl">牛仔裤</li>
+            <li class="fl">小脚铅笔裤</li>
+            <li class="fl">休闲裤</li>
+            <li class="fl">打底裤</li>
+            <li class="fl">哈伦裤</li>
+            <li class="clear"></li>
+        </ul>
+        <ul class="dress">
+            <p class="fl">裙装：</p>
+            <li class="fl act">全部</li>
+            <li class="fl">连衣裙</li>
+            <li class="fl">半身裙</li>
+            <li class="fl">长袖连衣裙</li>
+            <li class="fl">中长款连衣裙</li>
+            <li class="clear"></li>
+        </ul>
+        <div class="selected">
+            <p>已选条件：</p>
+            <p class="tips">暂时没有选择过滤条件</p>
+        </div>
+    </div>
+
+    <script>
+        $("ul li").click(function(){
+            // 获取父元素的标签名
+            var cn = $(this).parent().attr("class");
+            // 移除同类中的高亮
+            $(this).siblings().removeClass("act");
+            // 添加高亮 和 标签
+            $(this).addClass("act"+" " + cn);
+            // 获取元素的文字内容
+            var text = $(this).text();
+            // 向过滤条件中添加
+            if (text != "全部"){
+                // 如果在已经选择,没有则直接添加
+                if ($(".selected " + "." + cn).length==0){
+                    $(".selected").append("<div class="+cn+">" +text + "</div>");
+                }else{
+                    $(".selected div").remove("."+cn);
+                    $(".selected").append("<div class="+cn+">" +text + "</div>");
+                }
+            }else{
+                $(".selected div").remove("."+cn);
+            }
+            // 提示文字的显示和隐藏
+            if($(".selected div").length===0){
+                $(".tips").show();
+            }else{
+                $(".tips").hide();
+            }
+        });
+        // 点击条件进行删除
+        $(".selected").on("click",function(e){
+            // 当前点击元素的父类的class
+            var cn = $(e.target).attr("class");
+            // 删除条件选项
+            $(".selected div").remove("."+cn)
+            // 回到全部那里
+            $("ul li" + "." +cn).removeClass("act");
+            $("ul li" + "." +cn).siblings("p+li").addClass("act");
+            // 提示文字的显示和隐藏
+            if($(".selected div").length===0){
+                $(".tips").show();
+            }else{
+                $(".tips").hide();
+            }
+        })
+    </script>
+</body>
+</html>

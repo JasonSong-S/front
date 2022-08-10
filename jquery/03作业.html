@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            width: 200px;
+            text-align: center;
+        }
+
+        .first {
+            background-color: aquamarine;
+            font-size: 24px;
+        }
+
+        .second {
+            background-color: rgb(0, 149, 255);
+            font-size: 16px;
+            display: none;
+        }
+        .content, .arrow{display: inline-block;transition: all 2s;}
+        .arrow{transform: rotate(90deg);}
+        .act{transform: rotate(270deg);}
+    </style>
+</head>
+
+<body>
+    <ul class="first">
+        <li><div class="content">首页</div><div class="arrow">></div></li>
+        <ul class="second">
+            <li>首页的二级</li>
+            <li>首页的二级</li>
+            <li>首页的二级</li>
+            <li>首页的二级</li>
+        </ul>
+        <li><div class="content">产品</div><div class="arrow">></div></li>
+        <ul class="second">
+            <li>产品的二级</li>
+            <li>产品的二级</li>
+            <li>产品的二级</li>
+            <li>产品的二级</li>
+        </ul>
+        <li><div class="content">地区</div><div class="arrow">></div></li>
+        <ul class="second">
+            <li>地区的二级</li>
+            <li>地区的二级</li>
+            <li>地区的二级</li>
+            <li>地区的二级</li>
+        </ul>
+        <li><div class="content">资讯</div><div class="arrow">></div></li>
+        <ul class="second">
+            <li>资讯的二级</li>
+            <li>资讯的二级</li>
+            <li>资讯的二级</li>
+            <li>资讯的二级</li>
+        </ul>
+    </ul>
+    <script>
+        
+        $(".first>li").click(function () {
+            
+            $(this).next().siblings(".second").slideUp();
+            $(this).siblings().children(".arrow").removeClass("act");
+            $(this).children(".arrow").toggleClass("act");
+            $(this).next().slideToggle();  
+        });
+        
+
+    </script>
+</body>
+
+</html>
