@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自动变色的文字</title>
     <style>
-        #my_box{color:red;}
+        /* #my_box{color:red;} */
         .go{color:red}
         .stop{color:green;}
     </style>
 </head>
 <body>
-    <div id="my_box">
+    <div id="my_box" class="stop">
         <h3>2022.7.30 今天星期六</h3>
     </div>
     <button id="start">start</button>
@@ -24,29 +24,30 @@
         let intervalID;
         function changeColor(){
             if (!intervalID){
-                intervalID=setInterval(flashText,1000);
+                intervalID=setInterval(flashText,500);
             }
         }
 
         function flashText(){
-            /* 
+            
                 //第一种改变颜色的方式，通过设置和更改元素的类名，两个类名中设置了不同的颜色属性。通过定时器间隔的更改类名来实现更改颜色
-                if (txt.className ==="go"){      // element.className() 可以给元素添加，修改属性名
+                if (txt.className ==="go"){
+                    // element.className() 可以给元素添加，修改属性名
                     txt.className ="stop";
                 }else{
                     txt.className ="go";
             } 
 
-            */
-                /* 
-                    第二种：直接修改元素的颜色属性
+           
+                
+                    /* //第二种：直接修改元素的颜色属性
                     if (txt.style.color==="red"){
                         txt.style.color="black";
                     }else{
                         txt.style.color="red";
                 }
-                
-                */
+                 */
+               
         }
 
 

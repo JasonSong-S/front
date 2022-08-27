@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycomp></mycomp>
+    </div>
+    
+    <script>
+        /* 
+            组件：一个标签，其中封装了 html css js 代码，这些代码可以通过新的标签直接引用，这个组件的标签名是自定义的。
+                1. 组件：  全局注册、局部注册
+                      全局注册的组件可以在任何地方使用，但是在实际项目中很少使用全局注册的组件
+                      Vue.component("组件名",{template:"html 代码", data(){},methods:{},computed:{},watch:{}})
+                      
+                      局部注册组件，需要在哪里使用就在哪里进行注册,不仅可以在 Vue 实例中注册并使用局部注册的组件，还可以在局部注册的组件中使用其他局部注册的组件，局部注册组件可以嵌套的使用。
+                      例： 在 Vue 实例中使用自定义的组件，Vue 实例中使用关键字 components 进行注册。
+                      const mycomp = {
+                            template:`<div>
+                                    <h1>{{msg}}</h1>
+                                </div>`,
+                            data(){return {msg:"我是局部注册的组件"}}
+                        };
+                        
+
+                        let app = new Vue({
+                            el:"#app",
+                            data:{
+
+                            },
+                            components:{
+                                mycomp
+                            }
+                        });
+
+
+                2. 比较组件 和 Vue 实例的不同之处(html css js)
+                    1. 组件没有挂载点，因为组件需要在哪里使用就在哪里进行注册，所以这步操作就相当于挂载的操作
+                    2. template 组件中写 html 的地方，类似于 Vue 实例在 body 的 html 元素中书写 html
+                    3. 数据 data是不一样的，至于 js, methods, computed, watch 都是一样的，但是对于数据 data， 因为我们需要复用组件的时候数据可以不一样，所以在组件中抛弃了 Vue 实例中的 data 对象，改为使用 data 函数， return 一个对象回来，这样组件调用的时候，执行的函数可以返回不一样的值，达到同一个组件但是在不同地方使用互不影响其中的值的效果。
+
+                3.注意：
+                        1. template 中的 html 最外层只有一个根节点，不能有多个，所以 template 中需要包含多条 html 语句的时候，最外层的必须有一个容器，其中的语法使用模板字符串和 Vue 的语法
+                        2.组件名在 html 中是使用短横线连接的小写字母，在 js 中使用驼峰式
+                        3.组件中的 data 必须是函数，并且必须 return 一个对象，就是我们的数据对象
+        
+        */
+
+        const mycomp = {
+            template:`<div>
+                    <h1>{{msg}}</h1>
+                </div>`,
+            data(){return {msg:"我是局部注册的组件"}}
+        };
+        
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            components:{
+                mycomp
+            }
+        });
+
+
+       
+
+       
+
+    </script>
+</body>
+</html>

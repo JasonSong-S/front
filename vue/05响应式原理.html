@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式原理</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    
+    <script>
+        /* 由于 javaScript 的限制， Vue 不能检测数组和对象的变化
+        
+            1. 对于对象来说：
+                1.property 必须在 data 对象上存在才能让 Vue 将它转换为响应式的
+                2.对于已经创建的实例， Vue 不允许动态添加根级别的响应式 property
+                    可以使用如下方法嵌套对象添加响应式 property
+                    Vue.set(object, propertyName, value)
+            
+            2. 对于数组来说：
+                1.直接通过角标赋值是无法设置为响应式的
+                2.直接修改长度也是无法设置为响应式的
+                3.可以使用如下方法嵌套数组添加响应式 property
+                    Vue.set(vm.items, indexOfItem, newValue)
+
+            3. 数组更新检测
+                Vue 将被监听的数组的变更方法进行了包裹，所以他们也将会触发视图更新，这些被包裹的方法包括：
+                    push()
+                    pop()
+                    shift()
+                    unshift()
+                    splice()
+                    sort()
+                    reverse()
+        
+        */
+    </script>
+</body>
+</html>

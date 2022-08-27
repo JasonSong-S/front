@@ -61,7 +61,7 @@
     <!-- 底部结算菜单 -->
     <div class="check">
         <img src="img/unselected.png">
-        <p class="num">已选（0）</p>
+        <p class="num">全选</p>
         <p class="total">￥0.00</p>
         <span class="pay">结算</span>
         <div class="clear"></div>
@@ -95,7 +95,7 @@ $(document).ready(function(){
             }
             // 获取数量
             num = Number($(this).siblings("span").text());
-            console.log("num:"+num);
+            // console.log("num:"+num);
             num2 = num;
             numc = num2 - num1;
             // console.log(numc);
@@ -111,7 +111,7 @@ $(document).ready(function(){
             // 找出被选中的行
             var srct = $(".box img")[i];
             var srctag=$(srct).attr("src")   
-            console.log(srctag);
+            // console.log(srctag);
             // 单价
             // var price = Number(($(this).siblings(".price").text().slice(1,)));
             var price = Number(($(srct).siblings(".price").text().slice(1,)));
@@ -120,7 +120,7 @@ $(document).ready(function(){
         
             if(srctag =="img/selected.png"){
                     total += price * num;
-                    console.log(total);
+                    // console.log(total);
             }    
         }            
             // 添加总价格
@@ -145,14 +145,14 @@ $(document).ready(function(){
         var rowi = $(".box img")[i];
         var srct = $(".box img")[i];
         var srctag=$(srct).attr("src")   
-        console.log(srctag);
+        // console.log(srctag);
         // 单价
         var price = Number(($(srct).siblings(".price").text().slice(1,)));
         // 数量
         var num = Number($(srct).siblings("span").text());
         if(srctag =="img/selected.png"){
                 total += price * num;
-                console.log(total);
+                // console.log(total);
         }
     }
     // 改变已选类型的数量和图标  // 价格计算
@@ -176,6 +176,8 @@ $(document).ready(function(){
     });
     // 4. 全选的操作(yes)
     $(".check img").click(function(){
+        var srct =  $(".box img").attr("src");
+        console.log(srct);
         var src = $(this).attr("src");
         // console.log($(".price").text().split("￥"));
         // console.log($(".price").siblings("span")[0]);
@@ -187,9 +189,12 @@ $(document).ready(function(){
             total0 += priceArr[i+1] * spannum;
         }
         total = total0;
+        // 图片切换，只要是空的时候，文字显示的是全选，点击就可以全部选上，取消，循环往复
+        // 有选择的时候显示已选的数量 ，再点击图标可以全部选上，再点击就清空，循环往复
         if(src =="img/unselected.png"){
             $("img").attr("src","img/selected.png");
             $(".check .num").text("全选");
+            // n=4;
             $(".check .total").text("￥"+total);
         }else{
             $("img").attr("src","img/unselected.png");

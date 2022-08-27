@@ -12,20 +12,24 @@
         /* 
             节流：通过一次性定时器来延迟运行在很短的时间内连续的触发一件事情，它按照一定的频率给你执行远小于触发的次数。
         */
-        /* // 1. 节流
+        // 1. 节流
         var btn = document.getElementById("btn");
         var timer = null;
-        var flag = true;
+        var flag = false;
         btn.onclick = function(){
             
-            if(!flag){
+            if(flag){
                 return;
             }
-            flag=false;
-            timer=setTimeout(function(){console.log("加油啊！！！");flag=true;},1000);
+            flag=true;
+            timer=setTimeout(function(){console.log("加油啊！！！");flag=false;},1000);
             
-        } */
-         // 2. 封装的节流
+        }
+
+
+            
+        
+         /* // 2. 封装的节流
         var btn = document.getElementById("btn");
         
         function doThroattling(fn){
@@ -41,7 +45,7 @@
             }   
         }
         function fn(){console.log("加油啊！！！");}
-        btn.onclick = doThroattling(fn);
+        btn.onclick = doThroattling(fn); */
     </script>
 </body>
 </html>

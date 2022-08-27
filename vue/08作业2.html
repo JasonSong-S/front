@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>组件间传值</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #app{background-color: aquamarine;padding: 200px;}
+    
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <mycomp :son="msg"></mycomp>
+        
+    </div>
+    
+    <script>
+        const mycomp1 = {
+            props:['grand'],
+            template:`<div class="box">
+                    <p>{{grand}}</p>
+                </div>`,
+            
+        }
+
+        const mycomp = {
+            props:['son'],
+            template:`<div class="box">
+                    <p>{{son}}</p>
+                    <mycomp1 :grand="son"></mycomp1>
+                    <mycomp1 :grand="son"></mycomp1>
+                </div>`,
+            components:{
+                mycomp1
+            }
+        }
+        
+        let app = new Vue({
+            el:"#app",
+            data:{
+                msg:"我是根实例的数据a"
+            },
+            components:{
+                mycomp
+            }
+        });
+
+    </script>
+</body>
+</html>

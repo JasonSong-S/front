@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>组件间传值</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <mycomp @myevent="fn"></mycomp>
+    </div>
+    
+    <script>
+        /* 1.组件间传值的三种情况：
+                1. 父传子  使用 props 属性
+                2. 子传父  使用自定义事件
+                3. 同级： 先子传父，再父传子
+            
+            2. 父传子 props
+                1. 子组件不允许修改父组件传入的属性，如果需要更改这个属性，只能让父组件重新传值
+                2.用法：
+                    子组件内部要接收属性并规定属性的使用场景
+                    父组件中使用子组件要给属性传入实际的数据
+                    在哪里注册的子组件，就在对应的 template 中使用 子组件
+
+            3. 子传父  自定义事件
+                1. 用法：
+                    在父组件的 template 先定义自定义事件，并且在父元素的方法中定义相应的方法
+                    在子组件中的 template 绑定点击等内置的事件到 子组件自身的方法中
+                    在子组件中激发方法 this.$emit("自定义的方法名"，"参数")
+                    emit 用于主动触发绑定在本组件标签上的自定义事件
+
+
+        */
+    
+        /* 
+        // 父传子 props
+        const mycomp = {
+            props:["name","age"],
+            template:`<div>
+                        <p>我是一个子组件</p>
+                        <p>{{info}}</p>
+                        <p>我叫做{{name}}</p>
+                    </div>`,
+            data(){
+                return {info:'今天是 8/25'}
+            }
+        };
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                msg:"jason",
+                age:27
+            },
+            components:{
+                mycomp
+            }
+        }); */
+
+
+        // 子传父
+        const mycomp = {
+            template:`<div class="box">
+                    <p @click="work">我是一个子组件</p>
+                </div>`,
+            data(){
+                return {info:"今天要加油啊 8/26"}
+            },
+            methods:{
+                work(){
+                    this.$emit("myevent",this.info);
+                }
+            }
+        };
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                msg:"123"
+            },
+            components:{
+                mycomp
+            },
+            methods:{
+                fn(m){this.msg = m;}
+            }
+        });
+    </script>
+</body>
+</html>

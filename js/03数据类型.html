@@ -9,7 +9,12 @@
 <body>
     <script>
         /*  条件判断中，这 6 种情况是 false
-                false 0 null undefined '' NaN
+                false      0        NaN      null    undefined     ''  它们都属于基本的数据类型，分别对应下面的,除了数字类型的有两种， 包括 0 和 NaN, 其他的每种基本类型占一种。
+                Boolean    Number   Number   null     undefined     string   
+
+                js 中的基本（原始）类型有 5 + 1 种, es5 中有5中，es6 新增一种基本类型， symbol
+                  es5: Number, String, Boolean, Null, Undefined
+                  es6: Symbol
             类型转换：
                 显示类型转换：
                 隐式类型转换：
@@ -21,10 +26,12 @@
                     2. string： 字符以及字符跟任何数据的拼接
                         字符串必须加引号
                         加引号的一定是字符串
+                        字符串不可更改，是指字符串一经创建就不可再改变了，是指一个字符串整体中的单个字符是不可以通过角标进行重新赋值更改的。但是并不是说保存字符串的那个变量也不可更改，要改变变量中的字符串值，可以通过给变量重新赋值。
                     3. boolean: true false
                     4. undefined: 自动初始化变量的值就是undefined(只是声明，但是没有初始化的值就是 undefined)
                     5. null： 空对象指针
                 2. 引用数据类型
+                        Function, Object, Array, Date, Reg...
 
 
             运算符：
@@ -55,12 +62,17 @@
             
 
         */
-       // undefined 表示变量的值不存在  
-       // TODO：null 和 "" 的区别
+       /* // undefined 表示变量的值不存在  
+       // null 和 undefined 的区别
         var a;
+        console.log(a==null); // true
+        console.log(a===null); // false
         console.log(a===undefined); // true
         console.log(null=="");  // false
         console.log(null==="");  // false
+        console.log(null===undefined);  // false
+        console.log(null==undefined);  // true
+        console.log(typeof null);  // object  js 遗留的底层的错误，js 的前3位用来表示数据的类型，而 null 是用32位的0表示的，所以会被认为是对象。 */
 
     </script>
 </body>

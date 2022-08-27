@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插值表达式</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{name}} {{age}}
+        <button @click="hello">say hi</button>
+    </div>
+    <script>
+        /*  1. 为什么要使用 Vue？
+                1.虚拟 DOM: 不直接操作 DOM， 通过 diff 算法更新发生变化的项目，性能非常的高。与原生的 js 或者 jq 相比较，原生的 js 和 jq 直接操作 DOM 节点，每次都是先获取到节点之后，再在节点上进行修改或者重新生成删除等操作。虚拟 DOM 的性能更加的高，通过修改数据来驱动视图
+                2. 组件化 通多自定义的组件来分模块构建页面应用，每一个组建中都封装了一段完整的 html css js 代码，组件可以独立开发，并且可以独立的表示页面应用中某一部分的内容
+                3. 数据和视图分离
+            2.插值表示式：在 html标签中出现，用来表示数据的一种形式，以两个花括号作为它的表现形式。{{变量}}
+                同一个元素中可以添加多个插值表达式，并且插值表达式之间可以添加其他的内容，插值表达式的语法即{{}}它的内部是一个 js 运行环境。其中除了可以添加 vue 中的变量，还可以直接运行 js 的表达式，但是{{}} 不识别 html 结构。
+                vue 中的数据统一存放在 data 属性中。
+        
+        */
+
+        let app = new Vue({
+            el:"#app",    // vue 对象的挂载点，每个 vue 的必须项目
+            data:{      // data： vue 中所有的数据都保存在 data 这个对象中
+                name:"jason",
+                age:27,
+            },
+            methods:{     // 对象中的方法
+                hello(){
+                    alert("hello" + "I am " + this.name);
+                }
+            }
+        });
+
+       
+
+    </script>
+</body>
+</html>

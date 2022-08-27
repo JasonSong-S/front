@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        {{name}} {{age}}  {{msg}}
+        <button v-on:click="hello" v-show="flag">say hi</button>
+    </div>
+
+    
+    
+<script>
+/* 
+        1. 指令： vue 中的所有指令都是以 v-  开头的，但是其中的一些指令有简写的形式，例如 （v-bind:  :),(v-on   @)。
+            1. 指令是写在了 html 中间，想在哪个元素上使用指令，就在它的开始标签中添加指令
+            2.指令中的引号（""）也表示是一个 js 执行环境，并不是代表一个字符串的引号
+        2. v-html  把一段 html 结构渲染到它所绑定的元素中
+            如果元素内部本身有内容的话，本身的内容会被覆盖掉
+            添加的方式有两种：
+                第一种是添加变量的方式，变量写在 data 中，并且赋值，那么 v-html="变量名"  即可
+                第二种是直接在指令中写值的方式：注意赋值要加上引号，外层是双引号，那么内层可以使用单引号进行赋值。如果没有嵌套引号，那么内层的内容会被认为是变量，与实际情况不符合。
+        3. v-text   把一段文本内容渲染到它所添加的元素中
+                1.如果元素内部有内容的话，其中的内容也会被覆盖掉
+                2.添加的方式同上
+                3.可以使用 v-text 的地方基本上可以使用插值表达式来代替，但是插值表达式不会覆盖之前的内容
+        4. v-bind   动态绑定属性
+                1.完整的写法 v-bind:属性名="数据"
+                2.简写    :属性名="数据"
+                3. v-bind 的特殊情况
+                    class:  v-bind 绑定属性名的时候可以绑定三种值
+                        1. 可以绑定一个字符串，字符串名就是 class 名
+                        2. 可以绑定一个对象，对象的属性名就是 class 名，对象的属性值是布尔值，代表这个 class 是否存在, 当布尔值为 true 时， 这个对象的属性名是存在的，当布尔值为 false 的时候， 这个对象的属性名是不存在的
+
+                    style： v-bind 绑定 style 的时候可以绑定两种值
+                        1. 绑定到一个对象，对象就是样式对象
+                        2. 绑定到一个数组，数组中的元素是样式对象，这样可以绑定多个样式对象。
+        5. v-on   绑定事件
+                1. 完整的写法 v-on:事件名="函数名"
+                2. 简写   @事件名 = "函数名"
+                3. 如果函数带有参数，函数名后面直接写上括号带上参数，没有参数则不用写括号， vue 内部已经调用了函数，不用按照一般函数的理解，需要写上括号函数才调用。
+                4.关于事件对象    v-on:事件名="(e)={fn(e,arg)}"
+                5.按键修饰符： 在监听键盘事件的时候，我们经常需要检查详细的按键。 Vue 允许我们为 v-on 在监听键盘事件时添加按键。 例如  
+                    <input type="text" v-on:keyup.enter="函数名">
+                    <input type="text" @keyup.tab="函数名">
+
+        6. v-if, v-else, v-else-if  条件渲染
+                1. 控制元素是否渲染
+                2. 不是基于样式的改变，是真正的条件渲染。 v-show 是基于样式的渲染
+                3. 注意：
+                    1. v-if 和 v-else 必须要匹配，就像 js 的一样。对应的两个指令必须是同级的，不能在他们之间添加其他的元素，影响渲染
+                    2. v-if 和 v-for 一般不要同时的在一个元素中使用，因为 v-for 的优先级比 v-if 的高，如果 v-if 的值为 false, 也要运算 v-for，最后又不会渲染，做无用功，可以在外层写上 template, 外层的先判断 v-if ,如果 v-if 的值为 false 的话，那么怎个都不会执行，就会节约资源。
+
+        7. v-show   控制元素是否渲染，是基于样式的切换，并不是真正的条件渲染
+
+                1. v-if 和 v-show 的性能对比
+                    1.v-if 是真正的条件渲染，只有条件满足的时候这个元素才会被渲染，因为它会确保在切换的过程中条件块内的事件监听器和子组件适当地被销毁和重建
+                    2.v-if 是惰性的，如果在初始的时候条件为假，则什么也不做，直到条件第一次变为真的时候，才会开始渲染条件块。
+                    3.而 v-show,不管初始条件是什么，元素都会被渲染，之后的显示和隐藏元素只是简单的基于 css 样式的切换 display = none 或者 display = block
+                    4. 总的来说，v-if 具有更高的切换开销， v-show 具有更高的初始渲染开销。因此，如果需要经常的切换，则使用 v-show  比较好， 如果运行时条件很少改变，则使用 v-if  比较好。
+
+        8. v-for:   循环创建元素
+                1. 可以循环数组  value   index
+                2. 可以循环对象 value key index
+                3. 可以循环 item
+                4. 建议在使用 v-for 的时候尽量提供 key attribute, 除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为来获得性能上的提升
+
+
+        9. v-model： 表单的双向绑定
+                1. v-model 默认绑定到表单的 value 属性
+                    多选框： 单个多选框，绑定到布尔值， 多个多选框，绑定的是数组
+                    单选框： 值直接绑定到值
+                    下拉选择框： 直接绑定到值
+                    双向绑定也可以绑定到数组的某一项或者是对象的某一项
+                2. 修饰符
+                    <!-- 在 "change"时而非"input"时更新 -->
+                    <input v-model.lazy=msg"">
+                    <!--  如果想自动的将用户的输入值转换为数值类型，可以给 v-model 添加 number 修饰符-->
+                    <input v-model.number="num">
+                    <!-- 如果想自动的去掉用户输入字符串的首尾空白字符，可以给 v-model 添加 trim 修饰符： -->
+                    <input v-model.trim="msg">
+
+
+
+
+
+*/
+let app = new Vue({
+        el:"#app",
+        data:{
+            name:"jason",
+            age:27,
+            msg:'<h1>宋金成今天要复习事件对象哦</h1>',
+            flag:false
+        },
+        methods:{
+            hello(){
+                alert("hello, I am" + this.name);
+            }
+        }
+    });
+</script>
+</body>
+</html>

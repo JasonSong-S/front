@@ -20,8 +20,8 @@
         */
 
         // 作业1
-        function sortNumber(array) {
-            
+        /* function sortNumber(array) {
+
             for (var i = 0; i < array.length - 1; i++) {
                 for (var j = 0; j < array.length - 1 - i; j++) {
                     if (array[j] < array[j + 1]) {
@@ -34,6 +34,25 @@
             return array;
         }
         var sort = [1];
+        console.log(sortNumber(sort)); */
+
+
+        // 冒泡排序从大到小的顺序
+        let sortNumber = (arr) => {
+            for (let i = 0; i < arr.length - 1; i++) {
+                for (let j = 0; j < arr.length - 1 - i; j++) {
+                    let tmp = 0;
+                    if (arr[j] < arr[j + 1]) {
+                        tmp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = tmp;
+                    }
+                }
+            }
+            return arr;
+        }
+
+        var sort = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         console.log(sortNumber(sort));
 
 
@@ -56,15 +75,15 @@
 
         // 方法2： 从后向前进行遍历，将每一个数据和当前的数据进行比较
         function deDup(arr) {
-            for (var i = arr.length-1; i >0 ; i--) {
-                for (var j = i - 1; j >=0; j--) {
+            for (var i = arr.length - 1; i > 0; i--) {
+                for (var j = i - 1; j >= 0; j--) {
                     if (arr[i] === arr[j]) {
                         arr.splice(j, 1);
                     }
                 }
             }
             return arr;
-        } 
+        }
         console.log(deDup(a));
 
 
@@ -102,7 +121,7 @@
 
         // 作业3：
         var a = [1, 2, 3];
-        var b = [4, 5, 6, 1, 2, 3, 7,true,'true',11];
+        var b = [4, 5, 6, 1, 2, 3, 7, true, 'true', 11];
 
         // 方法1：直接调用了去重的函数法
         /* function contactD(arr1, arr2) {
@@ -129,19 +148,19 @@
         // 方法2：用indexOf 来去重复
         function contactD(arr1, arr2) {
             var arr = arr1;
-            var ans=[];
+            var ans = [];
             for (var i = 0; i < arr2.length; i++) {
                 arr.push(arr2[i]);
             }
-            for (var j=0;j<arr.length;j++){
-                if (ans.indexOf(arr[j])===-1){
+            for (var j = 0; j < arr.length; j++) {
+                if (ans.indexOf(arr[j]) === -1) {
                     ans.push(arr[j]);
                 }
             }
             return ans;
         }
 
-        console.log(contactD(a,b));
+        console.log(contactD(a, b));
 
 
 
