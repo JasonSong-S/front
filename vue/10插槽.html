@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>插槽</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        
+    
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <p >{{msg}}</p>
+        <button @click="change">更改</button>
+        <component :is="com"></component>
+        <mycomp #first="prop"><h1>{{prop.info}}</h1></mycomp>
+    </div>
+
+    
+    
+    <script>
+        /* 
+            1.插槽：就是在组件中预留的位置，给 html 语句预留的空间
+                如果组件模板中有多个插槽，那么组件标签中的内容会进行复制，插入到多个插槽中
+
+            插槽： 普通插槽，  具名插槽，  作用域插槽
+
+            2.普通插槽：<slot></slot>在组件的模板中预留插入组件标签的位置。
+
+            // 普通插槽
+            
+        const mycomp = {
+            template:`<div class="box">
+                        <slot></slot>
+                        <p>{{msg}}</p>
+                        <slot></slot>
+                    </div>`,
+            data(){
+                return {msg:"jason"}
+            }
+        };
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello new week"
+            },
+            components:{
+                mycomp
+            },
+            
+        });
+
+
+        3. 具名插槽： 普通插槽中无法规定插入标签内容的顺序以及具体的内容，具名插槽通过给插槽名字和给组件名字来确定插入的顺序。
+            在组件模板中，使用 slot 标签预留位置，并且在 slot 标签中使用 name 属性规定这个标签的名字， 然后在 父组件中使用 v-slot 命令来调用   name="名字"，   v-slot:名字
+
+            <div id="app">
+                <p>{{msg}}</p>
+                <mycomp>
+                    <template #last><h1 >今天是8/29</h1></template>
+                    <template #middle><h1 >星期一</h1></template>
+                    <template #first><h1 >天气阴天</h1></template>
+                </mycomp>
+            </div>
+
+            const mycomp = {
+            template:`<div class="box">
+                        <slot name="first"></slot>
+                        <p>{{msg}}</p>
+                        <slot name="middle"></slot>
+                        <slot name="last"></slot>
+                    </div>`,
+            data(){
+                return {msg:"jason"}
+            }
+        };
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello new week"
+            },
+            components:{
+                mycomp
+            },
+            methods:{
+                
+            },
+        });
+
+        4. 编译作用域：如果在插槽模板中想使用组件内部的数据，那么需要在模板的插槽中定义 v-bind:属性="数据"， 组件调用的地方插槽通过 v-slot:属性="prop"  prop代表所有属性的集合
+
+        5. 动态组件： <component :is="要使用的组件"></component>
+        */
+
+        const mycomp = {
+            template:`<div class="box">
+                        <slot name="first" :info="msg"></slot>
+                        <p>{{msg}}</p>
+                        <slot name="middle"></slot>
+                        <slot name="last"></slot>
+                    </div>`,
+            data(){
+                return {msg:"jason123"}
+            }
+        };
+        const mycomp1 = {
+            template:`<div class="box">
+                        <p>1</p>
+                    </div>`,
+            beforeDestroy(){
+                console.log("组件卸载之前");
+            },
+            destroyed(){
+                console.log("组件卸载之后");
+            },
+            methods:{
+                
+            }
+            
+        };
+        const mycomp2 = {
+            template:`<div class="box">  
+                        <p>2</p>
+                    </div>`,
+            data(){
+                return {msg:"jason123"}
+            }
+        };
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello new week",
+                com:"mycomp1"
+            },
+            components:{
+                mycomp,mycomp1,mycomp2
+            },
+            methods:{
+                change(){
+                    this.com = "mycomp2";
+                }
+            },
+            
+        });
+
+    </script>
+</body>
+</html>

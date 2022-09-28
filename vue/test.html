@@ -9,8 +9,10 @@
 </head>
 <body>
     <div id="app">
-        <p>{{msg}}</p>
+        <p>{{now}}</p>
         <input type="text" v-model="msg">
+        
+
     </div>
     <script>
         let app = new Vue({
@@ -18,6 +20,16 @@
             data:{
                 msg:"Hello, Vue.js!"
             },
+            computed:{
+                now:function(){
+                    return Date.now();
+                }
+            },
+            methods:{
+                time(){
+                  return  Date.now();
+                }
+            }
             
         });
 

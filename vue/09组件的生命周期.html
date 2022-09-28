@@ -8,22 +8,74 @@
     <title>组件的生命周期</title>
     <style>
         *{margin: 0;padding: 0;}
-        #app{background-color: aquamarine;padding: 200px;}
-    
     </style>
 </head>
 <body>
     
     <div id="app">
-        
-        
+        <p @click="change">{{msg}}</p>
+        <mycomp></mycomp>
     </div>
+
+    
     
     <script>
         /* 
             生命周期：组件从创建到销毁的过程
             生命周期（钩子）函数：在特定的时间点会自动触发的函数
         */
+
+        const mycomp = {
+            template:`<div class="box">
+                        <p>{{msg}}</p>
+                    </div>`,
+            data(){
+                return {msg:"jason"}
+            }
+        };
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                msg:"hello new week"
+            },
+            components:{
+                mycomp
+            },
+            methods:{
+                change(){
+                    this.msg = "hello jason!"
+                }
+            },
+            beforeCreate(){
+                console.log("组件创建之前");
+            },
+            created(){
+                console.log("组件创建完毕");
+            },
+            beforeMount(){
+                console.log("组件渲染前");
+            },
+            mounted(){
+                console.log("组件挂载完毕");
+            },
+            // 1. 页面重新渲染的时候触发
+            // 2. 子组件用到的属性渲染到了视图中
+            beforeUpdate(){
+                console.log("组件更新前");
+            },
+            updated(){
+                console.log("组件更新后");
+            },
+            beforeDestroy(){
+                console.log("组件销毁前");
+            },
+            destroyed(){
+                console.log("组件销毁后");
+            }
+
+            
+        });
 
     </script>
 </body>

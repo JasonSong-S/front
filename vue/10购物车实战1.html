@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>购物车实战1</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #app{background-color: blanchedalmond;width: 1100px;padding: 100px;font-size: 30px;margin: auto;}
+        ul{list-style: none;}
+        p,img,button{float: left;}
+        .check{margin-top: 80px;}
+        
+        .grey{background-color: grey;}
+        .active{background-color: orangered;}
+        
+        
+        
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in list" :key="index">
+                <mycontent  @addcount="addcount(index)" @minuscount="minuscount(index)" @delitem="delitem(index)">
+                    <template #image><img   @click="changeimg(index)"  :src="src[index]"></template>
+                    <template #item><p>{{item.name}}</p></template>
+                    <template #price><p>{{item.price}}</p></template>
+                    <template #count><p>{{item.count}}</p></template>
+                </mycontent>
+            </li>
+        </ul>
+
+
+        <!-- 底部结算菜单 -->
+        <div class="check">
+            <img :src="source"   @click="changecolor">
+            <p>{{num}}</p>
+            <p >{{total}}</p>
+            <span  class="grey" :class={active} @click="showlist">结算</span>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+
+    
+    
+    <script>
+    
+    const mycontent={
+        template:`<div class="item" v-if="display">
+                    <slot name="image"></slot>
+                    <slot name="item"></slot>
+                    <slot name="price"></slot>
+                    <button @click="minus">-</button>
+                    <slot name="count"></slot>
+                    <button @click="add">+</button>
+                    <button @click="remove">删除</button>
+                    <div style="clear: both;"></div>
+                </div>`,
+        data(){
+            return {
+                display:true,
+                n:0
+            }
+        },
+        methods:{
+            // 删除商品
+            remove(){
+                this.display = false;
+                alert("确认删除该商品！！！");
+                this.$emit('delitem');
+            },
+            add(){
+                this.$emit('addcount');
+                            
+            },
+            minus(){
+                this.$emit('minuscount');
+            }
+            
+
+            
+        }
+    };
+
+     let app = new Vue({
+        el:"#app",
+        data:{
+            list:[{name:'mac pro:',   price:'￥20000',  count:1,  id:0,  checked:false},
+                  {name:'iphone 14:', price:'￥9000',   count:1,  id:1,  checked:false},
+                  {name:'外星人:',     price:'￥18000',  count:1,  id:2,  checked:false},
+                  {name:'按摩椅:',     price:'￥10000',  count:1,  id:3,  checked:false}
+            ],
+            src:["img/unselected.png","img/unselected.png","img/unselected.png","img/unselected.png"],
+            source:"img/unselected.png",
+            total:0,
+            active:'',
+            num:'全选'
+            
+        },
+        methods:{
+            // 计算总价格
+            totalPrice(){
+                this.total = 0;
+                for(let i =0 ;i<this.list.length;i++){
+                    if (this.list[i].checked){
+                        let num = this.list[i].count;
+                        let price = Number(this.list[i].price.slice(1,));
+                        this.total += num * price;
+                    }
+                }
+                return this.total;
+
+                // 结算框的颜色
+                
+
+            },
+            // 是否选中商品，并更改选中状态
+            changeimg(index){
+                
+               if (this.src[index] == "img/unselected.png"){
+                    this.src[index] = "img/selected.png";
+                    this.list[index].checked = true;
+               }else{
+                this.src[index] = "img/unselected.png";
+                    this.list[index].checked = false;
+               }
+               this.num = 0;
+               for(let i = 0; i <this.list.length;i++){
+                    if (this.list[i].checked == true){
+                        this.num++;
+                    }
+               }
+               console.log(this.num);
+               if(Number(this.num)>0){
+                    this.num = `已选(${this.num})`;
+                    this.active='active';
+               }else{
+                    this.num = '全选';
+                    this.active='';
+               }
+
+
+               // 计算价格
+               this.total = 0;
+                for(let i =0 ;i<this.list.length;i++){
+                    if (this.list[i].checked){
+                        let num = this.list[i].count;
+                        let price = Number(this.list[i].price.slice(1,));
+                        this.total += num * price;
+                    }
+                }
+                
+               
+
+               
+            },
+
+            // 按钮改变数量
+            addcount(index){
+                    
+                    this.list[index].count ++;
+                    // 计算价格
+               this.total = 0;
+                for(let i =0 ;i<this.list.length;i++){
+                    if (this.list[i].checked){
+                        let num = this.list[i].count;
+                        let price = Number(this.list[i].price.slice(1,));
+                        this.total += num * price;
+                    }
+                }
+                    
+                    
+                
+            },
+            minuscount(index){
+                if (this.list[index].count > 1){
+                    this.list[index].count --;
+                }else{
+                    this.list[index].count = 1;
+                }
+                // 计算价格
+               this.total = 0;
+                for(let i =0 ;i<this.list.length;i++){
+                    if (this.list[i].checked){
+                        let num = this.list[i].count;
+                        let price = Number(this.list[i].price.slice(1,));
+                        this.total += num * price;
+                    }
+                }
+            },
+            // 删除 自定义事件
+            delitem(index){
+                // 改变删除的商品状态为未选中
+                this.list[index].checked = false;
+                // 计算价格
+               this.total = 0;
+                for(let i =0 ;i<this.list.length;i++){
+                    if (this.list[i].checked){
+                        let num = this.list[i].count;
+                        let price = Number(this.list[i].price.slice(1,));
+                        this.total += num * price;
+                    }
+                }
+                
+            },
+
+            
+            // 结算框的颜色
+            changecolor(){
+                if(this.active==''){
+                    this.active = 'active';
+                    this.source = 'img/selected.png';
+                    this.num = "已选(4)";
+                    ////////
+                for(let i =0 ;i<this.list.length;i++){
+                    this.list[i].checked = true;  
+                    this.src[i]="img/selected.png" ;  
+                }
+                //////
+                }else{
+                    this.active='';
+                    this.source = 'img/unselected.png';
+                    this.num = "全选";
+                    ////////
+                for(let i =0 ;i<this.list.length;i++){
+                    this.list[i].checked = false;  
+                    this.src[i]="img/unselected.png" ;  
+                }
+                //////
+                }
+                /* if(Number(this.num) ==4){
+                    this.source = 'img/selected.png';
+                }else{
+                    this.source = 'img/unselected.png';
+                } */
+
+                
+
+                this.total = 0;
+                for(let i =0 ;i<this.list.length;i++){
+                    console.log(this.list[i].checked);
+                    let num = this.list[i].count;
+                    let price = Number(this.list[i].price.slice(1,));
+                    if (this.list[i].checked){
+                        this.total += num * price;
+                    }
+                }
+                
+        },
+           // 点击全选图片
+           showlist(){
+                    for (let i = 0;i <this.list.length;i++){
+                        console.log([this.list[i].count,this.list[i].checked]);
+                    }
+                }
+
+    },
+    /* watch:{
+        num(){
+
+        },
+        total(){}
+    }, */
+    
+        components:{mycontent}
+     });
+       
+    </script>
+</body>
+</html>

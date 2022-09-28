@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>插槽</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #app{background-color: blanchedalmond;width: 1100px;padding: 100px;font-size: 30px;margin: auto;}
+        ul{list-style: none;}
+        p,img,button{float: left;}
+        .check{margin-top: 80px;}
+        
+        .grey{background-color: grey;}
+        .active{background-color: orangered;}
+        
+    
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in list" >
+                <mycomp :count="item.count" @addcount="addcount(index)" @minuscount="minuscount(index)">
+                    
+                    <template #count>
+                        <span>index:{{index}}</span>
+                    </template>
+                </mycomp>
+            </li>
+            <div style="clear: both;"></div>
+        </ul>
+        <p @click="show">{{msg}}</p>
+
+    </div>
+
+    
+    
+    <script>
+        
+
+        const mycomp = {
+            /* <slot name="count"></slot> */
+            props:['count'],
+            template:`<div class="box">
+                <slot name="count"></slot>
+                        <button @click="minus">-</button>
+
+                        <span>{{count}}</span>
+                        <button @click="plus">+</button>
+                    </div>`,
+                    data(){
+                        return {
+                                
+
+                        }
+                    },
+                    methods:{
+                        plus(){
+                            this.$emit('addcount');
+                            
+                        },
+                        minus(){
+                            this.$emit('minuscount');
+                        }
+                    },
+                    
+           
+        };
+        
+
+        let app = new Vue({
+            el:"#app",
+            data:{
+                list:[
+                {name:'mac pro:',   price:'￥20000',  count:1,  id:0,  checked:false},
+                  {name:'iphone 14:', price:'￥9000',   count:2,  id:1,  checked:false},
+                  {name:'外星人:',     price:'￥18000',  count:3,  id:2,  checked:false},
+                  {name:'按摩椅:',     price:'￥10000',  count:5,  id:3,  checked:false}
+                ],
+                msg:0,
+                
+            },
+            components:{mycomp},
+                
+            methods:{
+                addcount(index){
+                    
+                        this.list[index].count ++;
+                        
+                    
+                },
+                minuscount(index){
+                    if (this.list[index].count > 1){
+                        this.list[index].count --;
+                    }else{
+                        this.list[index].count = 1;
+                    }
+                },
+                show(){
+                    console.log(this.list);
+                }
+                
+            },
+            
+        });
+
+    </script>
+</body>
+</html>
