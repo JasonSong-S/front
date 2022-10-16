@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="app">
-        <p>{{now}}</p>
-        <input type="text" v-model="msg">
+        <p>{{name}}</p>
+        <button :disabled="disabled">button</button>
         
 
     </div>
@@ -18,17 +18,8 @@
         let app = new Vue({
             el:"#app",
             data:{
-                msg:"Hello, Vue.js!"
-            },
-            computed:{
-                now:function(){
-                    return Date.now();
-                }
-            },
-            methods:{
-                time(){
-                  return  Date.now();
-                }
+                name:"jason",
+                disabled:true
             }
             
         });

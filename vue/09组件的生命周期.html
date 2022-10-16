@@ -73,7 +73,7 @@
             destroyed(){
                 console.log("组件销毁后");
             }
-
+            // 另外注意，当使用 <keep-alive></keep-alive> 标签来缓存页面的时候，上面的 8 个生命周期是不可用的，同时会产生另外两个生命周期， activated 和 deactivated
             
         });
 

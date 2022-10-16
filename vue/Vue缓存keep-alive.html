@@ -1,0 +1,7 @@
+<!-- 
+    <keep-alive></keep-alive> 标签用来缓存页面，使用这个标签之后，组件的生命周期不会再执行，也就是不会发生卸载，渲染等
+        1. 这个标签中的内容可以是 <component></component>， 还可以是 <router-view></router-view>
+        2. 因为 router-view 有很多个页面，而实际上只需要缓存特定的页面，那么可以在特定页面的路由属性 meta中 添加缓存标记，如 keepAlive:true，那么就可以选择性的缓存页面
+        3. 使用 keep-alive 之后会多出两个生命周期，activated 和 deactivated
+        4. include exclude
+ -->

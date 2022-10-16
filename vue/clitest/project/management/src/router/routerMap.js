@@ -1,0 +1,44 @@
+export default [
+    {
+        path:"/",
+        name:"LayOut",
+        component:()=>import("@/views/LayOut"),
+        redirect:"/index",
+        children:[{
+            path:"/index",
+            name:"homeIndex",
+            component:()=>import("@/views/index/HomeIndex")
+        },
+        {
+            path:"/orders/list",
+            name:"orders_list",
+            component:()=>import("@/views/order/OrderList"),
+            meta:{bread:["订单管理","订单列表"]}
+        },
+        {
+            path:"/waybill/list",
+            name:"waybill_list",
+            component:()=>import("@/views/waybill/WaybillList"),
+            meta:{bread:["运单管理","运单列表"],keepAlive:true}
+        },
+        {
+            path:"/waybill/in",
+            name:"waybill_in",
+            component:()=>import("@/views/waybill/WaybillIn"),
+            meta:{bread:["运单管理","运单列表"]}
+        },
+        {
+            path:"/waybill/list/detail",
+            name:"waybill_list_detail",
+            component:()=>import("@/views/waybill/WaybillDetail"),
+            meta:{bread:["运单管理","运单列表","运单详情"]}
+        }
+        ]
+    },
+    {
+        path:"/login",
+        name:"Login",
+        component:()=>import("@/views/LoginVue")
+    },
+    
+]
