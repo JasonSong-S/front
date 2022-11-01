@@ -9,7 +9,7 @@
 <body>
     <script>
         /*  条件判断中，这 6 种情况是 false
-                false      0        NaN      null    undefined     ''  它们都属于基本的数据类型，分别对应下面的,除了数字类型的有两种， 包括 0 和 NaN, 其他的每种基本类型占一种。
+                false      0        NaN      null    undefined     ''  它们都属于基本的数据类型，分别对应下面的,除了数字类型的有两种， 包括 0 和 NaN, 其他的每种基本类型占一种。另外，注意 null 属于基本数据类型，不属于引用数据类型， typeof null 返回值为 object
                 Boolean    Number   Number   null     undefined     string   
 
                 js 中的基本（原始）类型有 5 + 1 种, es5 中有5中，es6 新增一种基本类型， symbol
@@ -26,12 +26,12 @@
                     2. String： 字符以及字符跟任何数据的拼接
                         字符串必须加引号
                         加引号的一定是字符串
-                        字符串不可更改，是指字符串一经创建就不可再改变了，是指一个字符串整体中的单个字符是不可以通过角标进行重新赋值更改的。但是并不是说保存字符串的那个变量也不可更改，要改变变量中的字符串值，可以通过给变量重新赋值。
+                        字符串不可更改，是指字符串一经创建就不可再改变了，是指一个字符串整体中的单个字符是不可以通过角标进行重新赋值更改的。但是可以通过给变量重新赋值。
                     3. Boolean: true false
-                    4. undefined: 自动初始化变量的值就是undefined(只是声明，但是没有初始化的值就是 undefined)
+                    4. undefined: 只进行了声明，没有赋值的变量的值就是undefined，另外还有直接赋值为 undefined 的变量
                     5. null： 空对象指针
                 2. 引用数据类型
-                        Function, Object, Array, Date, Reg...
+                        Function, Object, Array, Date, Reg, 
 
 
             运算符：

@@ -1,0 +1,16 @@
+<view class="container">
+  <!-- 搜索板块 -->
+  <view class="search">
+    <view class="scan">
+    <image class="widgets-img" src="/image/ai3.png" mode="aspectFit" bindtap="scan"></image>
+  </view>
+  <view class="search-input">
+    <image class="search-icon" src="/image/ath.png" mode="aspectFit"></image>
+    <input class="search-text" type="text" placeholder="搜索商品" bindblur="getValue"/>
+  </view>
+  <view class="scan">
+    <image class="widgets-img" src="/image/ahv.png" mode="aspectFit"></image>
+  </view>
+  </view>
+  <scroll-view class="content-scroll" scroll-y="true"></scroll-view>
+</view>

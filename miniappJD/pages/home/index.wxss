@@ -1,0 +1,13 @@
+/* pages/home/index.wxss */
+.search{display: flex;align-items: center;height: 60rpx;}
+.search .scan{width: 40rpx;align-items: center;display: flex;}
+.search .search-input{display:flex;background: #ffffff;width: 650rpx;align-items: center;padding: 5rpx;margin: 0 10rpx;}
+.search-icon{width: 30rpx;height: 30rpx;}
+.widgets-img{width: 40rpx;height: 40rpx;}
+.search-text{background:#fff;padding: 10rpx 30rpx;}
+page{background:#fbf9fe;}
+.content-scroll{
+  width: 100%;
+  height:1000rpx
+  
+}

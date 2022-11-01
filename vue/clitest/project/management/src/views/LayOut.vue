@@ -15,7 +15,7 @@
             <router-view v-if="!$route.meta.keepAlive"></router-view>
 
     </el-main>
-    <el-footer class="footer">京ICP备 888888</el-footer>
+    <el-footer class="footer">京ICP备10036305号-7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;京公网安备11010802022657号</el-footer>
   </el-container>
 </el-container>
     </div>
@@ -37,4 +37,5 @@
 .body,.footer{
     background: #e9eef3;
 }
+.footer{font-size: 20px;text-align: center;color: grey}
 </style>
