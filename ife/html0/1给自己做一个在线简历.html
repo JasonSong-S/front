@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 1200px;
+            margin: auto;
+            background: rgb(242, 239, 239);
+        }
+
+        .nav,
+        .education,
+        .info,
+        .experience,
+        .skill,
+        .reward {
+            width: 600px;
+            margin: auto;
+        }
+
+        .nav{line-height: 60px;}
+        .nav span{margin-right: 20px;}
+        .education,
+        .info,
+        .experience,
+        .skill,
+        .reward{
+            padding: 50px;
+        }
+        h2{
+            margin-bottom: 20px;
+        }
+
+        .white {
+            background: white;
+        }
+
+        #photo{display: none;}
+
+        a{text-decoration: none;color: black;}
+        .fix{line-height:100px;width: 100px;background-color: bisque;height: 100px;position: fixed;top:90%;right:0px;text-align: center;}
+       
+    </style>
+    <title>在线简历</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <span><a href="#info">基本信息</a></span>
+            <span><a href="#work">工作经历</a></span>
+            <span><a href="#education">教育经历</a></span>
+            <span><a href="#skill">语言技能</a></span>
+            <span><a href="#reward">奖项&证书</a></span>
+        </div>
+        <div class="white">
+            <div class="info" id="info">
+                <div>Hi,I'm xxx from China</div>
+                <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.OhxENCogRk6mxZOVpS08ugAAAA?w=202&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    alt="网上的图片" title="123456">
+                <h2>Web Developer</h2>
+                <p>xxxxx xxxxxxxx  xxxxxxx xxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xxxxxxx xxxx xxxx xxxxxxxxxxx xxxxxxxxx xxxxxxxx xxxxxxxxxxxxxxx xxxxx xxxxxx xxxxxxxxxxxx xxxxx xxxx xx
+                </p>
+            </div>
+        </div>
+        <div class="experience" id="work">
+            <h2><a href="#">工作经历</a></h2>
+            <p>2014-2015</p>
+            <p>xxx xxxxx</p>
+            <p>Web Designer(您的职位)</p>
+            <p>2014-2015</p>
+            <p>xxx xxxxx</p>
+            <p>UI/UX Designer(您的职位)</p>
+            <p>2014-2015</p>
+            <p>xxx xxxxx</p>
+            <p>System Designer(您的职位)</p>
+        </div>
+        <div class="white">
+            <div class="education" id="education">
+                <h2><a href="#">教育经历</a></h2>
+                <p>2008-2012</p>
+                <p>xxx xxxxx</p>
+    
+                <p>2012-2016</p>
+                <p>xxx xxxxx</p>
+    
+                <p>2016-2020</p>
+                <p>xxx xxxxx</p>
+            </div>
+        </div>
+        <div class="skill" id="skill">
+            <h2><a href="#">语言技能</a></h2>
+            <p>Web Technology</p>
+            <p>HTML/CSS/SASS/PHP/Javascript</p>
+            <p>Database</p>
+            <p>MySQL/MongoDB/Oracle/Access</p>
+            <p>Framework</p>
+            <p>Laravel/CodeIgniter/Zend/Ruby On Rails</p>
+        </div>
+        <div class="white">
+            <div class="reward" id="reward">
+                <h2><a href="#">奖项&证书</a></h2><button onclick="time()">点击查看证书</button>
+                <div id="photo">
+                    <img src="https://tse4-mm.cn.bing.net/th/id/OIP-C.OhxENCogRk6mxZOVpS08ugAAAA?w=202&h=202&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    alt="网上的图片">
+                </div>
+                <p>January 2014</p>
+                <p>xx xxxxx</p>
+                <p>December 2014</p>
+                <p>xx xxxxx</p>
+                <p>March 2014</p>
+                <p>xx xxxxx</p>
+            </div>
+        </div>
+        
+    </div>
+    <div class="fix"><a href="#">返回顶部</a></div>
+    <script>
+        function look(){
+            let photo = document.getElementById("photo");
+            if (photo.style.display=="block"){
+                photo.style.display="none";
+            }else{
+                photo.style.display="block";
+            }
+        }
+
+        function time(){
+            let hour = new Date().getHours()
+            if (hour < 8){
+                console.log("早上好");
+            }else if(hour < 12){
+                console.log("中午好");
+            }else{
+                console.log("下午好");
+            }
+        }
+    </script>
+</body>
+
+</html>

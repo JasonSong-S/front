@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    function Name(props){
+        return <h1>网站的名称：{props.name}</h1>
+    }
+
+    function Url(props){
+        return <h1>网站的地址：{props.url}</h1>
+
+    }
+
+    function Nickname(props){
+        return <h1>网站的别名：{props.nickname}</h1>
+
+    }
+
+    function Welcome(props){
+        console.log(props);
+        return (
+            <div>
+                <h1>hello world</h1>
+                <h1>{props.children}</h1>
+                </div>
+        )
+    }
+
+    function App(props){
+        return <div>
+                <Name name="jason"/>
+                <Url url="http://www.jason.com"/>
+                <Nickname nickname="song"/>
+            </div>
+    }
+    
+    ReactDOM.render(
+        
+        <div>
+            <App/>
+            <Welcome>写在组件中间的文字，类似 Vue 中的 slot</Welcome>
+            </div>,
+        document.getElementById("app")
+    );
+</script>
+</body>
+
+</html>

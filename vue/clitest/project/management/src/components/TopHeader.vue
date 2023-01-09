@@ -35,6 +35,11 @@
                 if (item == "c"){
                     removeToken()
                     this.$router.push("/login")
+                }else if(item === "b"){
+                    console.log(this.$router);    // $router 是跟路由
+                }else if (item === "a"){
+                    //   console.log(this.$route);   // $route 是当前的路由
+                    this.$router.push("/personal")
                 }
             },
             // 获取入职时间的方法

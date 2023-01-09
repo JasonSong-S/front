@@ -61,8 +61,9 @@
                 
             }
             let c = 10;
+            let z = 6
             function b() {
-                const z = 3; 
+                const z =4 ; 
                 output(c);
                 console.log("c的值"+c);
                 console.log(output(z));
@@ -74,6 +75,7 @@
                 value=value*value;
                 console.log("value的值"+value);
                 para.textContent = `Value: ${value}`;
+                console.log(z);
                 return 'over';    // 为什么在 b函数 中调用时,这句不执行呢？ 答案是执行了的，但是它的结果需要一个变量来接收并打印出来，也可以直接打印，需要用到 console.log()
             }
             b();

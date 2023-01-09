@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+<div id="app"></div>
+
+<script type="text/babel">
+   
+
+//    class Parent extends React.Component{
+//     state={
+//         msg:"这是父组件的数据",
+//         num:0,
+//         info:""
+//     }
+
+//     handle=(arg)=>{
+//         this.setState({
+//             info:arg
+//         })
+//     }
+    
+//     render(){
+        
+//         return (<div>
+//             <h1>这是父组件--{this.state.info}</h1>
+//             <Child change={this.handle}/>
+//             </div>)
+//     }
+//    }
+
+
+//    class Child extends React.Component{
+//     state={
+//         msg:"这是子组件的数据，进行子父传值"
+//     }
+//     fn=()=>{this.props.change(this.state.msg)}
+//     render(){
+//         return (<div><button onClick={this.fn}>这是子组件</button></div>)
+//     }
+//    }
+//    ReactDOM.render(
+//     <div>
+//         <Parent />
+//         </div>,
+//         document.getElementById("app")
+//    )
+
+// function WarningBanner(props){
+//     if (!props.warn){
+//         return null
+//     }
+
+//     return (
+//         <div>
+//             warning!
+//         </div>
+//     )
+// }
+
+// class Page extends  React.Component{
+//     constructor(props){
+//         super(props)
+//         this.state={
+//             warn:false
+//         }
+//     }
+//     handleToggleClick=()=>{
+//         this.setState({warn:!this.state.warn})
+//     }
+
+//     render(){
+//         return (
+//             <div>
+//                  <WarningBanner warn={this.state.warn} />
+//                  <button onClick={this.handleToggleClick}>{this.state.warn?"hide":"show"}</button>   
+//             </div>
+//         )
+//     }
+// }
+
+
+class NameForm extends React.Component{
+    state={value:"jason",
+    value2:"song"
+}
+    setValue=(e)=>{
+        console.log(e.target);
+        const name = e.target.name
+        let key
+        key=name=="user"?"value":"value2"
+        this.setState({[key]:e.target.value,})
+    }
+    render(){
+        return (
+            <div>
+                <input type="text" value={this.state.value} name="user" onChange={this.setValue}/>
+                <input type="text" value={this.state.value2} name="password" onChange={this.setValue}/>
+                <h1>{this.state.value}</h1>
+            </div>
+        )
+    }
+}
+
+ReactDOM.render(
+    <div>
+        <NameForm />
+    </div>,
+    document.getElementById("app")
+)
+   
+
+   
+</script>
+</body>
+
+</html>

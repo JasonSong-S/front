@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #adv{position: fixed;bottom: -745px;right: 0;}
+    </style>
+</head>
+<body>
+    <div id="adv" >
+        <div id="close">close</div>
+        <img src="img/adv.jpg">
+    </div>
+    <script>
+        // 周期性定时器
+        let index = null
+        // 一次性定时器
+        let timer = null
+        // 获取对象
+        const close = document.getElementById("close")
+        const adv = document.getElementById("adv")
+
+        // 向上运动
+        function moveUp(){
+            let cssStyle = document.defaultView.getComputedStyle(adv,null);
+            let cssBottom = cssStyle.bottom
+            let bottom = parseInt(cssBottom)
+            if (bottom<0){
+                bottom += 30
+                adv.style.bottom = bottom + "px"
+            }else{
+                clearInterval(index)
+                index = null
+
+            }
+            
+        }
+        
+        
+
+
+
+        // 向下运动
+         
+         function moveDown(){
+            let cssStyle = document.defaultView.getComputedStyle(adv,null);
+            let cssBottom = cssStyle.bottom
+            let bottom = parseInt(cssBottom)
+            if (bottom>-745){
+                bottom -= 30
+                adv.style.bottom = bottom + "px"
+            }else{
+                clearInterval(index)
+                index = null
+                timer = setTimeout(function(){index = setInterval(moveUp,100)}, 3000);
+            }
+            
+        }
+        close.onclick = function(){
+            clearInterval(index)
+            index=setInterval(moveDown,100)
+        }
+        window.onload=setTimeout(function(){index=setInterval(moveUp, 100);},3000)
+    </script>
+</body>
+</html>

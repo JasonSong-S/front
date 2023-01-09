@@ -25,7 +25,7 @@ service.interceptors.request.use((config)=>{
 
 
 
-// 响应拦截器(每次从服务器端返回，在客户端之前做得操作)
+// 响应拦截器(每次从服务器端返回，在客户端之前做的操作)
 service.interceptors.response.use((res)=>{
     const result = res.data
     if (result.success){
@@ -49,3 +49,5 @@ service.interceptors.response.use((res)=>{
 
 // 默认导出 service，(每一个 js 文件中只能有一个默认导出)
 export default service
+
+

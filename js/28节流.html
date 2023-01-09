@@ -29,7 +29,7 @@
 
             
         
-         /* // 2. 封装的节流
+         // 2. 封装的节流
         var btn = document.getElementById("btn");
         
         function doThroattling(fn){
@@ -40,12 +40,15 @@
                     return;
                 }
                 flag=false
-                timer=setTimeout(fn,1000);
-                setTimeout(function(){flag=true;},1000);
+                
+                timer = setTimeout(function (){
+                    fn()
+                    flag = true
+                },500)
             }   
         }
         function fn(){console.log("加油啊！！！");}
-        btn.onclick = doThroattling(fn); */
+        btn.onclick = doThroattling(fn);
     </script>
 </body>
 </html>

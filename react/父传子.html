@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        // class Website extends React.Component {
+        //     constructor() {
+        //         super()
+        //         this.state = {
+        //             name: "菜鸟教程",
+        //             site: "www.baidu.com"
+        //         }
+        //     }
+
+        //     render() {
+        //         return (<div>
+        //             <Name answer={this.state.site} name={this.state.name}></Name></div>)
+                
+        //     }
+        // }
+
+
+        // class Name extends React.Component{
+        //     render(){
+        //         console.log(this);
+        //         return <h1>{this.props.answer}</h1>
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <Website />,
+        //     document.getElementById("app")
+        // );
+
+
+
+        class Parent extends React.Component{
+            state={
+                msg:"这是父组件的数据"
+            }
+            render(){
+                return (<div>
+                    
+                    <h1>这是父组件</h1>
+                    <Child a={this.state.msg}/>
+                    </div>)
+            }
+        }
+
+        class Child extends React.Component{
+            
+            render(){
+                return (<div><h1>这是子组件--{this.props.a}</h1></div>)
+            }
+        }
+
+        ReactDOM.render(
+            <Parent />,
+            document.getElementById("app")
+        )
+    </script>
+</body>
+
+</html>

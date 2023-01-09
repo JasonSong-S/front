@@ -4,7 +4,7 @@ Mock.setup({
     timeout:500  // 延时 500 ms
 })
 // 登录接口
-Mock.mock("http://localhost:8080/login","post",(req)=>{
+Mock.mock("http://localhost:8080/login","post",(req)=>{         
     // 请求对象
     const {username, password} = JSON.parse(req.body)
     // console.log("mock",username,password);

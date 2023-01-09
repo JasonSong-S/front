@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        任务一：
+        let height=1.7;
+        let weight=58;
+        let BMI = Math.round(weight /height /height);
+        console.log(BMI); */
+
+
+        /*
+        任务二：
+            * @method calculateSum
+            * @param {number }price 打折前的总消费额
+            * @param {Boolean}vip 是否为 vip
+            * @return {number} 返回打折后的总金额
+        */
+        /* function calculateSum(price, vip) {
+            if(vip==true){
+                price *=0.98;  
+            }
+            if(price >= 300){
+                    price -= 30;
+                }else if(price >= 200){
+                    price -= 10;
+                }else if(price >= 100){
+                    price -= 5;
+                }
+            return price;
+        }
+        console.log(calculateSum(300, false)) // 270
+        console.log(calculateSum(300, true)) // 284 */
+
+
+        /*
+        任务三：
+         * @description 实现判断参数是否为合法的数字类型，如何是返回 ture ，如果不是 返回 false。
+         * @method isNumeric
+         * @param num 任意数据类型的变量
+         * @return {Boolean} 如何是数字类型返回 true ，如果不是 返回 false。
+        */
+        /*  function isNumeric(num) {
+             if (typeof num ==="number"){
+                 return true;
+             }
+             return false;
+             
+         } 
+ 
+ //测试用例
+ console.log(isNumeric("0")); // ->false
+ console.log(isNumeric(0)); // ->true
+ console.log(isNumeric(null)); // ->false
+ console.log(isNumeric("")); // ->false
+ console.log(isNumeric(" ")); // ->false*/
+
+
+ function isUndefined(arg){
+    if (typeof arg === "undefined"){
+        return true;
+    }
+    return false;
+}
+
+function isNull(arg){
+    if (typeof arg === "object" && arg == undefined){
+        return true;
+    }
+    return false;
+}
+
+// 测试用例
+var expUndefined = undefined;
+var expNull = null;
+var expZero = 0;
+var a;
+var o = new Date();
+console.log(isUndefined(expUndefined)); // ->true
+console.log(isUndefined(expNull)); // ->false
+console.log(isUndefined(a)); // ->true
+console.log(isUndefined(o)); // ->true
+console.log(isNull(expUndefined)); // ->false
+console.log(isNull(expNull)); // ->true
+console.log(isNull(expZero)); // ->false
+console.log(isNull(a)); // ->false
+console.log(isNull(o)); // ->false
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* const data = [
+            "monday - 500mL",
+            "mONday - 330",
+            "monday - 150ml",
+            "Tuesday - 100ml",
+            "Tuesday - 330ml",
+            "weDnesDay - 230",
+            "TursDAy - 330ml",
+            "Friday - 500",
+            "Saturday - 100ml",
+            "sunday - 250",
+            "sunday - 100ml",
+        ];
+
+
+        function App(data){
+            let days = []
+            let waters = []
+            for (let i = 0; i < data.length; i++){
+                let day = data[i].split("-")[0]
+                day = day.toLowerCase()
+                let first = day[0]
+                let upper = first.toUpperCase()
+                day = day.replace(first,upper)
+                days.push(day)
+                let water = data[i].split("-")[1]
+                water = water.trim().toLowerCase()
+                water = water.endsWith("ml")?water:water+"ml"
+                waters.push(water)
+                data[i]=day+":"+water
+            }
+            return data
+        }
+
+        console.log(App(data)); */
+
+
+
+
+/**
+ * @param {string} day
+ * @param {Array} data
+ */
+const data2 = ['Monday :500ml', 'Monday :330ml', 'Monday :150ml', 'Tuesday :100ml', 'Tuesday :330ml', 'Wednesday :230ml', 'Tursday :330ml', 'Friday :500ml', 'Saturday :100ml', 'Sunday :250ml', 'Sunday :100ml']
+const query = (day, data2) => {
+  //your code here
+  day =day.trim().toLowerCase()
+  day = day.replace(day[0],day[0].toUpperCase())
+  let result = []
+  for (let i = 0; i<data2.length;i++){
+    if (data2[i].includes(day)){
+        result.push(data2[i])
+    }
+  }
+  let sum = 0
+  for (let i = 0; i < result.length;i++){
+    sum += +result[i].slice(-5,-2)
+  }
+  let tips
+  tips = sum>=500?`您在 ${day} 的饮水量达标了,喝了 ${sum}ml`:`您在 ${day} 的饮水量没有达标,喝了 ${sum}ml`
+  return tips
+};
+
+// 测试用例
+console.log(query(" Tuesday   ",data2)); // ["Tuesday - 100ml","Tuesday - 330ml"]
+console.log(query("Friday",data2)); // ["Friday - 500ml"]
+
+
+    </script>
+</body>
+
+</html>

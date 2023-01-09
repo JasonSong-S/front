@@ -8,7 +8,7 @@
             <el-button slot="append" icon="el-icon-search"></el-button>
           </el-input>
         </el-col>
-        <el-col :span="6" :offset="12">
+        <el-col :span="8" :offset="10">
           <el-button type="primary" @click="visible=true">新建订单</el-button>
           <el-button :disabled="!selection.length" @click="operate(1)">审核</el-button>
           <el-button :disabled="!selection.length" @click="operate(2)">修改</el-button>
@@ -133,5 +133,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 </style>

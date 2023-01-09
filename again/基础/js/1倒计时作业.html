@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="tips"></h1>
+    <script>
+        const tips = document.getElementById("tips")
+        const target = new Date("2003-01-01")
+
+
+
+
+        function fn() {
+            const now = new Date()
+            let result = target - now
+            if (result >= 0) {
+                let day = Math.floor(result / 1000 / 60 / 60 / 24)
+                day=day<10?"0"+day:day
+                let h = Math.floor((result - day * 24 * 60 * 60 * 1000) / 1000 / 60 / 60)
+                h=h<10?"0"+h:h
+                let m = Math.floor((result - day * 24 * 60 * 60 * 1000 - h * 60 * 60 * 1000) / 1000 / 60)
+                m=m<10?"0"+m:m
+                let s = Math.floor((result - day * 24 * 60 * 60 * 1000 - h * 60 * 60 * 1000 - m * 60 * 1000) / 1000)
+                s=s<10?"0"+s:s
+                let colon = s%2==0?":":" "
+                tips.innerText = `离元旦倒计时${day}${colon}${h}${colon}${m}${colon}${s}`
+            } else {
+                tips.innerText = `时间已过`
+                clearInterval(index)
+                index = null
+            }
+        }
+        var index = setInterval(fn, 1000)
+        console.log(index);
+    </script>
+</body>
+
+</html>

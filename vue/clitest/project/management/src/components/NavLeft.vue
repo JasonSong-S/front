@@ -1,14 +1,12 @@
 <template>
-    <div>
-      <h1 class="title">邦达国际物流平台</h1>
+    <div class="nav">
+      <h1 class="title pt pb">邦达物流平台</h1>
       <el-menu
-      background-color="#001529"
-      text-color="#fff"
-      class="aside"
-      :router="true">
-        
+        background-color="#001529"
+        text-color="#fff"
+        class="aside"
+        :router="true">
           <menus-vue v-for="(item,index) in menuData" :key="index" :menu="item"></menus-vue>
-        
       </el-menu>
     </div>
 </template>
@@ -39,6 +37,7 @@
 </script>
 
 <style lang="less" scoped>
-.aside{height:100vh}
-.title{color:#fff;text-align: center;}
+
+// .aside{height:100vh}
+.title{text-align: center;color:#fff;background: rgb(0,21,41);}
 </style>

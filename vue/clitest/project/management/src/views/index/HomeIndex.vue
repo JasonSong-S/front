@@ -3,7 +3,7 @@
     <el-row :gutter="24">
       <el-card class="mt">
         <el-col :span="6">
-          <el-card shadow="always" class="in mb">
+          <el-card shadow="hover" class="in mb">
             <div style="float: left">
               <p>本月进件</p>
               <p style="font-weight: bold">6588</p>
@@ -17,7 +17,7 @@
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="always" class="in">
+          <el-card shadow="hover" class="in">
             <div style="float: left">
               <p>本月进件</p>
               <p style="font-weight: bold">6588</p>
@@ -31,7 +31,7 @@
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="always" class="in">
+          <el-card shadow="hover" class="in">
             <div style="float: left">
               <p>本月进件</p>
               <p style="font-weight: bold">6588</p>
@@ -45,7 +45,7 @@
           </el-card>
         </el-col>
         <el-col :span="6">
-          <el-card shadow="always" class="in">
+          <el-card shadow="hover" class="in">
             <div style="float: left">
               <p>本月进件</p>
               <p style="font-weight: bold">6588</p>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* 
+            _new(构造函数，参数1，参数2)的形式来构建 new 函数
+            方法1：
+            使用到 arguments, call, apply, 数组的 shift 方法 和原型链的知识
+            数组的 shift 方法的返回值为头部删除的那个元素，并且会改变原来的数组
+       */
+
+        /* function _new(){
+            let obj = {}
+            let fn = [].shift.call(arguments)
+            console.log(fn);
+            console.log(arguments);
+            obj.__proto__ = fn.prototype
+            fn.apply(obj,arguments)
+            return obj
+        }
+
+        function Student(name,age){
+            this.name=name
+            this.age=age
+        }
+
+        Student.prototype.car = "benz"
+
+        let jason = _new(Student,"jason",27) 
+        console.log(jason);
+        console.log(jason.car); */
+
+        /* 
+            _new(构造函数，参数1，参数2)的形式来构建 new 函数
+            方法2：
+            使用到 arguments, call, apply, 数组的 splice 方法 和原型链的知识
+            数组的 splice 方法的返回值为被删除的元素组成的数组，并且会改变原来的数组
+       */
+
+        function _new(){
+            let obj = {}
+            let fn = [].splice.call(arguments,0,1)[0]
+            obj.__proto__= fn.prototype
+            fn.apply(obj,arguments)
+            return obj
+        }
+
+        function Student(name,age){
+            this.name=name
+            this.age=age
+        }
+
+        Student.prototype.car = "benz"
+
+        let jason = _new(Student,"jason",27) 
+        console.log(jason);
+        console.log(jason.car);
+
+
+        
+
+        
+
+
+    </script>
+</body>
+</html>

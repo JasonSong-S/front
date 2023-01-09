@@ -32,6 +32,11 @@ export default [
             name:"waybill_list_detail",
             component:()=>import("@/views/waybill/WaybillDetail"),
             meta:{bread:["运单管理","运单列表","运单详情"]}
+        },
+        {
+            path:"/personal",
+            name:"personal",
+            component:()=>import("@/views/person/PersonCenter")
         }
         ]
     },

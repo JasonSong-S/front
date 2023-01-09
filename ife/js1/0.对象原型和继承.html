@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+            this.hobbies = ["游泳", "跑步"]
+            this.sayHi = function () {
+                console.log("你好，我叫" + this.name);
+            }
+            this.eat = function () {
+                console.log(this.name + "在吃饭");
+            }
+            this.sleep = function () {
+                console.log(this.name + "在睡觉");
+            }
+        }
+
+
+        //测试用例
+        var person1 = new Person("Jasckson", '18')
+        console.log(person1.name); // Jackson
+        person1.sayHi() // Jackson在吃饭
+        person1.name = 'Jack'
+        console.log(person1.name); // Jack
+
+
+        var person2 = new Person("Naomi", '6')
+        console.log(person2.age); // 6
+        person2.sleep() // Naomi在睡觉
+        person2.age = '7'
+        console.log(person2.age); // 7
+    </script>
+</body>
+
+</html>

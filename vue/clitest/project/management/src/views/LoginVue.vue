@@ -3,7 +3,7 @@
     <el-row type="flex" justify="center" class="box">
       <el-card class="login">
         <div slot="header" class="title">
-          <h2>邦达国际物流平台</h2>
+          <h2>邦达物流平台</h2>
         </div>
         <div>
           <el-form
@@ -13,10 +13,10 @@
             label-width="120px"
           >
             <el-form-item label="用户名" prop="username">
-              <el-input v-model="ruleForm.username"></el-input>
+              <el-input v-model="ruleForm.username" placeholder="请输入用户名"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
-              <el-input type="password" v-model="ruleForm.password"></el-input>
+              <el-input type="password" v-model="ruleForm.password" show-password placeholder="请输入 6 位纯数字密码"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button
@@ -50,7 +50,7 @@ export default {
         username: [
           { required: true, message: "请输入用户名", trigger: "blur" },
           {
-            pattern: /^\w{4,8}$/,
+            pattern: /^\w{4,8}$/,    // \w 代表的是所有的字母，数字，下划线
             message: "请输入4到8位的数字字母组合",
             trigger: "blur",
           },
@@ -95,7 +95,7 @@ export default {
               this.loading = false;
               setToken(res.token);
               this.setRole(res.role)
-              console.log("11111",this.$store.state.role);
+              // console.log("11111",this.$store.state.role);
               sessionStorage.setItem("nickname", res.nickname);
               this.$router.push("/");
             })

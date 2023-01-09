@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        /* class Demo extends React.Component{
+            show=()=>{
+                console.log(this.a.innerHTML);
+            }
+
+            render(){
+                return (<div>
+                    <div ref={c=>this.a=c}>你好</div>
+                    <button onClick={this.show}>there is a button</button>
+                    </div>)
+                
+            }
+        }
+
+        ReactDOM.render(
+            <Demo />,
+            document.getElementById("app")
+        ) */
+
+
+
+        class CustomTextInput extends React.Component{
+            constructor(props){
+                super(props)
+                this.textInput = null
+                this.setTextInputRef = element=>{this.textInput = element}
+                this.focusTextInput = ()=>{if (this.textInput){this.textInput.focus()}}
+            }
+
+            componentDidMount(){
+                this.focusTextInput()
+            }
+
+            render(){
+                return <div>
+                        <input type="text" ref={this.setTextInputRef} />
+                        <input type="button" value = "Focus the text input" onClick={this.focusTextInput} />
+                    </div>
+            }
+        }
+
+
+        ReactDOM.render(
+            <CustomTextInput />,
+            document.getElementById("app")
+        )
+    </script>
+</body>
+
+</html>

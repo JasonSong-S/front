@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    class Demo extends React.Component{
+        constructor(){
+            super()
+            this.state = {
+                value:"123",
+                pass:"0000"
+            }
+        }
+
+        handleChange=(e)=>{
+            const name = e.target.name
+            let key = name=="1"?"value":"pass"
+            this.setState({
+                [key]:e.target.value
+            })
+        }
+
+        render(){
+            return <div>
+                <input type="text" value={this.state.value} onChange={this.handleChange} name="1"/>
+                <input type="text" value={this.state.pass} onChange={this.handleChange} name="2"/>
+                <h1>{this.state.pass}</h1>
+                </div>
+        }
+    }
+    ReactDOM.render(
+        <Demo />,
+        document.getElementById("app")
+    );
+</script>
+</body>
+
+</html>

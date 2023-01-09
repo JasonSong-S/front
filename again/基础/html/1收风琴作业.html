@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .container{background-color: black;}
+        ul{list-style: none;color: white;text-align: center;line-height: 50px;}
+        li{width: 120px;height: 50px;}
+        .fl{float: left;}
+        .fr{float:right}
+        .clear{clear:both}
+        .active{background-color: red;}
+        .first{width: 800px;height: 50px;margin: 0 auto;}
+        .first>li{margin-right: 10px;}
+        .first>li:hover{background-color: red;}
+        .first>li:hover .second{display: block;}
+        .second{background-color: green;display: none;}
+        .second>li{position: relative;}
+        .second>li:hover{background-color: purple;}
+        .second>li:hover .third{display: block;}
+        .third{background-color: pink;display: none;position: absolute;top: 0;left: 120px;}
+        .third>li:hover{background-color: aquamarine;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="first">
+            <li class="fl active">
+                <p>首页</p>
+                <ul class="second">
+                    <li>首页的二级1
+                        <ul class="third">
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                        </ul>
+                    </li>
+                    <li>首页的二级2
+                        <ul class="third">
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                        </ul>
+                    </li>
+                    <li>首页的二级3
+                        <ul class="third">
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                        </ul>
+                    </li>
+                    <li>首页的二级4
+                        <ul class="third">
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="fl"><p>服务范围</p>
+                <ul class="second">
+                    <li>首页的二级1
+                        <ul class="third">
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                            <li>首页的1-3</li>
+                        </ul>
+                    </li>
+                    <li>首页的二级2</li>
+                    <li>首页的二级3</li>
+                    <li>首页的二级4</li>
+                </ul></li>
+            <li class="fl"><p>工程案例</p></li>
+            <li class="fl"><p>新闻动态</p></li>
+            <li class="fl"><p>关于我们</p></li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</body>
+</html>
