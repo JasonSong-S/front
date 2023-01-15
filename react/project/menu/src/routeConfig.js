@@ -10,6 +10,10 @@ const routes = [
     {
         path:"/detail",
         component:FoodDetail
+    },
+    {
+        path:"*",
+        component:MyHome
     }
 ]
 

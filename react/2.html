@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class Demo extends React.Component{
+            state={
+                name:"song",
+                age:27,
+                mood:"good"
+            }
+            handleInput=(e)=>{
+                let key = e.target.name
+                this.setState({[key]:e.target.value})
+            }
+            
+            render(){
+                return (
+                    <div>
+                        <input type="text" value={this.state.name} onChange={this.handleInput} name="name"/>
+                        <input type="text" value={this.state.age} onChange={this.handleInput} name="age"/>
+                        <input type="text" value={this.state.mood} onChange={this.handleInput} name="mood"/>
+                        <h1>{this.state.name}</h1>    
+                        <h1>{this.state.age}</h1>    
+                        <h1>{this.state.mood}</h1>    
+                    </div>
+                )
+            }
+        }
+    
+        ReactDOM.render(
+            <div>
+               <Demo />
+            </div>,
+            document.getElementById("app")
+        )
+
+    </script>
+</body>
+
+</html>

@@ -11,13 +11,11 @@
 
 <body>
     <script>
-        function fn(a){
-        if(arguments.length===0){
-            a = 5;
+        let hello = ()=>{
+            console.log("hello, jason");
+            console.log(this);
         }
-            return a;  
-       }
-      console.log( fn(undefined));
+        hello()
     </script>
 </body>
 

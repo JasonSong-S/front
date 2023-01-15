@@ -7,9 +7,9 @@ export default function App() {
     <Router>
       <div>
         <Suspense fallback={<div>加载中</div>}>
-          <h1>我是 app 组件</h1>
+          {/* <h1>我是 app 组件</h1>
           <Link to="/home">home 页面</Link>
-          <Link to="/detail">detail 页面</Link>
+          <Link to="/detail">detail 页面</Link> */}
           {renderRoutes(routes)}
         </Suspense>
       </div>
