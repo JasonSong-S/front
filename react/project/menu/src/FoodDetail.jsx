@@ -3,33 +3,53 @@ import React, { Component } from 'react'
 
 export default class FoodDetail extends Component {
     state = {
+        categoryId: "",
         resultList: [],
         keyword: ""
     }
-    getKey = () => { this.setState({ keyword: this.props.location.search.split("=")[1] })
-this.forceUpdate()
-}
-    // getKey = () => { this.setState((state,props)=>{console.log(props); return {keyword:props.location.search.split("=")[1]}}) }
+    componentDidMount() {
+        console.log(this.props);
+        if (this.props.location.search.split("=")[1]) {
+            this.getCategory()
+        } else {
+            this.getFood()
+        }
+    }
     getFood = () => {
         axios.get("http://localhost:3001/search", {
             params: {
-                keyword: this.state.keyword,
+                keyword: this.props.history.location.state.keyword,
                 num: 10,
                 appkey: "c671a4c29ec3381b"
             }
-        }).then((res)=>{console.log("关键字菜品",res.data);})
+        }).then((res) => { this.setState({ resultList: res.data.result.list }) })
     }
-    componentDidMount() {
-        this.getKey()
-        
+
+    getCategory() {
+        axios.get("http://localhost:3001/byclass", {
+            params: {
+                classid: this.props.history.location.search.split("=")[1],
+                num: 10,
+                start: 0,
+                appkey: "c671a4c29ec3381b"
+            }
+        }).then((res) => { this.setState({ resultList: res.data.result.list }) })
     }
     render() {
-        this.getFood()
-        console.log(this.props);
+        const list = this.state.resultList.map((item) => (<div>
+            <h1 key={item.id}>{item.name}</h1>
+            {/* <img src={item.pic}/> */}
+            <h2>介绍：</h2>
+            <p>{item.content}</p>
+            <h2>材料：</h2>
+            <p>{item.material.map((m, index) => <p key={index}>{index + 1}.{m.mname}:{m.amount}</p>)}</p>
+            <h2>步骤：</h2>
+            <p>{item.process.map((m, index) => <p key={index}>{index + 1}.{m.pcontent}</p>)}</p>
+        </div>))
         return (
             <div>
-                <h1>FoodDetail页面</h1>
-                <h1>{this.state.keyword}</h1>
+                <h1 style={{textAlign:"center",color:"red"}}>FoodDetail 详情页面</h1>
+                <div>{list}</div>
             </div>
         )
     }
