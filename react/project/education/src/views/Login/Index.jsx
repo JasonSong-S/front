@@ -2,19 +2,34 @@ import React, { Component } from 'react'
 import style from "./index.module.css"
 import { Card, Tabs,  Form, Input,Button } from 'antd';
 import {login} from "../../api"
-export default class Index extends Component {
+import { loginAction,menuAction } from '../../redux/actions/login';
+import {connect} from "react-redux"
+import { asyncRouterMap } from '../../common/routerMap';
+import { filterMenu } from '../../utils/menuFilter';
+
+class Index extends Component {
   login=()=>{
+    const {loginAction,menuAction,history} = this.props
     this.formRef.validateFields().then(
       (res)=>{
         // 表单验证成功，去登录
-        login(res).then((res)=>{sessionStorage.setItem("token",res.token)
-        this.props.history.push("/home")
+        login(res).then((res)=>{
+          // 存 token
+          sessionStorage.setItem("token",res.token)
+          // 存角色和权限
+          loginAction({
+            role:res.role,
+            nickname:res.nickname
+          })
+          //TODO: 直接筛选出每个角色对应的菜单项
+          // console.log(menuAction(filterMenu(asyncRouterMap,res.role)));
+          // 跳转
+          history.push("/home")
       }).catch((err)=>{console.log(err);})
         
       })
   }
   render() {
-    console.log("login", this.props);
     return (
       <div className={style.wrapper}>
         <Card title="好学教育管理平台" style={{ width: 500 }} headStyle={{ textAlign: "center" }}>
@@ -63,3 +78,6 @@ export default class Index extends Component {
     )
   }
 }
+
+
+export default connect(state=>({res:state}),{loginAction,menuAction,})(Index)
