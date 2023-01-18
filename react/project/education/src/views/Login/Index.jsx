@@ -2,36 +2,34 @@ import React, { Component } from 'react'
 import style from "./index.module.css"
 import { Card, Tabs,  Form, Input,Button } from 'antd';
 import {login} from "../../api"
-import {connect} from "react-redux"
 import { loginAction,menuAction } from '../../redux/actions/login';
- class Index extends Component {
+import {connect} from "react-redux"
+import { asyncRouterMap } from '../../common/routerMap';
+import { filterMenu } from '../../utils/menuFilter';
+
+class Index extends Component {
   login=()=>{
+    const {loginAction,menuAction,history} = this.props
     this.formRef.validateFields().then(
       (res)=>{
         // 表单验证成功，去登录
         login(res).then((res)=>{
-          const {loginAction,menuAction} = this.props 
-          // 存token
+          // 存 token
           sessionStorage.setItem("token",res.token)
-          // 存权限
+          // 存角色和权限
           loginAction({
             role:res.role,
             nickname:res.nickname
           })
-          // 筛选菜单项，根据权限
-          menuAction([1,2,2]);
-          console.log(8888888,this.props.res);
-          console.log(99999999,this.props);
-
-        // 跳转
-        // this.props.history.push("/home")
-        
+          //TODO: 直接筛选出每个角色对应的菜单项
+          // console.log(menuAction(filterMenu(asyncRouterMap,res.role)));
+          // 跳转
+          history.push("/home")
       }).catch((err)=>{console.log(err);})
         
       })
   }
   render() {
-    console.log("login", this.props);
     return (
       <div className={style.wrapper}>
         <h1>{this.props.res.loginReducer.nickname}</h1>
@@ -82,4 +80,5 @@ import { loginAction,menuAction } from '../../redux/actions/login';
   }
 }
 
-export default connect(state=>({res:state}),{loginAction,menuAction})(Index)
+
+export default connect(state=>({res:state}),{loginAction,menuAction,})(Index)
