@@ -2,13 +2,30 @@ import React, { Component } from 'react'
 import style from "./index.module.css"
 import { Card, Tabs,  Form, Input,Button } from 'antd';
 import {login} from "../../api"
-export default class Index extends Component {
+import {connect} from "react-redux"
+import { loginAction,menuAction } from '../../redux/actions/login';
+ class Index extends Component {
   login=()=>{
     this.formRef.validateFields().then(
       (res)=>{
         // 表单验证成功，去登录
-        login(res).then((res)=>{sessionStorage.setItem("token",res.token)
-        this.props.history.push("/home")
+        login(res).then((res)=>{
+          const {loginAction,menuAction} = this.props 
+          // 存token
+          sessionStorage.setItem("token",res.token)
+          // 存权限
+          loginAction({
+            role:res.role,
+            nickname:res.nickname
+          })
+          // 筛选菜单项，根据权限
+          menuAction([1,2,2]);
+          console.log(8888888,this.props.res);
+          console.log(99999999,this.props);
+
+        // 跳转
+        // this.props.history.push("/home")
+        
       }).catch((err)=>{console.log(err);})
         
       })
@@ -17,6 +34,7 @@ export default class Index extends Component {
     console.log("login", this.props);
     return (
       <div className={style.wrapper}>
+        <h1>{this.props.res.loginReducer.nickname}</h1>
         <Card title="好学教育管理平台" style={{ width: 500 }} headStyle={{ textAlign: "center" }}>
           <Tabs defaultActiveKey="1">
             <Tabs.TabPane tab="手机号密码登录" key="1">
@@ -63,3 +81,5 @@ export default class Index extends Component {
     )
   }
 }
+
+export default connect(state=>({res:state}),{loginAction,menuAction})(Index)
