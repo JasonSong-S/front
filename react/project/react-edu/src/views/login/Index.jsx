@@ -101,8 +101,7 @@ class Index extends Component {
         ];
         return (
             <div className={style.wrapper}>
-                <h1>{this.props.res.loginReducer.nickname}</h1>
-                <h1>{this.props.res.menuReducer}</h1>
+                
                 <Card title="好学教育平台" style={{ width: 600, }} headStyle={{ textAlign: "center" }} bordered={false}>
                     <Tabs defaultActiveKey="1" items={items} />
                 </Card>

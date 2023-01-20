@@ -1,9 +1,9 @@
 export const asyncRouterMap = [
-    {
-        path:'/home',
-        name:'Home',
-        meta:{title:"首页",role:["admin","teacher","manager"],icon:"team"}
-    },
+    // {
+    //     path:'/home',
+    //     name:'Home',
+    //     meta:{title:"首页",role:["admin","teacher","manager"],icon:"team"}
+    // },
     {
         path:'/personal',
         name:'Personal',

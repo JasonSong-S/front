@@ -13,7 +13,7 @@ export default class App extends Component {
              <Route path="/" exact render={(props)=>{
               return <Redirect to="/home"></Redirect>
             }}></Route> 
-            <Route path="/home" render={(props)=>{
+            <Route path="/" render={(props)=>{
               // 如果没有登录去登录页面，根据 token 来判断
               if(!authLogin()){
                return <Redirect to="/login"></Redirect>
