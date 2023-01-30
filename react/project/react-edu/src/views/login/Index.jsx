@@ -7,6 +7,9 @@ import { loginAction,menuAction } from '../../redux/actions/login';
 import { filterMenu } from '../../utils/menuFilter';
 import { asyncRouterMap } from '../../common/routerMap';
 class Index extends Component {
+    componentDidMount(){
+        console.log("login",this.props);
+    }
     login=()=>{
         console.log(this.props);
         this.formRef.validateFields()

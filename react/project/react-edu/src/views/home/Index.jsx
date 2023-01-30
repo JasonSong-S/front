@@ -24,7 +24,7 @@ class Index extends Component {
                 if (item.children) {
                     asyncRouterMap(item.children)
                 } else {
-                    routerList.push(<Route key={item.path} path={item.path} component={lazy(() => import(`@/views${item.path}/Index`))}></Route>)
+                    routerList.push(<Route key={item.path} path={item.path} component={lazy(() => import(`../views${item.path}/Index`))}></Route>)
                 }
             })
         }
@@ -34,7 +34,7 @@ class Index extends Component {
     }
 
     componentDidMount() {
-
+        console.log(2222);
         // 解决刷新 redux 中的数据丢失
         if (this.props.res.menuReducer.length) {  // 根据redux 中是否存在数据来判断是否刷新
             // 首次加载
@@ -57,6 +57,7 @@ class Index extends Component {
                 })
                 /* !!!-------------- */
             })
+            console.log(11111);
 
         }
 
@@ -83,9 +84,7 @@ class Index extends Component {
                         <Header style={{ backgroundColor: "burlywood" }}>Header</Header>
                         <Suspense fallback={<div>Loading ...</div>}>
                             <Content>
-                                {/* TODO: */}
                                 {this.renderRoute(this.props.res.menuReducer)}
-                                {/* {this.renderRoute(asyncRouterMap)} */}
                             </Content>
                         </Suspense>
                     </Layout>
