@@ -23,7 +23,7 @@ class Index extends Component {
         if (item.children) {
           asyncRouterMap(item.children)
         } else {
-          routerList.push(<Route path={"/index"+item.path} key={item.path} component={lazy(() => import(`@/views${item.path}/Index`))}></Route>)
+          routerList.push(<Route path={"/index"+item.path} key={item.path} component={lazy(() => import(`../../views${item.path}/Index`))}></Route>)
         }
       })
     }
@@ -76,7 +76,8 @@ class Index extends Component {
       <div>
         <Layout>
           <Sider style={{ height: "100vh", backgroundColor: "gray" }}>
-            <Menu>
+            <h1 style={{textAlign:"center", lineHeight:"50px",color:"#fff"}}>好学教育</h1>
+            <Menu theme='dark'>
               {this.state.menuTree}
             </Menu>
           </Sider>

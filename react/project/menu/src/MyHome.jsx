@@ -9,13 +9,6 @@ export default class MyHome extends Component {
   // keys = () => { this.props.history.push(`/detail?keyword=${this.state.value}`); }
   keys = () => { this.props.history.push({pathname:"/detail",state:{keyword:this.state.value}}); }
   handleInput = (e) => { this.setState({ value: e.target.value }); }
-  search = () => {
-    axios.get("http://localhost:3001/class", {
-      params: {
-        appkey: "c671a4c29ec3381b"
-      }
-    }).then((res) => { console.log(res); })
-  }
   recommend = () => {
     axios.get("http://localhost:3001/class", {
       params: {
@@ -23,10 +16,7 @@ export default class MyHome extends Component {
       }
     }).then((res) => {
       this.setState({ tagList: res.data.result }, () => {
-        console.log(1, this.state.tagList[0]);
-        this.setState({ typeList: this.state.tagList[0].list.splice(0, 10) }, () => {
-          console.log(2, this.state.typeList);
-        })
+        this.setState({ typeList: this.state.tagList[0].list.splice(0, 10) })
       })
     })
 

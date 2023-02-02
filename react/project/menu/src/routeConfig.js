@@ -1,6 +1,7 @@
 import {lazy} from "react"
 const FoodDetail = lazy(()=>import('./FoodDetail'))
 const MyHome = lazy(()=>import('./MyHome'))
+const NotFound = lazy(()=>import("./NotFound"))
 
 const routes = [
     {
