@@ -18,25 +18,49 @@
 <body>
     <div id="app"></div>
     <script type="text/babel">
-        function Welcome(props){
-            const [count,setCount] = useState(0)
-            return (
-                <div>
-                    <h1>你点击了{count}次</h1>
-                    <button onClick={()=>{setCount(count+1)}}>点击</button>    
-                </div>
-            )
+        class TodoApp extends React.Component {
+            constructor(props){
+                super(props)
+                this.state={
+                    value:"",
+                    items:[]
+                }
+            }
+
+            handleChange = (e)=>{
+                this.setState({
+                    value:e.target.value
+                })
+            }
+
+            add = ()=>{
+                if (this.state.value.length){
+                    this.setState({
+                    items:this.state.items.concat(this.state.value),
+                    value:''
+                },()=>{console.log(this.state.items);})
+                }
+            }
+
+            render(){
+                return (
+                    <div>
+                        <h1>To Do</h1>
+                        <div>{this.state.items.map((item,index)=>(<li key={index}>{item}</li>))}</div>
+                        <h3>需要添加什么？</h3>
+                        <input type="text" value={this.state.value} onChange={this.handleChange}/> 
+                        <button onClick={this.add}>Add #{this.state.items.length+1}</button>   
+                    </div>
+                )
+            }
         }
 
         
-        
+
         ReactDOM.render(
-            <div>
-               <Welcome></Welcome>
-               
-            </div>,
-            document.getElementById("app")
-        )
+            <TodoApp />,
+            document.getElementById('app')
+        );
 
     </script>
 </body>
