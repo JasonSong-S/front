@@ -1,28 +1,60 @@
 import React, { Component } from 'react'
-import { Modal, Form, Input, Row, Col, Select, DatePicker, Radio } from 'antd'
+import { Modal, Form, Input, Row, Col, Select, DatePicker, Radio,message  } from 'antd'
+
+import moment from "moment"
+import {addTeacher,editTeacher} from "@/api/teacher"
 const { Option } = Select
 export default class AddModal extends Component {
     state = {
-        close:false
+        close:false,
+        title:""
     }
 
     handleOk = () => {
-        console.log("ok");
+        this.formRef.validateFields().then((res)=>{
+            const birth = moment(res.birth.$d).format("YYYY-MM-DD")
+            const date = moment(res.date.$d).format("YYYY-MM-DD")
+            const {id} = this.props.record
+            if(this.props.title=="新建教师"){
+                addTeacher({...res,birth,date}).then((res)=>{
+                    if (res.code ==0){
+                        message.success(res.msg)
+                        this.props.close(this.state.close)
+                        this.formRef.resetFields()
+                        this.props.reload()
+    
+                    }
+                })
+            }else{
+                editTeacher({...res,birth,date,id}).then((res)=>{
+                    if (res.code ==0){
+                        message.success(res.msg)
+                        this.props.close(this.state.close)
+                        this.formRef.resetFields()
+                        this.props.reload()
+    
+                    }
+                })
+            }
+
+            
+            
+        })
     }
 
     handleCancel = () => {
         this.props.close(this.state.close)
     }
     render() {
-        const { visible } = this.props
+        const { visible,title } = this.props
         return (
             <div>
-                <Modal title="新增教师"
+                <Modal title={title}
                     open={visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                     width="800px">
-                    <Form name='basic' labelCol={{ span: 6 }} wrapperCol={{ span: 18 }}>
+                    <Form name='basic' labelCol={{ span: 6 }} wrapperCol={{ span: 18 }} ref={(a)=>{this.formRef=a}}>
                         <Row>
                             <Col span={12}>
                                 <Form.Item label="姓名" name="name" rules={[{ required: true, message: "姓名不能为空" }]}><Input /></Form.Item>
@@ -35,8 +67,8 @@ export default class AddModal extends Component {
                             <Col span={12}>
                                 <Form.Item label="类型" name="type" rules={[{ required: true, message: "类型不能为空" }]}>
                                     <Radio.Group >
-                                        <Radio value={1}>全职</Radio>
-                                        <Radio value={2}>兼职</Radio>
+                                        <Radio value="1">全职</Radio>
+                                        <Radio value="2">兼职</Radio>
                                         
                                     </Radio.Group>
                                 </Form.Item>
