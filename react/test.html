@@ -15,26 +15,66 @@
 <body>
 <div id="app"></div>
 <script type="text/babel">
-    
-   function tick(){
-    const element = (<div>
-            <h1>hello, world</h1>
-            <h2>it's time {new Date().toLocaleString()}</h2>
-        </div>)
-        ReactDOM.render(
-        // 这是标签内部的注释
-        element,
-        document.getElementById("app")
-    )
-   }
-  
-   setInterval(tick,1000)
-    
-    
+   class TodoApp extends React.Component{
+        state={text:"",items:[]}
+        handleChange=(e)=>{
+            this.setState({
+                text:e.target.value
+            })
+        }
 
-    
+        handleSubmit=(e)=>{
+            e.preventDefault()
+            if (this.state.text.length == 0){
+                return
+            }
+            const newItem = {
+                text:this.state.text,
+                id:Date.now()
+            }
+            this.setState(state=>({items:state.items.concat(newItem),text:""}))
+        }
+        render(){
+            return (
+                <div>
+                    <h3>TO DO:</h3>
+                    <TodoList items={this.state.items} />
+                    <form onSubmit={this.handleSubmit}>
+                        <label >
+                            what need to be done?    
+                        </label>    
+                        <input value={this.state.text} onChange={this.handleChange} />
+                        <button>add #{this.state.items.length + 1}</button>
+                    </form>    
+                </div>
+            )
+        }
+
+   
+   }
+
+   class TodoList extends React.Component{
+    render(){
+        return (
+            <div>
+                <ul>{this.props.items.map(item=><li key={item.id}>{item.text}</li>)}</ul>
+            </div>
+        )
+    }
+   }
+    ReactDOM.render(<div>< TodoApp /></div>,document.getElementById("app"))
+
 
 </script>
+
+
+
+
+
+
+    
+
+
 
 </body>
 

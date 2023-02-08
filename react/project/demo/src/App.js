@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Home from "./components/home/Index"
 import About from "./components/about/Index"
 import TestLifeCycle from './TestLifeCycle';
+import Function from './Function';
+
 export default class App extends Component {
   componentDidMount(){}
   render() {
@@ -11,6 +13,7 @@ export default class App extends Component {
         <Home />
         <About />
         <TestLifeCycle />
+        <Function />
       </div>
     )
   }

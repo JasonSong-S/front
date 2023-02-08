@@ -8,7 +8,7 @@ export default class FoodDetail extends Component {
         keyword: ""
     }
     componentDidMount() {
-        console.log(this.props);
+        console.log(111,this.props);
         if (this.props.location.search.split("=")[1]) {
             this.getCategory()
         } else {
@@ -38,13 +38,13 @@ export default class FoodDetail extends Component {
     render() {
         const list = this.state.resultList.map((item) => (<div>
             <h1 key={item.id}>{item.name}</h1>
-            {/* <img src={item.pic}/> */}
+            <img src={item.pic}/>
             <h2>介绍：</h2>
-            <p>{item.content}</p>
+            <p dangerouslySetInnerHTML={{__html:item.content}}></p>
             <h2>材料：</h2>
-            <p>{item.material.map((m, index) => <p key={index}>{index + 1}.{m.mname}:{m.amount}</p>)}</p>
+            <div>{item.material.map((m, index) => <p key={index}>{index + 1}.{m.mname}:{m.amount}</p>)}</div>
             <h2>步骤：</h2>
-            <p>{item.process.map((m, index) => <p key={index}>{index + 1}.{m.pcontent}</p>)}</p>
+            <div>{item.process.map((m, index) => <p key={index} dangerouslySetInnerHTML={{__html:`${index+1}.${m.pcontent}`}}></p>)}</div>
         </div>))
         return (
             <div>
