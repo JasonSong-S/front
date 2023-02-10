@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Card, Form, Input, Row, Col, Select, Button, Table,Pagination,message } from "antd"
-import { getTeacherList,deletes } from '../../api/teacher';
+import { getTeacherList,deletes, batchDelete } from '../../api/teacher';
 import AddModal from './AddModal';
 import moment from 'moment';
 const { Option } = Select
@@ -17,7 +17,8 @@ export default class Index extends Component {
     visible: false,
     total:0,
     record:{},
-    title:""
+    title:"",
+    selectedRowKeys:[]
   }
 
 
@@ -50,7 +51,7 @@ export default class Index extends Component {
 
   loadData = () => {
     const formData = this.formRef.getFieldsValue(true)
-    getTeacherList({ ...this.state.pageData, ...formData }).then((res) => { this.setState({ dataSource: res.data,total:res.total }) })
+    getTeacherList({ ...this.state.pageData, ...formData }).then((res) => { this.setState({ dataSource: res.data,total:res.total,disable:true }) })
 
   }
 
@@ -84,10 +85,23 @@ export default class Index extends Component {
     })
   }
 
+  selected=(selectedRowKeys)=>{
+    this.setState({selectedRowKeys,disabled:selectedRowKeys.length?false:true})
+    
+  }
+
+  batchDelete=()=>{
+    batchDelete({ids:this.state.selectedRowKeys}).then((res)=>{
+      if (res.code ==0){
+        message.success(res.msg)
+        this.loadData()}
+    })
+  }
+
 
 
   render() {
-    const { disabled, dataSource,total,record,title } = this.state
+    const { disabled, dataSource,total,record,title,selectedRowKeys } = this.state
     const   columns = [
       {
         title: '序号',
@@ -248,11 +262,20 @@ export default class Index extends Component {
         </Card>
         <Card>
           <Button type='primary' onClick={this.showModal}>新建员工</Button>
-          <Button className='ml' danger disabled={disabled}>批量删除</Button>
+          <Button className='ml' danger disabled={disabled} onClick={this.batchDelete}>批量删除</Button>
 
         </Card>
         <Card>
-          <Table dataSource={dataSource} columns={columns} scroll={{ x: 1200 }} rowKey={(record) => record.id} pagination={false} />;
+          <Table dataSource={dataSource} columns={columns} 
+          scroll={{ x: 1200 }} rowKey={(record) => record.id} pagination={false}
+          rowSelection = {{
+            // selectedRowKeys,
+            // onChange: onSelectChange,
+            type:"checkbox",
+            selectedRowKeys,
+            onChange:this.selected
+          }}
+          />;
         </Card>
         <Card><AddModal visible={this.state.visible} close={this.closeModal} reload={this.loadData} record={record} ref={a=>this.aRef=a} title={title}/>
         <Pagination size="small" total={total} defaultCurrent={1} onChange={this.onChange} showSizeChanger showQuickJumper />

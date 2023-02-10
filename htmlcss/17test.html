@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            display: flex;
+            background-color: aquamarine;
+            justify-content: space-between;
+        }
+
+        .left,
+        .right,
+        .middle {
+            height: 100px;
+        }
+
+        .left {
+            width: 100px;
+            background-color: red;
+        }
+
+        .right {
+            width: 100px;
+            background-color: yellow;
+        }
+
+        .middle {
+            width: 100%;
+            background-color: blue;
+            margin: 0 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="wrap">
+        <div class="left">左侧</div>
+        <div class="middle">中间</div>
+        <div class="right">右侧</div>
+    </div>
+
+
+    <script>
+        let colors = ["red", "green", "blue"];
+        let colors2 = colors.concat("yellow", ["black", "brown"]);
+        console.log(colors); // ["red", "green","blue"]
+        console.log(colors2); // ["red", "green", "blue", "yellow", "black", "brown"]
+        console.log(colors2.concat("jason","song"))
+    </script>
+
+
+
+
+
+</body>
+
+</html>

@@ -3,6 +3,7 @@ import Home from "./components/home/Index"
 import About from "./components/about/Index"
 import TestLifeCycle from './TestLifeCycle';
 import Function from './Function';
+import Refs from "./Refs"
 
 export default class App extends Component {
   componentDidMount(){}
@@ -14,6 +15,7 @@ export default class App extends Component {
         <About />
         <TestLifeCycle />
         <Function />
+        <Refs />
       </div>
     )
   }
