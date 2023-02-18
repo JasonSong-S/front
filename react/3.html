@@ -10,33 +10,72 @@
     <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
     <!-- 生产环境中不建议使用 -->
     <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
-    <style>
-
-    </style>
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app" ></div>
     <script type="text/babel">
-    //    function Test(props){
-    //     const myref = useRef()
-    //     console.log(myref.current)
-    //     return (
-    //         <div ref={myRef}>hello jason</div>
-    //     )
-    //    }
-
-        
+        //    class Clock extends React.Component{
+        //         state={
+        //             date:new Date()
+        //         }
 
 
+        //         tick=()=>{
+        //                 this.setState({date:new Date()})
+        //             }
 
-    //     ReactDOM.render(
-    //         <Test />,
-    //         document.getElementById('app')
-    //     );
+        //         componentDidMount(){
+        //             this.index=setInterval(this.tick,1000)
+        //         }
 
-    let a=[1,2,3,4]
-    console.log(NaN!=NaN);
+        //         componentWillUnMount(){
+        //             clearInterval(this.index)
+        //         }
+
+        //         render(){
+        //             // setTimeout 中的 this 指向问题 1.使用箭头函数 2不使用箭头函数，直接调用
+
+
+
+        //             return (
+        //                 <div>
+        //                     {this.state.date.toLocaleTimeString()}
+        //                 </div>
+        //             )
+        //         }
+        //    }
+
+
+        //    ReactDOM.render(
+        //     <Clock />,
+        //     document.getElementById("app")
+        //    )
+
+
+        class LoggingButton extends React.Component {
+            // This syntax ensures `this` is bound within handleClick.
+            handleClick = () => {
+                console.log('this is:', this);
+            };
+            render() {
+                return <button onClick={this.handleClick}>
+                    Click me
+                </button>
+
+
+            }
+        }
+
+
+
+        ReactDOM.render(
+            <LoggingButton />,
+            document.getElementById("app")
+        )
+
+
+
 
 
     </script>
