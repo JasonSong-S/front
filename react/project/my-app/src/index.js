@@ -2,19 +2,7 @@ import React from "react"
 import ReactDOM from 'react-dom/client';
 import "./index.css"
 // Square 组件渲染了一个单独的 <button>
-// class Square extends React.Component {
 
-//     render() {
-//         return (
-//             <button
-//                 className="square"
-//                 onClick={() => this.props.onClick()}
-//             >
-//                 {this.props.value}
-//             </button>
-//         );
-//     }
-// }
 
 function Square(props) {
     return (

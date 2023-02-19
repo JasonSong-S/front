@@ -15,6 +15,7 @@ export default class MyHome extends Component {
         appkey: "c671a4c29ec3381b"
       }
     }).then((res) => {
+      console.log(11111,res);
       this.setState({ tagList: res.data.result }, () => {
         this.setState({ typeList: this.state.tagList[0].list.splice(0, 10) })
       })
@@ -23,6 +24,7 @@ export default class MyHome extends Component {
   }
   // 选择大的类别
   select = (index) => {
+    console.log(index);
     this.setState({ typeList: this.state.tagList[index].list.splice(0, 10) })
   }
   // 选择具体的小类别

@@ -95,22 +95,25 @@
 
 
 class NameForm extends React.Component{
-    state={value:"jason",
-    value2:"song"
+    state={user:"jason",
+    password:"song",
+    age:28
 }
     setValue=(e)=>{
         console.log(e.target);
-        const name = e.target.name
-        let key
-        key=name=="user"?"value":"value2"
+        let key = e.target.name
+        
         this.setState({[key]:e.target.value,})
     }
     render(){
         return (
             <div>
-                <input type="text" value={this.state.value} name="user" onChange={this.setValue}/>
-                <input type="text" value={this.state.value2} name="password" onChange={this.setValue}/>
-                <h1>{this.state.value}</h1>
+                <input type="text" value={this.state.user} name="user" onChange={this.setValue}/>
+                <input type="text" value={this.state.password} name="password" onChange={this.setValue}/>
+                <input type="text" value={this.state.age} name="age" onChange={this.setValue}/>
+                <h1>{this.state.user}</h1>
+                <h1>{this.state.password}</h1>
+                <h1>{this.state.age}</h1>
             </div>
         )
     }
