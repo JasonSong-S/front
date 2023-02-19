@@ -18,11 +18,99 @@
 <body>
     <div id="app"></div>
     <script type="text/babel">
-        const ele= <h1>hello jason</h1>
 
+        function BoilingVerdict(props) {
+            if (props.celsius >= 100) {
+                return (<p>The water would boil.</p>)
+            } else {
+                return (<p>The water would not boil.</p>)
+            }
+        }
+        const scaleNames = {
+            c: "Celsius",
+            f: 'Fahrenheit'
+        }
+
+        class TemperatureInput extends React.Component {
+           
+
+            handleTemperate = (e) => {
+                const { temperature,onTemperateChange,scale } = this.props
+                let tmp = e.target.value
+                if (scale=="c"){
+                    tmp=tryConvert(tmp,toFahrenheit)
+                }
+
+                if (scale=="f"){
+                    tmp=tryConvert(tmp,toCelsius)
+                }
+                
+                onTemperateChange(tmp)
+            }
+
+            render() {
+                const { temperature,scale} = this.props
+               
+                return (
+                    <div>
+                        <fieldset>
+                            <legend>Enter temperature in {scaleNames[scale]}:</legend>
+                            <input value={temperature} onChange={this.handleTemperate} />
+                            <BoilingVerdict celsius={parseFloat(temperature)} />
+                        </fieldset>
+                    </div>
+                )
+            }
+
+        }
+
+
+        class Calculator extends React.Component {
+
+            state = {
+                temperaturec: "",
+                temperaturef: "",
+            }
+
+            temperateChangec = (temperaturec)=>{
+                this.setState({temperaturec})
+            }
+
+            temperateChangef = (temperaturef)=>{
+                this.setState({temperaturef})
+            }
+            render() {
+                return (
+                    <div>
+                        <TemperatureInput scale="c" temperature={this.state.temperaturec} onTemperateChange={this.temperateChangef} />
+                        <TemperatureInput scale="f" temperature={this.state.temperaturef} onTemperateChange={this.temperateChangec}/>
+                    </div>
+                )
+            }
+        }
+
+
+        function toCelsius(fahrenheit) {
+            return (fahrenheit - 32) * 5 / 9;
+        }
+
+        function toFahrenheit(celsius) {
+            return (celsius * 9 / 5) + 32;
+        }
+
+
+        function tryConvert(temperature,convert){
+            const input = parseFloat(temperature)
+            if (Number.isNaN(input)){
+                return ""
+            }
+            const output = convert(input)
+            const rounded = Math.round(output*1000)/1000
+            return rounded.toString()
+        }
 
         ReactDOM.render(
-            <div>{ele}</div>,
+            <div><Calculator /></div>,
             document.getElementById("app")
         )
     </script>
