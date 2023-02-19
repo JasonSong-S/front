@@ -1,0 +1,1 @@
+export const aboutAction=(payload)=>({type:"aboutChange",payload})
