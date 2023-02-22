@@ -1,1 +1,0 @@
-export const homeAction2 = (payload)=>({type:"homeChange",payload})

@@ -104,7 +104,7 @@ class Index extends Component {
     ];
     return (
       <div className={style.wrapper}>
-        <Card title="好学教育平台" style={{ width: 500 }} headStyle={{ textAlign: "center" }} bordered={false}>
+        <Card title="好学教育后台管理系统" style={{ width: 500 }} headStyle={{ textAlign: "center" }} bordered={false}>
           <Tabs defaultActiveKey="1" items={items} />
         </Card>
       </div>
